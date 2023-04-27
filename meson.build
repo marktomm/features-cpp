@@ -25,3 +25,4 @@ thread = dependency('threads')
 
 subdir('access_specifier')
 subdir('virtual_base_class')
+subdir('non_standard_member_vars')
