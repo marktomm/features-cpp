@@ -5,9 +5,21 @@
 
 set -e
 
-ARG1=$1
+trimFwdSlashes() {
+  a1="${1#/}"       # Remove leading /
+  a1="${a1%/}"     # Remove preceding /
+  echo "${a1}"
+}
 
-mkdir ${ARG1} ${ARG1}/src ${ARG1}/include
+ARG1=$1
+ARG1=$(trimFwdSlashes ${ARG1})
+ARG2=$2
+onlyMeson=$([[ -n "${ARG2}" && "${ARG2}" == 'regen_meson' ]] && echo 0 || echo 1)
+onlyMesonFunc() {
+  return $onlyMeson
+}
+
+onlyMesonFunc || mkdir ${ARG1} ${ARG1}/src ${ARG1}/include
 
 (
 cd ${ARG1}
@@ -90,8 +102,57 @@ gen_asm = custom_target(
     ],
     build_by_default: true,
 )
+
+gen_asm_opt = custom_target(
+    'gen_asm_opt',
+    input: ${ARG1}_main,
+    output: '${ARG1}_main_opt.s',
+    command: [
+        cpp_prog,
+        '-O3',
+        '-I' + meson.current_source_dir() + '/include/',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
+gen_asm_lib = custom_target(
+    'gen_asm_lib',
+    input: ${ARG1}_src,
+    output: '${ARG1}_lib.s',
+    command: [
+        cpp_prog,
+        '-I' + meson.current_source_dir() + '/include/',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
+gen_asm_lib_opt = custom_target(
+    'gen_asm_lib_opt',
+    input: ${ARG1}_src,
+    output: '${ARG1}_lib_opt.s',
+    command: [
+        cpp_prog,
+        '-O3',
+        '-I' + meson.current_source_dir() + '/include/',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
 EOF
 ) > ${ARG1}/meson.build
+
+onlyMesonFunc && exit 0
 
 (
 cd ${ARG1}
@@ -137,6 +198,10 @@ EOF
 (
 cat << EOF
 #include "lib.h"
+
+namespace ${ARG1} {
+
+} // namespace ${ARG1}
 EOF
 ) > ${ARG1}/src/lib.cpp
 
