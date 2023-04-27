@@ -76,3 +76,50 @@ gen_asm = custom_target(
     ],
     build_by_default: true,
 )
+
+gen_asm_opt = custom_target(
+    'gen_asm_opt',
+    input: non_standard_member_vars_main,
+    output: 'non_standard_member_vars_main_opt.s',
+    command: [
+        cpp_prog,
+        '-O3',
+        '-I' + meson.current_source_dir() + '/include/',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
+gen_asm_lib = custom_target(
+    'gen_asm_lib',
+    input: non_standard_member_vars_src,
+    output: 'non_standard_member_vars_lib.s',
+    command: [
+        cpp_prog,
+        '-I' + meson.current_source_dir() + '/include/',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
+gen_asm_lib_opt = custom_target(
+    'gen_asm_lib_opt',
+    input: non_standard_member_vars_src,
+    output: 'non_standard_member_vars_lib_opt.s',
+    command: [
+        cpp_prog,
+        '-O3',
+        '-I' + meson.current_source_dir() + '/include/',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
