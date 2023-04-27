@@ -1,0 +1,18 @@
+# Don't do thios --> Add this to QT creator in "Use customized style" under Tools->Options->Beautifier->Clang Format
+# because QtCreator does not apply SpaceAfterTemplateKeyword: false for some reason
+# use this is root of source:
+# find -iname  *.h -o -iname *.cpp ! -iname settingdescriptions.cpp  | xargs clang-format -i -style=file
+BasedOnStyle: LLVM
+IndentWidth: 4
+#BreakBeforeBraces: Custom
+#BraceWrapping:
+#  AfterClass:      true
+#  AfterFunction:   true
+PointerAlignment: Left
+AccessModifierOffset: -4
+AlwaysBreakTemplateDeclarations: Yes
+SpaceAfterTemplateKeyword: false
+SpaceBeforeInheritanceColon: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+# PackConstructorInitializers: PCIS_Never
+Standard: Cpp03
