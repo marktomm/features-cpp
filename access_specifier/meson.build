@@ -1,4 +1,9 @@
-access_specifier_inc = include_directories('include')
+
+rootdir = '..'
+currentdir = '.'
+rootinc = join_paths(rootdir, 'include/')
+currentinc = join_paths(currentdir, 'include/')
+access_specifier_inc = include_directories(currentinc)
 access_specifier_main = ['src/main.cpp']
 # access_specifier_simple = ['src/user_simple.cpp']
 access_specifier_src = [
@@ -56,3 +61,18 @@ if bench.found()
         is_parallel: false,
     )
 endif
+
+gen_asm = custom_target(
+    'gen_asm',
+    input: access_specifier_main,
+    output: 'access_specifier_main.s',
+    command: [
+        cpp_prog,
+        '-I' + meson.current_source_dir() + '/include/',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
