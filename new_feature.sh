@@ -12,7 +12,12 @@ mkdir ${ARG1} ${ARG1}/src ${ARG1}/include
 (
 cd ${ARG1}
 cat << EOF
-${ARG1}_inc = include_directories('include')
+
+rootdir = '..'
+currentdir = '.'
+rootinc = join_paths(rootdir, 'include/')
+currentinc = join_paths(currentdir, 'include/')
+${ARG1}_inc = include_directories(currentinc)
 ${ARG1}_main = ['src/main.cpp']
 # ${ARG1}_simple = ['src/user_simple.cpp']
 ${ARG1}_src = [
@@ -70,6 +75,21 @@ if bench.found()
         is_parallel: false,
     )
 endif
+
+gen_asm = custom_target(
+    'gen_asm',
+    input: ${ARG1}_main,
+    output: '${ARG1}_main.s',
+    command: [
+        cpp_prog,
+        '-I' + meson.current_source_dir() + '/include/',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
 EOF
 ) > ${ARG1}/meson.build
 
@@ -107,7 +127,10 @@ EOF
 cat << EOF
 #include "lib.h"
 
-int main() { return 0; }
+int main() { 
+    using namespace ${ARG1};
+    return 0; 
+}
 EOF
 ) > ${ARG1}/src/main.cpp
 
