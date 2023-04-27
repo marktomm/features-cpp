@@ -21,6 +21,10 @@ public:
     int b{65505};
 };
 
+void fn([[maybe_unused]] NonStandard ns);
+
+void fn([[maybe_unused]] StandardClass sc);
+
 }; // namespace non_standard_member_vars
 
 #endif
