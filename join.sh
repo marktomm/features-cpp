@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 test -z $1 && {
     echo "first arg must be subdir"
     exit 1
