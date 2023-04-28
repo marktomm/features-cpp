@@ -58,6 +58,7 @@ if bench.found()
     benchmark(
         'trivial_type_benchmark_google_no_opt',
         trivial_type_benchmark_google_no_opt_exe,
+        suite: 'trivial_type',
     )
 endif
 

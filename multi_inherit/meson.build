@@ -58,6 +58,7 @@ if bench.found()
     benchmark(
         'multi_inherit_benchmark_google_no_opt',
         multi_inherit_benchmark_google_no_opt_exe,
+        suite: 'multi_inherit',
     )
 endif
 

@@ -58,6 +58,7 @@ if bench.found()
     benchmark(
         'access_specifier_benchmark_google_no_opt',
         access_specifier_benchmark_google_no_opt_exe,
+        suite: 'access_specifier',
     )
 endif
 

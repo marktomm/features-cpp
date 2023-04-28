@@ -58,6 +58,7 @@ if bench.found()
     benchmark(
         'non_standard_member_vars_benchmark_google_no_opt',
         non_standard_member_vars_benchmark_google_no_opt_exe,
+        suite: 'non_standard_member_vars',
     )
 endif
 
