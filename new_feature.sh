@@ -66,10 +66,9 @@ if bench.found()
         dependencies: [bench, thread],
     )
 
-    test(
+    benchmark(
         '${ARG1}_benchmark_google_opt',
         ${ARG1}_benchmark_google_opt_exe,
-        is_parallel: false,
     )
 
     ${ARG1}_benchmark_google_no_opt_exe = executable(
@@ -81,10 +80,9 @@ if bench.found()
         cpp_args: ['-O0', '-g'],
     )
 
-    test(
+    benchmark(
         '${ARG1}_benchmark_google_no_opt',
         ${ARG1}_benchmark_google_no_opt_exe,
-        is_parallel: false,
     )
 endif
 
@@ -109,8 +107,7 @@ gen_asm_opt = custom_target(
     output: '${ARG1}_main_opt.s',
     command: [
         cpp_prog,
-        '-O3',
-        '-I' + meson.current_source_dir() + '/include/',
+        '-O3', '-I' + meson.current_source_dir() + '/include/',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -140,8 +137,7 @@ gen_asm_lib_opt = custom_target(
     output: '${ARG1}_lib_opt.s',
     command: [
         cpp_prog,
-        '-O3',
-        '-I' + meson.current_source_dir() + '/include/',
+        '-O3', '-I' + meson.current_source_dir() + '/include/',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
