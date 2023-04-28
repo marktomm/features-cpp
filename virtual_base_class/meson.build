@@ -43,6 +43,7 @@ if bench.found()
     benchmark(
         'virtual_base_class_benchmark_google_opt',
         virtual_base_class_benchmark_google_opt_exe,
+        suite: 'virtual_base_class',
     )
 
     virtual_base_class_benchmark_google_no_opt_exe = executable(

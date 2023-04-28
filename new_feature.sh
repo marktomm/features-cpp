@@ -69,6 +69,7 @@ if bench.found()
     benchmark(
         '${ARG1}_benchmark_google_opt',
         ${ARG1}_benchmark_google_opt_exe,
+        suite: '${ARG1}',
     )
 
     ${ARG1}_benchmark_google_no_opt_exe = executable(

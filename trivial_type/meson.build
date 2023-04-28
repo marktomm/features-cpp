@@ -43,6 +43,7 @@ if bench.found()
     benchmark(
         'trivial_type_benchmark_google_opt',
         trivial_type_benchmark_google_opt_exe,
+        suite: 'trivial_type',
     )
 
     trivial_type_benchmark_google_no_opt_exe = executable(

@@ -43,6 +43,7 @@ if bench.found()
     benchmark(
         'class_member_funcion_benchmark_google_opt',
         class_member_funcion_benchmark_google_opt_exe,
+        suite: 'class_member_funcion',
     )
 
     class_member_funcion_benchmark_google_no_opt_exe = executable(
