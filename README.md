@@ -43,3 +43,13 @@ Syntax check and format meson.build files
 ```shell
 sort bench_output.txt | sed -E 's/(^.*[^0-9])[0-9]*$/\1/'
 ```
+
+# output: google benchmark compare two bechmark runs
+
+required: pip3
+
+```shell
+cd benchmark/tools
+pip3 install -r requirements.txt
+./compare.py benchmarks  ../../builddir/poly/poly_benchmark_google_no_opt ../../builddir/poly/poly_benchmark_google_no_opt
+```
