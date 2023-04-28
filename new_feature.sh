@@ -190,6 +190,7 @@ cat << EOF
 
 int main() { 
     using namespace ${ARG1};
+    using namespace std;
     return 0; 
 }
 EOF
