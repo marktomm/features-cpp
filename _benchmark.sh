@@ -2,4 +2,12 @@
 
 set -e
 
-meson test -C builddir --benchmark
+ARG1=$1
+
+onlySuite=$([[ -n "${ARG1}" ]] && echo 0 || echo 1)
+onlySuiteFunc() {
+  return $onlySuite
+}
+
+onlySuiteFunc && meson test -C builddir --benchmark --suite $1
+onlySuiteFunc || meson test -C builddir --benchmark
