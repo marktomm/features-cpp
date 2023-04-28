@@ -1,7 +1,4 @@
-# Don't do thios --> Add this to QT creator in "Use customized style" under Tools->Options->Beautifier->Clang Format
-# because QtCreator does not apply SpaceAfterTemplateKeyword: false for some reason
-# use this is root of source:
-# find -iname  *.h -o -iname *.cpp ! -iname settingdescriptions.cpp  | xargs clang-format -i -style=file
+# find -iname  *.h -o -iname *.cpp ! -iname some_specific.cpp | xargs clang-format -i -style=file
 BasedOnStyle: LLVM
 IndentWidth: 4
 #BreakBeforeBraces: Custom
