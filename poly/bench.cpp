@@ -2,6 +2,7 @@
 
 #include <benchmark/benchmark.h>
 
+#include <cstddef>
 #include <random>
 #include <vector>
 
@@ -108,7 +109,7 @@ static void BM_RandomVirtualCalls(benchmark::State& state) {
 
     // Benchmark the virtual calls
     for (auto _ : state) {
-        container[random_value2]->PureVirtualFn();
+        container[static_cast<std::size_t>(random_value2)]->PureVirtualFn();
     }
     benchmark::DoNotOptimize(container.data());
 
@@ -135,7 +136,7 @@ static void BM_SameVirtualCalls(benchmark::State& state) {
 
     // Benchmark the virtual calls
     for (auto _ : state) {
-        container[random_value2]->PureVirtualFn();
+        container[static_cast<std::size_t>(random_value2)]->PureVirtualFn();
     }
     benchmark::DoNotOptimize(container.data());
 
