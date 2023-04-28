@@ -70,5 +70,101 @@
     "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ non_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p/bench.cpp.o -MF non_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p/bench.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p/bench.cpp.o -c ../non_standard_member_vars/bench.cpp",
     "file": "../non_standard_member_vars/bench.cpp",
     "output": "non_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itrivial_type/trivial_type.p -Itrivial_type -I../trivial_type -I../trivial_type/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ trivial_type/trivial_type.p/src_main.cpp.o -MF trivial_type/trivial_type.p/src_main.cpp.o.d -o trivial_type/trivial_type.p/src_main.cpp.o -c ../trivial_type/src/main.cpp",
+    "file": "../trivial_type/src/main.cpp",
+    "output": "trivial_type/trivial_type.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itrivial_type/trivial_type.p -Itrivial_type -I../trivial_type -I../trivial_type/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ trivial_type/trivial_type.p/src_lib.cpp.o -MF trivial_type/trivial_type.p/src_lib.cpp.o.d -o trivial_type/trivial_type.p/src_lib.cpp.o -c ../trivial_type/src/lib.cpp",
+    "file": "../trivial_type/src/lib.cpp",
+    "output": "trivial_type/trivial_type.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itrivial_type/trivial_type_benchmark_google_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ trivial_type/trivial_type_benchmark_google_opt.p/bench.cpp.o -MF trivial_type/trivial_type_benchmark_google_opt.p/bench.cpp.o.d -o trivial_type/trivial_type_benchmark_google_opt.p/bench.cpp.o -c ../trivial_type/bench.cpp",
+    "file": "../trivial_type/bench.cpp",
+    "output": "trivial_type/trivial_type_benchmark_google_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itrivial_type/trivial_type_benchmark_google_no_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ trivial_type/trivial_type_benchmark_google_no_opt.p/bench.cpp.o -MF trivial_type/trivial_type_benchmark_google_no_opt.p/bench.cpp.o.d -o trivial_type/trivial_type_benchmark_google_no_opt.p/bench.cpp.o -c ../trivial_type/bench.cpp",
+    "file": "../trivial_type/bench.cpp",
+    "output": "trivial_type/trivial_type_benchmark_google_no_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ class_member_funcion/class_member_funcion.p/src_main.cpp.o -MF class_member_funcion/class_member_funcion.p/src_main.cpp.o.d -o class_member_funcion/class_member_funcion.p/src_main.cpp.o -c ../class_member_funcion/src/main.cpp",
+    "file": "../class_member_funcion/src/main.cpp",
+    "output": "class_member_funcion/class_member_funcion.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ class_member_funcion/class_member_funcion.p/src_lib.cpp.o -MF class_member_funcion/class_member_funcion.p/src_lib.cpp.o.d -o class_member_funcion/class_member_funcion.p/src_lib.cpp.o -c ../class_member_funcion/src/lib.cpp",
+    "file": "../class_member_funcion/src/lib.cpp",
+    "output": "class_member_funcion/class_member_funcion.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_benchmark_google_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ class_member_funcion/class_member_funcion_benchmark_google_opt.p/bench.cpp.o -MF class_member_funcion/class_member_funcion_benchmark_google_opt.p/bench.cpp.o.d -o class_member_funcion/class_member_funcion_benchmark_google_opt.p/bench.cpp.o -c ../class_member_funcion/bench.cpp",
+    "file": "../class_member_funcion/bench.cpp",
+    "output": "class_member_funcion/class_member_funcion_benchmark_google_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_benchmark_google_no_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ class_member_funcion/class_member_funcion_benchmark_google_no_opt.p/bench.cpp.o -MF class_member_funcion/class_member_funcion_benchmark_google_no_opt.p/bench.cpp.o.d -o class_member_funcion/class_member_funcion_benchmark_google_no_opt.p/bench.cpp.o -c ../class_member_funcion/bench.cpp",
+    "file": "../class_member_funcion/bench.cpp",
+    "output": "class_member_funcion/class_member_funcion_benchmark_google_no_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Imulti_inherit/multi_inherit.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ multi_inherit/multi_inherit.p/src_main.cpp.o -MF multi_inherit/multi_inherit.p/src_main.cpp.o.d -o multi_inherit/multi_inherit.p/src_main.cpp.o -c ../multi_inherit/src/main.cpp",
+    "file": "../multi_inherit/src/main.cpp",
+    "output": "multi_inherit/multi_inherit.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Imulti_inherit/multi_inherit.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ multi_inherit/multi_inherit.p/src_lib.cpp.o -MF multi_inherit/multi_inherit.p/src_lib.cpp.o.d -o multi_inherit/multi_inherit.p/src_lib.cpp.o -c ../multi_inherit/src/lib.cpp",
+    "file": "../multi_inherit/src/lib.cpp",
+    "output": "multi_inherit/multi_inherit.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Imulti_inherit/multi_inherit_benchmark_google_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ multi_inherit/multi_inherit_benchmark_google_opt.p/bench.cpp.o -MF multi_inherit/multi_inherit_benchmark_google_opt.p/bench.cpp.o.d -o multi_inherit/multi_inherit_benchmark_google_opt.p/bench.cpp.o -c ../multi_inherit/bench.cpp",
+    "file": "../multi_inherit/bench.cpp",
+    "output": "multi_inherit/multi_inherit_benchmark_google_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Imulti_inherit/multi_inherit_benchmark_google_no_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ multi_inherit/multi_inherit_benchmark_google_no_opt.p/bench.cpp.o -MF multi_inherit/multi_inherit_benchmark_google_no_opt.p/bench.cpp.o.d -o multi_inherit/multi_inherit_benchmark_google_no_opt.p/bench.cpp.o -c ../multi_inherit/bench.cpp",
+    "file": "../multi_inherit/bench.cpp",
+    "output": "multi_inherit/multi_inherit_benchmark_google_no_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ipoly/poly.p -Ipoly -I../poly -I../poly/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ poly/poly.p/src_main.cpp.o -MF poly/poly.p/src_main.cpp.o.d -o poly/poly.p/src_main.cpp.o -c ../poly/src/main.cpp",
+    "file": "../poly/src/main.cpp",
+    "output": "poly/poly.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ipoly/poly.p -Ipoly -I../poly -I../poly/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ poly/poly.p/src_lib.cpp.o -MF poly/poly.p/src_lib.cpp.o.d -o poly/poly.p/src_lib.cpp.o -c ../poly/src/lib.cpp",
+    "file": "../poly/src/lib.cpp",
+    "output": "poly/poly.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ipoly/poly_benchmark_google_opt.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ poly/poly_benchmark_google_opt.p/bench.cpp.o -MF poly/poly_benchmark_google_opt.p/bench.cpp.o.d -o poly/poly_benchmark_google_opt.p/bench.cpp.o -c ../poly/bench.cpp",
+    "file": "../poly/bench.cpp",
+    "output": "poly/poly_benchmark_google_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ipoly/poly_benchmark_google_no_opt.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ poly/poly_benchmark_google_no_opt.p/bench.cpp.o -MF poly/poly_benchmark_google_no_opt.p/bench.cpp.o.d -o poly/poly_benchmark_google_no_opt.p/bench.cpp.o -c ../poly/bench.cpp",
+    "file": "../poly/bench.cpp",
+    "output": "poly/poly_benchmark_google_no_opt.p/bench.cpp.o"
   }
 ]
