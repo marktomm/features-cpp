@@ -1,3 +1,6 @@
+// Initial base code taken from:
+// https://pspdfkit.com/blog/2020/performance-overhead-of-exceptions-in-cpp/
+
 #include <benchmark/benchmark.h>
 
 #include "lib.h"
