@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# ./this_script some_feature_dir_name 
+# some_feature_dir_name may have '/' symbol leading or preceding
+
 trimFwdSlashes() {
   a1="${1#/}"       # Remove leading /
   a1="${a1%/}"     # Remove preceding /
@@ -13,4 +16,4 @@ ARG3=$3
 
 asmfile="builddir/${ARG1}/${ARG1}_$( [[ -n "${ARG3}" ]] && echo "${ARG3}" || echo "main" )${ARG2}.s"
 
-awk '{print NR, $0}' ${asmfile}
+awk '{print NR, $0}' ${asmfile} | grep -vE '^[0-9]+\s+*\.[^L].*[^:]$'
