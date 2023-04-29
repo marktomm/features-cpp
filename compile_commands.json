@@ -1,15 +1,27 @@
 [
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ access_specifier/access_specifier.p/src_main.cpp.o -MF access_specifier/access_specifier.p/src_main.cpp.o.d -o access_specifier/access_specifier.p/src_main.cpp.o -c ../access_specifier/src/main.cpp",
+    "command": "c++ -Iaccess_specifier/access_specifier_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ access_specifier/access_specifier_opt.p/src_main.cpp.o -MF access_specifier/access_specifier_opt.p/src_main.cpp.o.d -o access_specifier/access_specifier_opt.p/src_main.cpp.o -c ../access_specifier/src/main.cpp",
     "file": "../access_specifier/src/main.cpp",
-    "output": "access_specifier/access_specifier.p/src_main.cpp.o"
+    "output": "access_specifier/access_specifier_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ access_specifier/access_specifier.p/src_lib.cpp.o -MF access_specifier/access_specifier.p/src_lib.cpp.o.d -o access_specifier/access_specifier.p/src_lib.cpp.o -c ../access_specifier/src/lib.cpp",
+    "command": "c++ -Iaccess_specifier/access_specifier_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ access_specifier/access_specifier_opt.p/src_lib.cpp.o -MF access_specifier/access_specifier_opt.p/src_lib.cpp.o.d -o access_specifier/access_specifier_opt.p/src_lib.cpp.o -c ../access_specifier/src/lib.cpp",
     "file": "../access_specifier/src/lib.cpp",
-    "output": "access_specifier/access_specifier.p/src_lib.cpp.o"
+    "output": "access_specifier/access_specifier_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Iaccess_specifier/access_specifier_no_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ access_specifier/access_specifier_no_opt.p/src_main.cpp.o -MF access_specifier/access_specifier_no_opt.p/src_main.cpp.o.d -o access_specifier/access_specifier_no_opt.p/src_main.cpp.o -c ../access_specifier/src/main.cpp",
+    "file": "../access_specifier/src/main.cpp",
+    "output": "access_specifier/access_specifier_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Iaccess_specifier/access_specifier_no_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ access_specifier/access_specifier_no_opt.p/src_lib.cpp.o -MF access_specifier/access_specifier_no_opt.p/src_lib.cpp.o.d -o access_specifier/access_specifier_no_opt.p/src_lib.cpp.o -c ../access_specifier/src/lib.cpp",
+    "file": "../access_specifier/src/lib.cpp",
+    "output": "access_specifier/access_specifier_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
@@ -25,15 +37,27 @@
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ virtual_base_class/virtual_base_class.p/src_main.cpp.o -MF virtual_base_class/virtual_base_class.p/src_main.cpp.o.d -o virtual_base_class/virtual_base_class.p/src_main.cpp.o -c ../virtual_base_class/src/main.cpp",
+    "command": "c++ -Ivirtual_base_class/virtual_base_class_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ virtual_base_class/virtual_base_class_opt.p/src_main.cpp.o -MF virtual_base_class/virtual_base_class_opt.p/src_main.cpp.o.d -o virtual_base_class/virtual_base_class_opt.p/src_main.cpp.o -c ../virtual_base_class/src/main.cpp",
     "file": "../virtual_base_class/src/main.cpp",
-    "output": "virtual_base_class/virtual_base_class.p/src_main.cpp.o"
+    "output": "virtual_base_class/virtual_base_class_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ virtual_base_class/virtual_base_class.p/src_lib.cpp.o -MF virtual_base_class/virtual_base_class.p/src_lib.cpp.o.d -o virtual_base_class/virtual_base_class.p/src_lib.cpp.o -c ../virtual_base_class/src/lib.cpp",
+    "command": "c++ -Ivirtual_base_class/virtual_base_class_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ virtual_base_class/virtual_base_class_opt.p/src_lib.cpp.o -MF virtual_base_class/virtual_base_class_opt.p/src_lib.cpp.o.d -o virtual_base_class/virtual_base_class_opt.p/src_lib.cpp.o -c ../virtual_base_class/src/lib.cpp",
     "file": "../virtual_base_class/src/lib.cpp",
-    "output": "virtual_base_class/virtual_base_class.p/src_lib.cpp.o"
+    "output": "virtual_base_class/virtual_base_class_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ivirtual_base_class/virtual_base_class_no_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ virtual_base_class/virtual_base_class_no_opt.p/src_main.cpp.o -MF virtual_base_class/virtual_base_class_no_opt.p/src_main.cpp.o.d -o virtual_base_class/virtual_base_class_no_opt.p/src_main.cpp.o -c ../virtual_base_class/src/main.cpp",
+    "file": "../virtual_base_class/src/main.cpp",
+    "output": "virtual_base_class/virtual_base_class_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ivirtual_base_class/virtual_base_class_no_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ virtual_base_class/virtual_base_class_no_opt.p/src_lib.cpp.o -MF virtual_base_class/virtual_base_class_no_opt.p/src_lib.cpp.o.d -o virtual_base_class/virtual_base_class_no_opt.p/src_lib.cpp.o -c ../virtual_base_class/src/lib.cpp",
+    "file": "../virtual_base_class/src/lib.cpp",
+    "output": "virtual_base_class/virtual_base_class_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
@@ -49,15 +73,27 @@
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ non_standard_member_vars/non_standard_member_vars.p/src_main.cpp.o -MF non_standard_member_vars/non_standard_member_vars.p/src_main.cpp.o.d -o non_standard_member_vars/non_standard_member_vars.p/src_main.cpp.o -c ../non_standard_member_vars/src/main.cpp",
+    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ non_standard_member_vars/non_standard_member_vars_opt.p/src_main.cpp.o -MF non_standard_member_vars/non_standard_member_vars_opt.p/src_main.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_opt.p/src_main.cpp.o -c ../non_standard_member_vars/src/main.cpp",
     "file": "../non_standard_member_vars/src/main.cpp",
-    "output": "non_standard_member_vars/non_standard_member_vars.p/src_main.cpp.o"
+    "output": "non_standard_member_vars/non_standard_member_vars_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ non_standard_member_vars/non_standard_member_vars.p/src_lib.cpp.o -MF non_standard_member_vars/non_standard_member_vars.p/src_lib.cpp.o.d -o non_standard_member_vars/non_standard_member_vars.p/src_lib.cpp.o -c ../non_standard_member_vars/src/lib.cpp",
+    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ non_standard_member_vars/non_standard_member_vars_opt.p/src_lib.cpp.o -MF non_standard_member_vars/non_standard_member_vars_opt.p/src_lib.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_opt.p/src_lib.cpp.o -c ../non_standard_member_vars/src/lib.cpp",
     "file": "../non_standard_member_vars/src/lib.cpp",
-    "output": "non_standard_member_vars/non_standard_member_vars.p/src_lib.cpp.o"
+    "output": "non_standard_member_vars/non_standard_member_vars_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_no_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ non_standard_member_vars/non_standard_member_vars_no_opt.p/src_main.cpp.o -MF non_standard_member_vars/non_standard_member_vars_no_opt.p/src_main.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_no_opt.p/src_main.cpp.o -c ../non_standard_member_vars/src/main.cpp",
+    "file": "../non_standard_member_vars/src/main.cpp",
+    "output": "non_standard_member_vars/non_standard_member_vars_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_no_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ non_standard_member_vars/non_standard_member_vars_no_opt.p/src_lib.cpp.o -MF non_standard_member_vars/non_standard_member_vars_no_opt.p/src_lib.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_no_opt.p/src_lib.cpp.o -c ../non_standard_member_vars/src/lib.cpp",
+    "file": "../non_standard_member_vars/src/lib.cpp",
+    "output": "non_standard_member_vars/non_standard_member_vars_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
@@ -73,15 +109,27 @@
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type.p -Itrivial_type -I../trivial_type -I../trivial_type/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ trivial_type/trivial_type.p/src_main.cpp.o -MF trivial_type/trivial_type.p/src_main.cpp.o.d -o trivial_type/trivial_type.p/src_main.cpp.o -c ../trivial_type/src/main.cpp",
+    "command": "c++ -Itrivial_type/trivial_type_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ trivial_type/trivial_type_opt.p/src_main.cpp.o -MF trivial_type/trivial_type_opt.p/src_main.cpp.o.d -o trivial_type/trivial_type_opt.p/src_main.cpp.o -c ../trivial_type/src/main.cpp",
     "file": "../trivial_type/src/main.cpp",
-    "output": "trivial_type/trivial_type.p/src_main.cpp.o"
+    "output": "trivial_type/trivial_type_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type.p -Itrivial_type -I../trivial_type -I../trivial_type/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ trivial_type/trivial_type.p/src_lib.cpp.o -MF trivial_type/trivial_type.p/src_lib.cpp.o.d -o trivial_type/trivial_type.p/src_lib.cpp.o -c ../trivial_type/src/lib.cpp",
+    "command": "c++ -Itrivial_type/trivial_type_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ trivial_type/trivial_type_opt.p/src_lib.cpp.o -MF trivial_type/trivial_type_opt.p/src_lib.cpp.o.d -o trivial_type/trivial_type_opt.p/src_lib.cpp.o -c ../trivial_type/src/lib.cpp",
     "file": "../trivial_type/src/lib.cpp",
-    "output": "trivial_type/trivial_type.p/src_lib.cpp.o"
+    "output": "trivial_type/trivial_type_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itrivial_type/trivial_type_no_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ trivial_type/trivial_type_no_opt.p/src_main.cpp.o -MF trivial_type/trivial_type_no_opt.p/src_main.cpp.o.d -o trivial_type/trivial_type_no_opt.p/src_main.cpp.o -c ../trivial_type/src/main.cpp",
+    "file": "../trivial_type/src/main.cpp",
+    "output": "trivial_type/trivial_type_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itrivial_type/trivial_type_no_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ trivial_type/trivial_type_no_opt.p/src_lib.cpp.o -MF trivial_type/trivial_type_no_opt.p/src_lib.cpp.o.d -o trivial_type/trivial_type_no_opt.p/src_lib.cpp.o -c ../trivial_type/src/lib.cpp",
+    "file": "../trivial_type/src/lib.cpp",
+    "output": "trivial_type/trivial_type_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
@@ -97,15 +145,27 @@
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ class_member_funcion/class_member_funcion.p/src_main.cpp.o -MF class_member_funcion/class_member_funcion.p/src_main.cpp.o.d -o class_member_funcion/class_member_funcion.p/src_main.cpp.o -c ../class_member_funcion/src/main.cpp",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ class_member_funcion/class_member_funcion_opt.p/src_main.cpp.o -MF class_member_funcion/class_member_funcion_opt.p/src_main.cpp.o.d -o class_member_funcion/class_member_funcion_opt.p/src_main.cpp.o -c ../class_member_funcion/src/main.cpp",
     "file": "../class_member_funcion/src/main.cpp",
-    "output": "class_member_funcion/class_member_funcion.p/src_main.cpp.o"
+    "output": "class_member_funcion/class_member_funcion_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ class_member_funcion/class_member_funcion.p/src_lib.cpp.o -MF class_member_funcion/class_member_funcion.p/src_lib.cpp.o.d -o class_member_funcion/class_member_funcion.p/src_lib.cpp.o -c ../class_member_funcion/src/lib.cpp",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ class_member_funcion/class_member_funcion_opt.p/src_lib.cpp.o -MF class_member_funcion/class_member_funcion_opt.p/src_lib.cpp.o.d -o class_member_funcion/class_member_funcion_opt.p/src_lib.cpp.o -c ../class_member_funcion/src/lib.cpp",
     "file": "../class_member_funcion/src/lib.cpp",
-    "output": "class_member_funcion/class_member_funcion.p/src_lib.cpp.o"
+    "output": "class_member_funcion/class_member_funcion_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_no_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ class_member_funcion/class_member_funcion_no_opt.p/src_main.cpp.o -MF class_member_funcion/class_member_funcion_no_opt.p/src_main.cpp.o.d -o class_member_funcion/class_member_funcion_no_opt.p/src_main.cpp.o -c ../class_member_funcion/src/main.cpp",
+    "file": "../class_member_funcion/src/main.cpp",
+    "output": "class_member_funcion/class_member_funcion_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_no_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ class_member_funcion/class_member_funcion_no_opt.p/src_lib.cpp.o -MF class_member_funcion/class_member_funcion_no_opt.p/src_lib.cpp.o.d -o class_member_funcion/class_member_funcion_no_opt.p/src_lib.cpp.o -c ../class_member_funcion/src/lib.cpp",
+    "file": "../class_member_funcion/src/lib.cpp",
+    "output": "class_member_funcion/class_member_funcion_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
@@ -121,15 +181,27 @@
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ multi_inherit/multi_inherit.p/src_main.cpp.o -MF multi_inherit/multi_inherit.p/src_main.cpp.o.d -o multi_inherit/multi_inherit.p/src_main.cpp.o -c ../multi_inherit/src/main.cpp",
+    "command": "c++ -Imulti_inherit/multi_inherit_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ multi_inherit/multi_inherit_opt.p/src_main.cpp.o -MF multi_inherit/multi_inherit_opt.p/src_main.cpp.o.d -o multi_inherit/multi_inherit_opt.p/src_main.cpp.o -c ../multi_inherit/src/main.cpp",
     "file": "../multi_inherit/src/main.cpp",
-    "output": "multi_inherit/multi_inherit.p/src_main.cpp.o"
+    "output": "multi_inherit/multi_inherit_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ multi_inherit/multi_inherit.p/src_lib.cpp.o -MF multi_inherit/multi_inherit.p/src_lib.cpp.o.d -o multi_inherit/multi_inherit.p/src_lib.cpp.o -c ../multi_inherit/src/lib.cpp",
+    "command": "c++ -Imulti_inherit/multi_inherit_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ multi_inherit/multi_inherit_opt.p/src_lib.cpp.o -MF multi_inherit/multi_inherit_opt.p/src_lib.cpp.o.d -o multi_inherit/multi_inherit_opt.p/src_lib.cpp.o -c ../multi_inherit/src/lib.cpp",
     "file": "../multi_inherit/src/lib.cpp",
-    "output": "multi_inherit/multi_inherit.p/src_lib.cpp.o"
+    "output": "multi_inherit/multi_inherit_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Imulti_inherit/multi_inherit_no_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ multi_inherit/multi_inherit_no_opt.p/src_main.cpp.o -MF multi_inherit/multi_inherit_no_opt.p/src_main.cpp.o.d -o multi_inherit/multi_inherit_no_opt.p/src_main.cpp.o -c ../multi_inherit/src/main.cpp",
+    "file": "../multi_inherit/src/main.cpp",
+    "output": "multi_inherit/multi_inherit_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Imulti_inherit/multi_inherit_no_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ multi_inherit/multi_inherit_no_opt.p/src_lib.cpp.o -MF multi_inherit/multi_inherit_no_opt.p/src_lib.cpp.o.d -o multi_inherit/multi_inherit_no_opt.p/src_lib.cpp.o -c ../multi_inherit/src/lib.cpp",
+    "file": "../multi_inherit/src/lib.cpp",
+    "output": "multi_inherit/multi_inherit_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
@@ -145,15 +217,27 @@
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly.p -Ipoly -I../poly -I../poly/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ poly/poly.p/src_main.cpp.o -MF poly/poly.p/src_main.cpp.o.d -o poly/poly.p/src_main.cpp.o -c ../poly/src/main.cpp",
+    "command": "c++ -Ipoly/poly_opt.p -Ipoly -I../poly -I../poly/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ poly/poly_opt.p/src_main.cpp.o -MF poly/poly_opt.p/src_main.cpp.o.d -o poly/poly_opt.p/src_main.cpp.o -c ../poly/src/main.cpp",
     "file": "../poly/src/main.cpp",
-    "output": "poly/poly.p/src_main.cpp.o"
+    "output": "poly/poly_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly.p -Ipoly -I../poly -I../poly/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ poly/poly.p/src_lib.cpp.o -MF poly/poly.p/src_lib.cpp.o.d -o poly/poly.p/src_lib.cpp.o -c ../poly/src/lib.cpp",
+    "command": "c++ -Ipoly/poly_opt.p -Ipoly -I../poly -I../poly/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ poly/poly_opt.p/src_lib.cpp.o -MF poly/poly_opt.p/src_lib.cpp.o.d -o poly/poly_opt.p/src_lib.cpp.o -c ../poly/src/lib.cpp",
     "file": "../poly/src/lib.cpp",
-    "output": "poly/poly.p/src_lib.cpp.o"
+    "output": "poly/poly_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ipoly/poly_no_opt.p -Ipoly -I../poly -I../poly/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ poly/poly_no_opt.p/src_main.cpp.o -MF poly/poly_no_opt.p/src_main.cpp.o.d -o poly/poly_no_opt.p/src_main.cpp.o -c ../poly/src/main.cpp",
+    "file": "../poly/src/main.cpp",
+    "output": "poly/poly_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ipoly/poly_no_opt.p -Ipoly -I../poly -I../poly/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ poly/poly_no_opt.p/src_lib.cpp.o -MF poly/poly_no_opt.p/src_lib.cpp.o.d -o poly/poly_no_opt.p/src_lib.cpp.o -c ../poly/src/lib.cpp",
+    "file": "../poly/src/lib.cpp",
+    "output": "poly/poly_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
@@ -169,15 +253,27 @@
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ try_catch_exception/try_catch_exception.p/src_main.cpp.o -MF try_catch_exception/try_catch_exception.p/src_main.cpp.o.d -o try_catch_exception/try_catch_exception.p/src_main.cpp.o -c ../try_catch_exception/src/main.cpp",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ try_catch_exception/try_catch_exception_opt.p/src_main.cpp.o -MF try_catch_exception/try_catch_exception_opt.p/src_main.cpp.o.d -o try_catch_exception/try_catch_exception_opt.p/src_main.cpp.o -c ../try_catch_exception/src/main.cpp",
     "file": "../try_catch_exception/src/main.cpp",
-    "output": "try_catch_exception/try_catch_exception.p/src_main.cpp.o"
+    "output": "try_catch_exception/try_catch_exception_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ try_catch_exception/try_catch_exception.p/src_lib.cpp.o -MF try_catch_exception/try_catch_exception.p/src_lib.cpp.o.d -o try_catch_exception/try_catch_exception.p/src_lib.cpp.o -c ../try_catch_exception/src/lib.cpp",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ try_catch_exception/try_catch_exception_opt.p/src_lib.cpp.o -MF try_catch_exception/try_catch_exception_opt.p/src_lib.cpp.o.d -o try_catch_exception/try_catch_exception_opt.p/src_lib.cpp.o -c ../try_catch_exception/src/lib.cpp",
     "file": "../try_catch_exception/src/lib.cpp",
-    "output": "try_catch_exception/try_catch_exception.p/src_lib.cpp.o"
+    "output": "try_catch_exception/try_catch_exception_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_no_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ try_catch_exception/try_catch_exception_no_opt.p/src_main.cpp.o -MF try_catch_exception/try_catch_exception_no_opt.p/src_main.cpp.o.d -o try_catch_exception/try_catch_exception_no_opt.p/src_main.cpp.o -c ../try_catch_exception/src/main.cpp",
+    "file": "../try_catch_exception/src/main.cpp",
+    "output": "try_catch_exception/try_catch_exception_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_no_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ try_catch_exception/try_catch_exception_no_opt.p/src_lib.cpp.o -MF try_catch_exception/try_catch_exception_no_opt.p/src_lib.cpp.o.d -o try_catch_exception/try_catch_exception_no_opt.p/src_lib.cpp.o -c ../try_catch_exception/src/lib.cpp",
+    "file": "../try_catch_exception/src/lib.cpp",
+    "output": "try_catch_exception/try_catch_exception_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
@@ -193,15 +289,27 @@
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo.p -Irvo -I../rvo -I../rvo/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ rvo/rvo.p/src_main.cpp.o -MF rvo/rvo.p/src_main.cpp.o.d -o rvo/rvo.p/src_main.cpp.o -c ../rvo/src/main.cpp",
+    "command": "c++ -Irvo/rvo_opt.p -Irvo -I../rvo -I../rvo/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ rvo/rvo_opt.p/src_main.cpp.o -MF rvo/rvo_opt.p/src_main.cpp.o.d -o rvo/rvo_opt.p/src_main.cpp.o -c ../rvo/src/main.cpp",
     "file": "../rvo/src/main.cpp",
-    "output": "rvo/rvo.p/src_main.cpp.o"
+    "output": "rvo/rvo_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo.p -Irvo -I../rvo -I../rvo/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ rvo/rvo.p/src_lib.cpp.o -MF rvo/rvo.p/src_lib.cpp.o.d -o rvo/rvo.p/src_lib.cpp.o -c ../rvo/src/lib.cpp",
+    "command": "c++ -Irvo/rvo_opt.p -Irvo -I../rvo -I../rvo/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ rvo/rvo_opt.p/src_lib.cpp.o -MF rvo/rvo_opt.p/src_lib.cpp.o.d -o rvo/rvo_opt.p/src_lib.cpp.o -c ../rvo/src/lib.cpp",
     "file": "../rvo/src/lib.cpp",
-    "output": "rvo/rvo.p/src_lib.cpp.o"
+    "output": "rvo/rvo_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Irvo/rvo_no_opt.p -Irvo -I../rvo -I../rvo/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ rvo/rvo_no_opt.p/src_main.cpp.o -MF rvo/rvo_no_opt.p/src_main.cpp.o.d -o rvo/rvo_no_opt.p/src_main.cpp.o -c ../rvo/src/main.cpp",
+    "file": "../rvo/src/main.cpp",
+    "output": "rvo/rvo_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Irvo/rvo_no_opt.p -Irvo -I../rvo -I../rvo/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ rvo/rvo_no_opt.p/src_lib.cpp.o -MF rvo/rvo_no_opt.p/src_lib.cpp.o.d -o rvo/rvo_no_opt.p/src_lib.cpp.o -c ../rvo/src/lib.cpp",
+    "file": "../rvo/src/lib.cpp",
+    "output": "rvo/rvo_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
@@ -214,5 +322,41 @@
     "command": "c++ -Irvo/rvo_benchmark_google_no_opt.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o -MF rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o.d -o rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o -c ../rvo/bench.cpp",
     "file": "../rvo/bench.cpp",
     "output": "rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ilambda_fns/lambda_fns_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ lambda_fns/lambda_fns_opt.p/src_main.cpp.o -MF lambda_fns/lambda_fns_opt.p/src_main.cpp.o.d -o lambda_fns/lambda_fns_opt.p/src_main.cpp.o -c ../lambda_fns/src/main.cpp",
+    "file": "../lambda_fns/src/main.cpp",
+    "output": "lambda_fns/lambda_fns_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ilambda_fns/lambda_fns_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ lambda_fns/lambda_fns_opt.p/src_lib.cpp.o -MF lambda_fns/lambda_fns_opt.p/src_lib.cpp.o.d -o lambda_fns/lambda_fns_opt.p/src_lib.cpp.o -c ../lambda_fns/src/lib.cpp",
+    "file": "../lambda_fns/src/lib.cpp",
+    "output": "lambda_fns/lambda_fns_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ilambda_fns/lambda_fns_no_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ lambda_fns/lambda_fns_no_opt.p/src_main.cpp.o -MF lambda_fns/lambda_fns_no_opt.p/src_main.cpp.o.d -o lambda_fns/lambda_fns_no_opt.p/src_main.cpp.o -c ../lambda_fns/src/main.cpp",
+    "file": "../lambda_fns/src/main.cpp",
+    "output": "lambda_fns/lambda_fns_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ilambda_fns/lambda_fns_no_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -O0 -g -MD -MQ lambda_fns/lambda_fns_no_opt.p/src_lib.cpp.o -MF lambda_fns/lambda_fns_no_opt.p/src_lib.cpp.o.d -o lambda_fns/lambda_fns_no_opt.p/src_lib.cpp.o -c ../lambda_fns/src/lib.cpp",
+    "file": "../lambda_fns/src/lib.cpp",
+    "output": "lambda_fns/lambda_fns_no_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ilambda_fns/lambda_fns_benchmark_google_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ lambda_fns/lambda_fns_benchmark_google_opt.p/bench.cpp.o -MF lambda_fns/lambda_fns_benchmark_google_opt.p/bench.cpp.o.d -o lambda_fns/lambda_fns_benchmark_google_opt.p/bench.cpp.o -c ../lambda_fns/bench.cpp",
+    "file": "../lambda_fns/bench.cpp",
+    "output": "lambda_fns/lambda_fns_benchmark_google_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ilambda_fns/lambda_fns_benchmark_google_no_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ lambda_fns/lambda_fns_benchmark_google_no_opt.p/bench.cpp.o -MF lambda_fns/lambda_fns_benchmark_google_no_opt.p/bench.cpp.o.d -o lambda_fns/lambda_fns_benchmark_google_no_opt.p/bench.cpp.o -c ../lambda_fns/bench.cpp",
+    "file": "../lambda_fns/bench.cpp",
+    "output": "lambda_fns/lambda_fns_benchmark_google_no_opt.p/bench.cpp.o"
   }
 ]
