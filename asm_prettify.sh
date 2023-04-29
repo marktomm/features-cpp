@@ -14,6 +14,6 @@ ARG1=$(trimFwdSlashes ${ARG1})
 ARG2=$2
 ARG3=$3
 
-asmfile="builddir/${ARG1}/${ARG1}_$( [[ -n "${ARG3}" ]] && echo "${ARG3}" || echo "main" )${ARG2}.s"
+asmfile="builddir/${ARG1}/${ARG1}_$( [[ -n "${ARG2}" ]] && echo "${ARG2}" || echo "main" )_$( [[ -n "${ARG3}" && "${ARG3}" == 'opt' ]] && echo "" || echo "no_" )opt.s"
 
 awk '{print NR, $0}' ${asmfile} | grep -vE '^[0-9]+\s+*\.[^L].*[^:]$'
