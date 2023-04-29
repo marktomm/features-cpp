@@ -37,5 +37,6 @@ LargeObject return_by_value_rvo() {
 
 int main() {
     auto a = return_by_value_rvo();
+    auto b = return_by_value_no_rvo(a);
     return 0;
 }
