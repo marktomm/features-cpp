@@ -11,20 +11,32 @@ trivial_type_src = [
 ]
 
 trivial_type_exe = executable(
-    'trivial_type',
+    'trivial_type_opt',
     [trivial_type_main, trivial_type_src],
     include_directories: [trivial_type_inc, common_inc],
     install: true,
 )
 
-trivial_type_inc_o = trivial_type_exe.extract_objects(
+trivial_type_exe_no_opt = executable(
+    'trivial_type_no_opt',
+    [trivial_type_main, trivial_type_src],
+    include_directories: [trivial_type_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g'],
+)
+
+trivial_type_inc_opt_o = trivial_type_exe.extract_objects(
+    trivial_type_src,
+)
+
+trivial_type_inc_no_opt_o = trivial_type_exe_no_opt.extract_objects(
     trivial_type_src,
 )
 
 # executable(
 #     'trivial_type_simple',
 #     [trivial_type_simple],
-#     objects: [trivial_type_inc_o],
+#     objects: [trivial_type_inc_opt_o],
 #     include_directories: [trivial_type_inc, common_inc],
 #     install: true,
 # )
@@ -35,7 +47,7 @@ if bench.found()
     trivial_type_benchmark_google_opt_exe = executable(
         'trivial_type_benchmark_google_opt',
         [trivial_type_benchmark_test, common_src],
-        objects: trivial_type_inc_o,
+        objects: trivial_type_inc_opt_o,
         include_directories: trivial_type_inc,
         dependencies: [bench, thread],
     )
@@ -49,7 +61,7 @@ if bench.found()
     trivial_type_benchmark_google_no_opt_exe = executable(
         'trivial_type_benchmark_google_no_opt',
         [trivial_type_benchmark_test, common_src],
-        objects: trivial_type_inc_o,
+        objects: trivial_type_inc_no_opt_o,
         include_directories: trivial_type_inc,
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
@@ -63,9 +75,9 @@ if bench.found()
 endif
 
 gen_asm = custom_target(
-    'gen_asm',
+    'gen_asm_no_opt',
     input: trivial_type_main,
-    output: 'trivial_type_main.s',
+    output: 'trivial_type_main_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
@@ -93,9 +105,9 @@ gen_asm_opt = custom_target(
 )
 
 gen_asm_lib = custom_target(
-    'gen_asm_lib',
+    'gen_asm_lib_no_opt',
     input: trivial_type_src,
-    output: 'trivial_type_lib.s',
+    output: 'trivial_type_lib_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',

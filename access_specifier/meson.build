@@ -11,20 +11,32 @@ access_specifier_src = [
 ]
 
 access_specifier_exe = executable(
-    'access_specifier',
+    'access_specifier_opt',
     [access_specifier_main, access_specifier_src],
     include_directories: [access_specifier_inc, common_inc],
     install: true,
 )
 
-access_specifier_inc_o = access_specifier_exe.extract_objects(
+access_specifier_exe_no_opt = executable(
+    'access_specifier_no_opt',
+    [access_specifier_main, access_specifier_src],
+    include_directories: [access_specifier_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g'],
+)
+
+access_specifier_inc_opt_o = access_specifier_exe.extract_objects(
+    access_specifier_src,
+)
+
+access_specifier_inc_no_opt_o = access_specifier_exe_no_opt.extract_objects(
     access_specifier_src,
 )
 
 # executable(
 #     'access_specifier_simple',
 #     [access_specifier_simple],
-#     objects: [access_specifier_inc_o],
+#     objects: [access_specifier_inc_opt_o],
 #     include_directories: [access_specifier_inc, common_inc],
 #     install: true,
 # )
@@ -35,7 +47,7 @@ if bench.found()
     access_specifier_benchmark_google_opt_exe = executable(
         'access_specifier_benchmark_google_opt',
         [access_specifier_benchmark_test, common_src],
-        objects: access_specifier_inc_o,
+        objects: access_specifier_inc_opt_o,
         include_directories: access_specifier_inc,
         dependencies: [bench, thread],
     )
@@ -49,7 +61,7 @@ if bench.found()
     access_specifier_benchmark_google_no_opt_exe = executable(
         'access_specifier_benchmark_google_no_opt',
         [access_specifier_benchmark_test, common_src],
-        objects: access_specifier_inc_o,
+        objects: access_specifier_inc_no_opt_o,
         include_directories: access_specifier_inc,
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
@@ -63,9 +75,9 @@ if bench.found()
 endif
 
 gen_asm = custom_target(
-    'gen_asm',
+    'gen_asm_no_opt',
     input: access_specifier_main,
-    output: 'access_specifier_main.s',
+    output: 'access_specifier_main_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
@@ -93,9 +105,9 @@ gen_asm_opt = custom_target(
 )
 
 gen_asm_lib = custom_target(
-    'gen_asm_lib',
+    'gen_asm_lib_no_opt',
     input: access_specifier_src,
-    output: 'access_specifier_lib.s',
+    output: 'access_specifier_lib_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',

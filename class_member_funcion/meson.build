@@ -11,20 +11,32 @@ class_member_funcion_src = [
 ]
 
 class_member_funcion_exe = executable(
-    'class_member_funcion',
+    'class_member_funcion_opt',
     [class_member_funcion_main, class_member_funcion_src],
     include_directories: [class_member_funcion_inc, common_inc],
     install: true,
 )
 
-class_member_funcion_inc_o = class_member_funcion_exe.extract_objects(
+class_member_funcion_exe_no_opt = executable(
+    'class_member_funcion_no_opt',
+    [class_member_funcion_main, class_member_funcion_src],
+    include_directories: [class_member_funcion_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g'],
+)
+
+class_member_funcion_inc_opt_o = class_member_funcion_exe.extract_objects(
+    class_member_funcion_src,
+)
+
+class_member_funcion_inc_no_opt_o = class_member_funcion_exe_no_opt.extract_objects(
     class_member_funcion_src,
 )
 
 # executable(
 #     'class_member_funcion_simple',
 #     [class_member_funcion_simple],
-#     objects: [class_member_funcion_inc_o],
+#     objects: [class_member_funcion_inc_opt_o],
 #     include_directories: [class_member_funcion_inc, common_inc],
 #     install: true,
 # )
@@ -35,7 +47,7 @@ if bench.found()
     class_member_funcion_benchmark_google_opt_exe = executable(
         'class_member_funcion_benchmark_google_opt',
         [class_member_funcion_benchmark_test, common_src],
-        objects: class_member_funcion_inc_o,
+        objects: class_member_funcion_inc_opt_o,
         include_directories: class_member_funcion_inc,
         dependencies: [bench, thread],
     )
@@ -49,7 +61,7 @@ if bench.found()
     class_member_funcion_benchmark_google_no_opt_exe = executable(
         'class_member_funcion_benchmark_google_no_opt',
         [class_member_funcion_benchmark_test, common_src],
-        objects: class_member_funcion_inc_o,
+        objects: class_member_funcion_inc_no_opt_o,
         include_directories: class_member_funcion_inc,
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
@@ -63,9 +75,9 @@ if bench.found()
 endif
 
 gen_asm = custom_target(
-    'gen_asm',
+    'gen_asm_no_opt',
     input: class_member_funcion_main,
-    output: 'class_member_funcion_main.s',
+    output: 'class_member_funcion_main_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
@@ -93,9 +105,9 @@ gen_asm_opt = custom_target(
 )
 
 gen_asm_lib = custom_target(
-    'gen_asm_lib',
+    'gen_asm_lib_no_opt',
     input: class_member_funcion_src,
-    output: 'class_member_funcion_lib.s',
+    output: 'class_member_funcion_lib_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',

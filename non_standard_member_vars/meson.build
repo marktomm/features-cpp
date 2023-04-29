@@ -11,20 +11,32 @@ non_standard_member_vars_src = [
 ]
 
 non_standard_member_vars_exe = executable(
-    'non_standard_member_vars',
+    'non_standard_member_vars_opt',
     [non_standard_member_vars_main, non_standard_member_vars_src],
     include_directories: [non_standard_member_vars_inc, common_inc],
     install: true,
 )
 
-non_standard_member_vars_inc_o = non_standard_member_vars_exe.extract_objects(
+non_standard_member_vars_exe_no_opt = executable(
+    'non_standard_member_vars_no_opt',
+    [non_standard_member_vars_main, non_standard_member_vars_src],
+    include_directories: [non_standard_member_vars_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g'],
+)
+
+non_standard_member_vars_inc_opt_o = non_standard_member_vars_exe.extract_objects(
+    non_standard_member_vars_src,
+)
+
+non_standard_member_vars_inc_no_opt_o = non_standard_member_vars_exe_no_opt.extract_objects(
     non_standard_member_vars_src,
 )
 
 # executable(
 #     'non_standard_member_vars_simple',
 #     [non_standard_member_vars_simple],
-#     objects: [non_standard_member_vars_inc_o],
+#     objects: [non_standard_member_vars_inc_opt_o],
 #     include_directories: [non_standard_member_vars_inc, common_inc],
 #     install: true,
 # )
@@ -35,7 +47,7 @@ if bench.found()
     non_standard_member_vars_benchmark_google_opt_exe = executable(
         'non_standard_member_vars_benchmark_google_opt',
         [non_standard_member_vars_benchmark_test, common_src],
-        objects: non_standard_member_vars_inc_o,
+        objects: non_standard_member_vars_inc_opt_o,
         include_directories: non_standard_member_vars_inc,
         dependencies: [bench, thread],
     )
@@ -49,7 +61,7 @@ if bench.found()
     non_standard_member_vars_benchmark_google_no_opt_exe = executable(
         'non_standard_member_vars_benchmark_google_no_opt',
         [non_standard_member_vars_benchmark_test, common_src],
-        objects: non_standard_member_vars_inc_o,
+        objects: non_standard_member_vars_inc_no_opt_o,
         include_directories: non_standard_member_vars_inc,
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
@@ -63,9 +75,9 @@ if bench.found()
 endif
 
 gen_asm = custom_target(
-    'gen_asm',
+    'gen_asm_no_opt',
     input: non_standard_member_vars_main,
-    output: 'non_standard_member_vars_main.s',
+    output: 'non_standard_member_vars_main_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
@@ -93,9 +105,9 @@ gen_asm_opt = custom_target(
 )
 
 gen_asm_lib = custom_target(
-    'gen_asm_lib',
+    'gen_asm_lib_no_opt',
     input: non_standard_member_vars_src,
-    output: 'non_standard_member_vars_lib.s',
+    output: 'non_standard_member_vars_lib_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',

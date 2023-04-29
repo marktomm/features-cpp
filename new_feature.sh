@@ -37,20 +37,32 @@ ${ARG1}_src = [
 ]
 
 ${ARG1}_exe = executable(
-    '${ARG1}',
+    '${ARG1}_opt',
     [${ARG1}_main, ${ARG1}_src],
     include_directories: [${ARG1}_inc, common_inc],
     install: true,
 )
 
-${ARG1}_inc_o = ${ARG1}_exe.extract_objects(
+${ARG1}_exe_no_opt = executable(
+    '${ARG1}_no_opt',
+    [${ARG1}_main, ${ARG1}_src],
+    include_directories: [${ARG1}_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g'],
+)
+
+${ARG1}_inc_opt_o = ${ARG1}_exe.extract_objects(
+    ${ARG1}_src,
+)
+
+${ARG1}_inc_no_opt_o = ${ARG1}_exe_no_opt.extract_objects(
     ${ARG1}_src,
 )
 
 # executable(
 #     '${ARG1}_simple',
 #     [${ARG1}_simple],
-#     objects: [${ARG1}_inc_o],
+#     objects: [${ARG1}_inc_opt_o],
 #     include_directories: [${ARG1}_inc, common_inc],
 #     install: true,
 # )
@@ -61,7 +73,7 @@ if bench.found()
     ${ARG1}_benchmark_google_opt_exe = executable(
         '${ARG1}_benchmark_google_opt',
         [${ARG1}_benchmark_test, common_src],
-        objects: ${ARG1}_inc_o,
+        objects: ${ARG1}_inc_opt_o,
         include_directories: ${ARG1}_inc,
         dependencies: [bench, thread],
     )
@@ -75,7 +87,7 @@ if bench.found()
     ${ARG1}_benchmark_google_no_opt_exe = executable(
         '${ARG1}_benchmark_google_no_opt',
         [${ARG1}_benchmark_test, common_src],
-        objects: ${ARG1}_inc_o,
+        objects: ${ARG1}_inc_no_opt_o,
         include_directories: ${ARG1}_inc,
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
@@ -89,9 +101,9 @@ if bench.found()
 endif
 
 gen_asm = custom_target(
-    'gen_asm',
+    'gen_asm_no_opt',
     input: ${ARG1}_main,
-    output: '${ARG1}_main.s',
+    output: '${ARG1}_main_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
@@ -119,9 +131,9 @@ gen_asm_opt = custom_target(
 )
 
 gen_asm_lib = custom_target(
-    'gen_asm_lib',
+    'gen_asm_lib_no_opt',
     input: ${ARG1}_src,
-    output: '${ARG1}_lib.s',
+    output: '${ARG1}_lib_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
@@ -171,6 +183,9 @@ cat << EOF
 #include <benchmark/benchmark.h>
 #include "lib.h"
 
+// GEN_PROTO_BEGIN
+// GEN_PROTO_END
+
 struct SomeType {};
 
 static void ${ARG1}_bench(benchmark::State& state) {
@@ -190,6 +205,10 @@ static void ${ARG1}_bench(benchmark::State& state) {
 // Register the function as a benchmark
 BENCHMARK(${ARG1}_bench);
 
+
+// GEN_BENCHMARK_BEGIN
+// GEN_BENCHMARK_END
+
 // Run the benchmark
 BENCHMARK_MAIN();
 EOF
@@ -199,9 +218,10 @@ EOF
 cat << EOF
 #include "lib.h"
 
+using namespace ${ARG1};
+using namespace std;
+
 int main() { 
-    using namespace ${ARG1};
-    using namespace std;
     return 0; 
 }
 EOF

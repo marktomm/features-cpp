@@ -11,20 +11,32 @@ try_catch_exception_src = [
 ]
 
 try_catch_exception_exe = executable(
-    'try_catch_exception',
+    'try_catch_exception_opt',
     [try_catch_exception_main, try_catch_exception_src],
     include_directories: [try_catch_exception_inc, common_inc],
     install: true,
 )
 
-try_catch_exception_inc_o = try_catch_exception_exe.extract_objects(
+try_catch_exception_exe_no_opt = executable(
+    'try_catch_exception_no_opt',
+    [try_catch_exception_main, try_catch_exception_src],
+    include_directories: [try_catch_exception_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g'],
+)
+
+try_catch_exception_inc_opt_o = try_catch_exception_exe.extract_objects(
+    try_catch_exception_src,
+)
+
+try_catch_exception_inc_no_opt_o = try_catch_exception_exe_no_opt.extract_objects(
     try_catch_exception_src,
 )
 
 # executable(
 #     'try_catch_exception_simple',
 #     [try_catch_exception_simple],
-#     objects: [try_catch_exception_inc_o],
+#     objects: [try_catch_exception_inc_opt_o],
 #     include_directories: [try_catch_exception_inc, common_inc],
 #     install: true,
 # )
@@ -35,7 +47,7 @@ if bench.found()
     try_catch_exception_benchmark_google_opt_exe = executable(
         'try_catch_exception_benchmark_google_opt',
         [try_catch_exception_benchmark_test, common_src],
-        objects: try_catch_exception_inc_o,
+        objects: try_catch_exception_inc_opt_o,
         include_directories: try_catch_exception_inc,
         dependencies: [bench, thread],
     )
@@ -49,7 +61,7 @@ if bench.found()
     try_catch_exception_benchmark_google_no_opt_exe = executable(
         'try_catch_exception_benchmark_google_no_opt',
         [try_catch_exception_benchmark_test, common_src],
-        objects: try_catch_exception_inc_o,
+        objects: try_catch_exception_inc_no_opt_o,
         include_directories: try_catch_exception_inc,
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
@@ -63,9 +75,9 @@ if bench.found()
 endif
 
 gen_asm = custom_target(
-    'gen_asm',
+    'gen_asm_no_opt',
     input: try_catch_exception_main,
-    output: 'try_catch_exception_main.s',
+    output: 'try_catch_exception_main_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
@@ -93,9 +105,9 @@ gen_asm_opt = custom_target(
 )
 
 gen_asm_lib = custom_target(
-    'gen_asm_lib',
+    'gen_asm_lib_no_opt',
     input: try_catch_exception_src,
-    output: 'try_catch_exception_lib.s',
+    output: 'try_catch_exception_lib_no_opt.s',
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
