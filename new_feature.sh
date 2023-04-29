@@ -147,6 +147,19 @@ gen_asm_lib_opt = custom_target(
     ],
     build_by_default: true,
 )
+
+custom_target(
+    'bench_${ARG1}',
+    command: [
+        'sh',
+        '-c', 'meson test --benchmark -C @BUILD_ROOT@ --suite ${ARG1} && cat @BUILD_ROOT@/meson-logs/testlog.txt',
+    ],
+    depends: [
+        ${ARG1}_benchmark_google_no_opt_exe,
+        ${ARG1}_benchmark_google_opt_exe,
+    ],
+    output: 'dummy_output.txt',
+)
 EOF
 ) > ${ARG1}/meson.build
 

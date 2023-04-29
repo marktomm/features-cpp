@@ -121,3 +121,16 @@ gen_asm_lib_opt = custom_target(
     ],
     build_by_default: true,
 )
+
+custom_target(
+    'bench_try_catch_exception',
+    command: [
+        'sh',
+        '-c', 'meson test --benchmark -C @BUILD_ROOT@ --suite try_catch_exception && cat @BUILD_ROOT@/meson-logs/testlog.txt',
+    ],
+    depends: [
+        try_catch_exception_benchmark_google_no_opt_exe,
+        try_catch_exception_benchmark_google_opt_exe,
+    ],
+    output: 'dummy_output.txt',
+)

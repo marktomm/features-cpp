@@ -121,3 +121,16 @@ gen_asm_lib_opt = custom_target(
     ],
     build_by_default: true,
 )
+
+custom_target(
+    'bench_access_specifier',
+    command: [
+        'sh',
+        '-c', 'meson test --benchmark -C @BUILD_ROOT@ --suite access_specifier && cat @BUILD_ROOT@/meson-logs/testlog.txt',
+    ],
+    depends: [
+        access_specifier_benchmark_google_no_opt_exe,
+        access_specifier_benchmark_google_opt_exe,
+    ],
+    output: 'dummy_output.txt',
+)

@@ -121,3 +121,16 @@ gen_asm_lib_opt = custom_target(
     ],
     build_by_default: true,
 )
+
+custom_target(
+    'bench_non_standard_member_vars',
+    command: [
+        'sh',
+        '-c', 'meson test --benchmark -C @BUILD_ROOT@ --suite non_standard_member_vars && cat @BUILD_ROOT@/meson-logs/testlog.txt',
+    ],
+    depends: [
+        non_standard_member_vars_benchmark_google_no_opt_exe,
+        non_standard_member_vars_benchmark_google_opt_exe,
+    ],
+    output: 'dummy_output.txt',
+)
