@@ -10,4 +10,5 @@ onlySuiteFunc() {
 }
 
 onlySuiteFunc && meson test -C builddir --benchmark --suite $1
+# onlySuiteFunc && meson compile -C builddir bench_$1
 onlySuiteFunc || meson test -C builddir --benchmark
