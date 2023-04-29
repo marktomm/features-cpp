@@ -23,9 +23,10 @@ void BM_01_vbools_pause_resume_sfn(benchmark::State& state);
 void BM_A1_random(benchmark::State& state);
 void BM_A2_pause_resume(benchmark::State& state);
 void BM_A3_vbools_access_opt(benchmark::State& state);
-void BM_A4_vbools_access_access(benchmark::State& state);
+void BM_A4_vbools_access(benchmark::State& state);
 void BM_A5_vbools_global_index_access(benchmark::State& state);
 void BM_A6_std_function(benchmark::State& state);
+void BM_A71_std_function_call_throw(benchmark::State& state);
 void BM_A7_std_function_call(benchmark::State& state);
 void BM_A8_pspdfkit_BasicException(benchmark::State& state);
 void BM_A9_pspdfkit_MessageException(benchmark::State& state);
@@ -53,6 +54,7 @@ void loop_pause_resume(benchmark::State& state);
 void loop_random(benchmark::State& state);
 void loop_std_function(benchmark::State& state);
 void loop_std_function_call(benchmark::State& state);
+void loop_std_function_call_throw(benchmark::State& state);
 void loop_vbools_access_no_opt(benchmark::State& state);
 void loop_vbools_access_opt(benchmark::State& state);
 void loop_vbools_global_index_access_no_opt(benchmark::State& state);
@@ -230,6 +232,17 @@ void loop_std_function_call(benchmark::State& state) {
     }
 }
 
+void loop_std_function_call_throw(benchmark::State& state) {
+    for (auto _ : state) {
+        try {
+            std::function<void(void)> fn = []() {};
+            fn();
+            throw 0;
+        } catch (int x) {
+        }
+    }
+}
+
 void loop_vbools_global_index_access_no_opt(benchmark::State& state) {
     auto v = GetRandomBools();
     std::size_t it = 0;
@@ -326,7 +339,7 @@ void BM_A3_vbools_access_opt(benchmark::State& state) {
     loop_vbools_access_opt(state);
 }
 
-void BM_A4_vbools_access_access(benchmark::State& state) {
+void BM_A4_vbools_access(benchmark::State& state) {
     loop_vbools_access_no_opt(state);
 }
 
@@ -338,6 +351,9 @@ void BM_A6_std_function(benchmark::State& state) { loop_std_function(state); }
 
 void BM_A7_std_function_call(benchmark::State& state) {
     loop_std_function_call(state);
+}
+void BM_A71_std_function_call_throw(benchmark::State& state) {
+    loop_std_function_call_throw(state);
 }
 
 // 1.
@@ -484,9 +500,10 @@ BENCHMARK(BM_01_vbools_pause_resume_sfn);
 BENCHMARK(BM_A1_random);
 BENCHMARK(BM_A2_pause_resume);
 BENCHMARK(BM_A3_vbools_access_opt);
-BENCHMARK(BM_A4_vbools_access_access);
+BENCHMARK(BM_A4_vbools_access);
 BENCHMARK(BM_A5_vbools_global_index_access);
 BENCHMARK(BM_A6_std_function);
+BENCHMARK(BM_A71_std_function_call_throw);
 BENCHMARK(BM_A7_std_function_call);
 BENCHMARK(BM_A8_pspdfkit_BasicException);
 BENCHMARK(BM_A9_pspdfkit_MessageException);
