@@ -166,5 +166,53 @@
     "command": "c++ -Ipoly/poly_benchmark_google_no_opt.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ poly/poly_benchmark_google_no_opt.p/bench.cpp.o -MF poly/poly_benchmark_google_no_opt.p/bench.cpp.o.d -o poly/poly_benchmark_google_no_opt.p/bench.cpp.o -c ../poly/bench.cpp",
     "file": "../poly/bench.cpp",
     "output": "poly/poly_benchmark_google_no_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itry_catch_exception/try_catch_exception.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ try_catch_exception/try_catch_exception.p/src_main.cpp.o -MF try_catch_exception/try_catch_exception.p/src_main.cpp.o.d -o try_catch_exception/try_catch_exception.p/src_main.cpp.o -c ../try_catch_exception/src/main.cpp",
+    "file": "../try_catch_exception/src/main.cpp",
+    "output": "try_catch_exception/try_catch_exception.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itry_catch_exception/try_catch_exception.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ try_catch_exception/try_catch_exception.p/src_lib.cpp.o -MF try_catch_exception/try_catch_exception.p/src_lib.cpp.o.d -o try_catch_exception/try_catch_exception.p/src_lib.cpp.o -c ../try_catch_exception/src/lib.cpp",
+    "file": "../try_catch_exception/src/lib.cpp",
+    "output": "try_catch_exception/try_catch_exception.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_benchmark_google_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ try_catch_exception/try_catch_exception_benchmark_google_opt.p/bench.cpp.o -MF try_catch_exception/try_catch_exception_benchmark_google_opt.p/bench.cpp.o.d -o try_catch_exception/try_catch_exception_benchmark_google_opt.p/bench.cpp.o -c ../try_catch_exception/bench.cpp",
+    "file": "../try_catch_exception/bench.cpp",
+    "output": "try_catch_exception/try_catch_exception_benchmark_google_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_benchmark_google_no_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ try_catch_exception/try_catch_exception_benchmark_google_no_opt.p/bench.cpp.o -MF try_catch_exception/try_catch_exception_benchmark_google_no_opt.p/bench.cpp.o.d -o try_catch_exception/try_catch_exception_benchmark_google_no_opt.p/bench.cpp.o -c ../try_catch_exception/bench.cpp",
+    "file": "../try_catch_exception/bench.cpp",
+    "output": "try_catch_exception/try_catch_exception_benchmark_google_no_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Irvo/rvo.p -Irvo -I../rvo -I../rvo/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ rvo/rvo.p/src_main.cpp.o -MF rvo/rvo.p/src_main.cpp.o.d -o rvo/rvo.p/src_main.cpp.o -c ../rvo/src/main.cpp",
+    "file": "../rvo/src/main.cpp",
+    "output": "rvo/rvo.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Irvo/rvo.p -Irvo -I../rvo -I../rvo/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -MD -MQ rvo/rvo.p/src_lib.cpp.o -MF rvo/rvo.p/src_lib.cpp.o.d -o rvo/rvo.p/src_lib.cpp.o -c ../rvo/src/lib.cpp",
+    "file": "../rvo/src/lib.cpp",
+    "output": "rvo/rvo.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Irvo/rvo_benchmark_google_opt.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ rvo/rvo_benchmark_google_opt.p/bench.cpp.o -MF rvo/rvo_benchmark_google_opt.p/bench.cpp.o.d -o rvo/rvo_benchmark_google_opt.p/bench.cpp.o -c ../rvo/bench.cpp",
+    "file": "../rvo/bench.cpp",
+    "output": "rvo/rvo_benchmark_google_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Irvo/rvo_benchmark_google_no_opt.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o -MF rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o.d -o rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o -c ../rvo/bench.cpp",
+    "file": "../rvo/bench.cpp",
+    "output": "rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o"
   }
 ]
