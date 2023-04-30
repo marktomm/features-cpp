@@ -40,6 +40,7 @@ ${ARG1}_exe = executable(
     '${ARG1}_opt',
     [${ARG1}_main, ${ARG1}_src],
     include_directories: [${ARG1}_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
 )
 
@@ -47,6 +48,7 @@ ${ARG1}_exe_no_opt = executable(
     '${ARG1}_no_opt',
     [${ARG1}_main, ${ARG1}_src],
     include_directories: [${ARG1}_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
 )
@@ -71,6 +73,7 @@ ${ARG1}_exe_sanitize = executable(
         asandep,
     ],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    dependencies: [bench, thread],
     # objects: [ ${ARG1}_inc_opt_o ],
 )
 
@@ -84,6 +87,7 @@ ${ARG1}_exe_no_opt_sanitize = executable(
         asandep,
     ],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    dependencies: [bench, thread],
     # objects: [ ${ARG1}_inc_opt_o ],
 )
 
@@ -211,10 +215,10 @@ cat << EOF
 #include <benchmark/benchmark.h>
 #include "lib.h"
 
+struct SomeType {};
+
 // GEN_PROTO_BEGIN
 // GEN_PROTO_END
-
-struct SomeType {};
 
 static void ${ARG1}_bench(benchmark::State& state) {
     using namespace ${ARG1};
@@ -278,6 +282,9 @@ namespace ${ARG1} {
 class A {
 public:
 };
+
+// GEN_PROTO_BEGIN
+// GEN_PROTO_END
 
 }; // namespace ${ARG1}
 

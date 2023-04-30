@@ -12,10 +12,32 @@ ARG1=$1
 ARG1=$(trimFwdSlashes ${ARG1})
 (
     cd ${ARG1}
+    cppFile=src/lib.cpp
+    toFile=include/lib.h
+    protoCpp=$(mktemp)
+    # void fn(\n // will fail
+    grep -E '^[[:blank:]]*(inline[[:blank:]]+)?(virtual[[:blank:]]+)?(explicit[[:blank:]]+)?(static[[:blank:]]+)?(const[[:blank:]]+)?(constexpr[[:blank:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:blank:]]+[a-zA-Z_][a-zA-Z0-9_]*\s*\([^{}]*\)\s*(const)?[[:blank:]]*\{' "${cppFile}" | sed -E 's/(.*\)) *\{.*/\1;/' | sort -k 2,1 | grep -v '^static void BM_' > ${protoCpp}
+
+    tempFile=$(mktemp)
+
+    inputData=$(cat ${protoCpp})
+
+    awk -v data="${inputData}" '
+    BEGIN { insert_data=0 }
+    /\/\/ GEN_PROTO_BEGIN/ { print; printf("%s\n", data); insert_data=1; next }
+    /\/\/ GEN_PROTO_END/ { insert_data=0 }
+    !insert_data { print }
+    ' "${toFile}" > "${tempFile}"
+    
+    mv "${tempFile}" "${toFile}"
+)
+
+(
+    cd ${ARG1}
     cppFile=bench.cpp
     protoCpp=$(mktemp)
     # void fn(\n // will fail
-    grep -E '^[[:blank:]]*(inline[[:blank:]]+)?(virtual[[:blank:]]+)?(explicit[[:blank:]]+)?(static[[:blank:]]+)?(const[[:blank:]]+)?(constexpr[[:blank:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:blank:]]+[a-zA-Z_][a-zA-Z0-9_]*\s*\([^{}]*\)\s*(const)?[[:blank:]]*\{' "${cppFile}" | sed -E 's/(.*\)) *\{.*/\1;/' | sort -k 2,1 > ${protoCpp}
+    grep -E '^[[:blank:]]*(inline[[:blank:]]+)?(virtual[[:blank:]]+)?(explicit[[:blank:]]+)?(static[[:blank:]]+)?(const[[:blank:]]+)?(constexpr[[:blank:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:blank:]]+[a-zA-Z_][a-zA-Z0-9_]*\s*\([^{}]*\)\s*(const)?[[:blank:]]*\{' "${cppFile}" | sed -E 's/(.*\)) *\{.*/\1;/' | sort -k 2,1 | grep '^static void BM_' > ${protoCpp}
 
     tempFile=$(mktemp)
 
