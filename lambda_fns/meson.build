@@ -72,6 +72,19 @@ if bench.found()
         lambda_fns_benchmark_google_no_opt_exe,
         suite: 'lambda_fns',
     )
+
+    custom_target(
+        'bench_lambda_fns',
+        command: [
+            'sh',
+            '-c', 'meson test --benchmark -C @BUILD_ROOT@ --suite lambda_fns && cat @BUILD_ROOT@/meson-logs/testlog.txt',
+        ],
+        depends: [
+            lambda_fns_benchmark_google_no_opt_exe,
+            lambda_fns_benchmark_google_opt_exe,
+        ],
+        output: 'dummy_output.txt',
+    )
 endif
 
 gen_asm = custom_target(
@@ -132,17 +145,4 @@ gen_asm_lib_opt = custom_target(
         '@INPUT@',
     ],
     build_by_default: true,
-)
-
-custom_target(
-    'bench_lambda_fns',
-    command: [
-        'sh',
-        '-c', 'meson test --benchmark -C @BUILD_ROOT@ --suite lambda_fns && cat @BUILD_ROOT@/meson-logs/testlog.txt',
-    ],
-    depends: [
-        lambda_fns_benchmark_google_no_opt_exe,
-        lambda_fns_benchmark_google_opt_exe,
-    ],
-    output: 'dummy_output.txt',
 )

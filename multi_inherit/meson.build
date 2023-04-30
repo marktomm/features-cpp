@@ -72,6 +72,19 @@ if bench.found()
         multi_inherit_benchmark_google_no_opt_exe,
         suite: 'multi_inherit',
     )
+
+    custom_target(
+        'bench_multi_inherit',
+        command: [
+            'sh',
+            '-c', 'meson test --benchmark -C @BUILD_ROOT@ --suite multi_inherit && cat @BUILD_ROOT@/meson-logs/testlog.txt',
+        ],
+        depends: [
+            multi_inherit_benchmark_google_no_opt_exe,
+            multi_inherit_benchmark_google_opt_exe,
+        ],
+        output: 'dummy_output.txt',
+    )
 endif
 
 gen_asm = custom_target(
@@ -132,17 +145,4 @@ gen_asm_lib_opt = custom_target(
         '@INPUT@',
     ],
     build_by_default: true,
-)
-
-custom_target(
-    'bench_multi_inherit',
-    command: [
-        'sh',
-        '-c', 'meson test --benchmark -C @BUILD_ROOT@ --suite multi_inherit && cat @BUILD_ROOT@/meson-logs/testlog.txt',
-    ],
-    depends: [
-        multi_inherit_benchmark_google_no_opt_exe,
-        multi_inherit_benchmark_google_opt_exe,
-    ],
-    output: 'dummy_output.txt',
 )
