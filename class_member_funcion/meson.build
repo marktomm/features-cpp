@@ -14,6 +14,7 @@ class_member_funcion_exe = executable(
     'class_member_funcion_opt',
     [class_member_funcion_main, class_member_funcion_src],
     include_directories: [class_member_funcion_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
 )
 
@@ -21,6 +22,7 @@ class_member_funcion_exe_no_opt = executable(
     'class_member_funcion_no_opt',
     [class_member_funcion_main, class_member_funcion_src],
     include_directories: [class_member_funcion_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
 )
@@ -41,9 +43,7 @@ class_member_funcion_exe_sanitize = executable(
     include_directories: [class_member_funcion_inc, common_inc],
     install: true,
     cpp_args: ['-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ class_member_funcion_inc_opt_o ],
 )
@@ -54,9 +54,7 @@ class_member_funcion_exe_no_opt_sanitize = executable(
     include_directories: [class_member_funcion_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ class_member_funcion_inc_opt_o ],
 )

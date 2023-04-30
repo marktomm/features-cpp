@@ -14,6 +14,7 @@ multi_inherit_exe = executable(
     'multi_inherit_opt',
     [multi_inherit_main, multi_inherit_src],
     include_directories: [multi_inherit_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
 )
 
@@ -21,6 +22,7 @@ multi_inherit_exe_no_opt = executable(
     'multi_inherit_no_opt',
     [multi_inherit_main, multi_inherit_src],
     include_directories: [multi_inherit_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
 )
@@ -41,9 +43,7 @@ multi_inherit_exe_sanitize = executable(
     include_directories: [multi_inherit_inc, common_inc],
     install: true,
     cpp_args: ['-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ multi_inherit_inc_opt_o ],
 )
@@ -54,9 +54,7 @@ multi_inherit_exe_no_opt_sanitize = executable(
     include_directories: [multi_inherit_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ multi_inherit_inc_opt_o ],
 )

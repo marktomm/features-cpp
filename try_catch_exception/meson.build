@@ -14,6 +14,7 @@ try_catch_exception_exe = executable(
     'try_catch_exception_opt',
     [try_catch_exception_main, try_catch_exception_src],
     include_directories: [try_catch_exception_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
 )
 
@@ -21,6 +22,7 @@ try_catch_exception_exe_no_opt = executable(
     'try_catch_exception_no_opt',
     [try_catch_exception_main, try_catch_exception_src],
     include_directories: [try_catch_exception_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
 )
@@ -41,9 +43,7 @@ try_catch_exception_exe_sanitize = executable(
     include_directories: [try_catch_exception_inc, common_inc],
     install: true,
     cpp_args: ['-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ try_catch_exception_inc_opt_o ],
 )
@@ -54,9 +54,7 @@ try_catch_exception_exe_no_opt_sanitize = executable(
     include_directories: [try_catch_exception_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ try_catch_exception_inc_opt_o ],
 )

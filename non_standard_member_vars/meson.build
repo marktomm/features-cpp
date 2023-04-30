@@ -14,6 +14,7 @@ non_standard_member_vars_exe = executable(
     'non_standard_member_vars_opt',
     [non_standard_member_vars_main, non_standard_member_vars_src],
     include_directories: [non_standard_member_vars_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
 )
 
@@ -21,6 +22,7 @@ non_standard_member_vars_exe_no_opt = executable(
     'non_standard_member_vars_no_opt',
     [non_standard_member_vars_main, non_standard_member_vars_src],
     include_directories: [non_standard_member_vars_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
 )
@@ -41,9 +43,7 @@ non_standard_member_vars_exe_sanitize = executable(
     include_directories: [non_standard_member_vars_inc, common_inc],
     install: true,
     cpp_args: ['-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ non_standard_member_vars_inc_opt_o ],
 )
@@ -54,9 +54,7 @@ non_standard_member_vars_exe_no_opt_sanitize = executable(
     include_directories: [non_standard_member_vars_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ non_standard_member_vars_inc_opt_o ],
 )

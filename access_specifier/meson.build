@@ -14,6 +14,7 @@ access_specifier_exe = executable(
     'access_specifier_opt',
     [access_specifier_main, access_specifier_src],
     include_directories: [access_specifier_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
 )
 
@@ -21,6 +22,7 @@ access_specifier_exe_no_opt = executable(
     'access_specifier_no_opt',
     [access_specifier_main, access_specifier_src],
     include_directories: [access_specifier_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
 )
@@ -41,9 +43,7 @@ access_specifier_exe_sanitize = executable(
     include_directories: [access_specifier_inc, common_inc],
     install: true,
     cpp_args: ['-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ access_specifier_inc_opt_o ],
 )
@@ -54,9 +54,7 @@ access_specifier_exe_no_opt_sanitize = executable(
     include_directories: [access_specifier_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ access_specifier_inc_opt_o ],
 )

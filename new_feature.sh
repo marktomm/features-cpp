@@ -69,11 +69,8 @@ ${ARG1}_exe_sanitize = executable(
     include_directories: [${ARG1}_inc, common_inc],
     install: true,
     cpp_args: ['-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    dependencies: [bench, thread],
     # objects: [ ${ARG1}_inc_opt_o ],
 )
 
@@ -83,11 +80,8 @@ ${ARG1}_exe_no_opt_sanitize = executable(
     include_directories: [${ARG1}_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    dependencies: [bench, thread],
     # objects: [ ${ARG1}_inc_opt_o ],
 )
 

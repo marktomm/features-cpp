@@ -14,6 +14,7 @@ trivial_type_exe = executable(
     'trivial_type_opt',
     [trivial_type_main, trivial_type_src],
     include_directories: [trivial_type_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
 )
 
@@ -21,6 +22,7 @@ trivial_type_exe_no_opt = executable(
     'trivial_type_no_opt',
     [trivial_type_main, trivial_type_src],
     include_directories: [trivial_type_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
 )
@@ -41,9 +43,7 @@ trivial_type_exe_sanitize = executable(
     include_directories: [trivial_type_inc, common_inc],
     install: true,
     cpp_args: ['-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ trivial_type_inc_opt_o ],
 )
@@ -54,9 +54,7 @@ trivial_type_exe_no_opt_sanitize = executable(
     include_directories: [trivial_type_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ trivial_type_inc_opt_o ],
 )

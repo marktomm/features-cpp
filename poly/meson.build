@@ -14,6 +14,7 @@ poly_exe = executable(
     'poly_opt',
     [poly_main, poly_src],
     include_directories: [poly_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
 )
 
@@ -21,6 +22,7 @@ poly_exe_no_opt = executable(
     'poly_no_opt',
     [poly_main, poly_src],
     include_directories: [poly_inc, common_inc],
+    dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
 )
@@ -41,9 +43,7 @@ poly_exe_sanitize = executable(
     include_directories: [poly_inc, common_inc],
     install: true,
     cpp_args: ['-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ poly_inc_opt_o ],
 )
@@ -54,9 +54,7 @@ poly_exe_no_opt_sanitize = executable(
     include_directories: [poly_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
-    dependencies: [
-        asandep,
-    ],
+    dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ poly_inc_opt_o ],
 )
