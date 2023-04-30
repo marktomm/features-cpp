@@ -12,8 +12,15 @@ test -d $1 || {
     exit 1
 }
 
+trimFwdSlashes() {
+  a1="${1#/}"       # Remove leading /
+  a1="${a1%/}"     # Remove preceding /
+  echo "${a1}"
+}
+
 APP_ROOT=.
 SUB=$1
+SUB=$(trimFwdSlashes ${SUB})
 OUTPUT=${SUB}/amalgamation.cpp
 REGEX='"dev.*\.h\|common/.*\.h\|include.*types.h"'
 firstFile=true
