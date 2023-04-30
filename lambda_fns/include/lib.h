@@ -12,7 +12,7 @@ struct SmallObject {
 };
 
 struct LargeObject {
-    std::array<int, 1000000> data{};
+    std::array<int, 10000> data{};
 };
 
 }; // namespace lambda_fns
