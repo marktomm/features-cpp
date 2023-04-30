@@ -1,4 +1,6 @@
 #include "lib.h"
+#include <benchmark/benchmark.h>
+#include <functional>
 
 namespace lambda_fns {
 void small_obj() { [[maybe_unused]] SmallObject obj; }
@@ -12,6 +14,12 @@ void small_obj_lambda() {
     [[maybe_unused]] auto lambda = [obj]() {
         [[maybe_unused]] auto ptr = &obj;
     };
+}
+
+std::function<void()> small_obj_lambda_ret() {
+    SmallObject obj;
+    auto lambda = [obj]() { [[maybe_unused]] auto ptr = &obj; };
+    return lambda;
 }
 
 void small_obj_lambda_ref(SmallObject& obj) {
@@ -78,6 +86,12 @@ void large_obj_lambda() {
     };
 }
 
+std::function<void()> large_obj_lambda_ret() {
+    LargeObject obj;
+    auto lambda = [obj]() mutable { [[maybe_unused]] auto ptr = &obj; };
+    return lambda;
+}
+
 void large_obj_lambda_opt() {
     LargeObject obj;
     [[maybe_unused]] auto lambda = [obj]() mutable {
@@ -93,4 +107,11 @@ void large_obj_opt() {
     LargeObject obj;
     benchmark::DoNotOptimize(obj);
 }
+
+std::function<void()> create_lambda_min() {
+    [[maybe_unused]] LargeObject lo;
+    auto lambda = [lo]() { [[maybe_unused]] auto dummy = lo; };
+    return lambda;
+}
+
 } // namespace lambda_fns

@@ -4,6 +4,7 @@
 #include <array>
 
 #include <cstdint>
+#include <functional>
 
 #include <benchmark/benchmark.h>
 
@@ -18,6 +19,9 @@ struct LargeObject {
 };
 
 // GEN_PROTO_BEGIN
+std::function<void()> create_lambda_min();
+std::function<void()> large_obj_lambda_ret();
+std::function<void()> small_obj_lambda_ret();
 void large_obj();
 void large_obj_lambda();
 void large_obj_lambda_call();

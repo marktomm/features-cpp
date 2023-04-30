@@ -17,14 +17,14 @@ using namespace std;
 // ClobberMemory
 [[maybe_unused]] static void clobber() { asm volatile("" : : : "memory"); }
 
-std::function<void()> createLambdaMin() {
-    [[maybe_unused]] LargeObject lo;
-    auto lambda = [lo]() { [[maybe_unused]] auto dummy = lo; };
-    return lambda;
-}
-
 int main() {
-    auto lambda = createLambdaMin();
-    lambda();
+    // auto lambda = create_lambda_min();
+    // lambda();
+    // large_obj_lambda_call();
+
+    // will add 40KB
+    large_obj_lambda_ret();
+    // nothing
+    large_obj_lambda_call();
     return 0;
 }
