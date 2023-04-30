@@ -1,24 +1,41 @@
 # features-cpp
 
-build requirements: meson and gcc
+build requirements: meson, gcc, binutils (objdump), libasan
 
 ```shell
+meson setup builddir
 ./start.sh
 ```
 
-developemnt requirements: clang-format, muon, doxygen, graphviz
+base requirements
 
-# join.sh
+formatting requirements: clang-format, muon
+
+documentation requirements: doxygen, graphviz,
+
+profiling nice-to-haves: heaptrack, valgrind
+
+# ouput: join.sh
 
 Create one file code listing for feature main code
+
+```shell
+./join.sh poly
+ls poly/amalgamation.cpp
+```
 
 # output: asm_prettify.sh
 
 Get assmebly
 
+```shell
+./asm_prettify.sh poly lib opt
+./asm_prettify.sh poly main opt
+```
+
 # dev: new_feature.sh
 
-Add feature dir boilerplate
+Add new feature dir and code boilerplate
 
 ```shell
 ./new_feature.sh feature_name
