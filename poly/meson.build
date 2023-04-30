@@ -33,6 +33,34 @@ poly_inc_no_opt_o = poly_exe_no_opt.extract_objects(
     poly_src,
 )
 
+asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
+
+poly_exe_sanitize = executable(
+    'poly_opt_sanitize',
+    [poly_main, poly_src],
+    include_directories: [poly_inc, common_inc],
+    install: true,
+    cpp_args: ['-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ poly_inc_opt_o ],
+)
+
+poly_exe_no_opt_sanitize = executable(
+    'poly_no_opt_sanitize',
+    [poly_main, poly_src],
+    include_directories: [poly_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g', '-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ poly_inc_opt_o ],
+)
+
 # executable(
 #     'poly_simple',
 #     [poly_simple],

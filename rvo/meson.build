@@ -33,6 +33,34 @@ rvo_inc_no_opt_o = rvo_exe_no_opt.extract_objects(
     rvo_src,
 )
 
+asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
+
+rvo_exe_sanitize = executable(
+    'rvo_opt_sanitize',
+    [rvo_main, rvo_src],
+    include_directories: [rvo_inc, common_inc],
+    install: true,
+    cpp_args: ['-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ rvo_inc_opt_o ],
+)
+
+rvo_exe_no_opt_sanitize = executable(
+    'rvo_no_opt_sanitize',
+    [rvo_main, rvo_src],
+    include_directories: [rvo_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g', '-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ rvo_inc_opt_o ],
+)
+
 # executable(
 #     'rvo_simple',
 #     [rvo_simple],

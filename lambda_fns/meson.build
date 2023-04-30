@@ -33,6 +33,34 @@ lambda_fns_inc_no_opt_o = lambda_fns_exe_no_opt.extract_objects(
     lambda_fns_src,
 )
 
+asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
+
+lambda_fns_exe_sanitize = executable(
+    'lambda_fns_opt_sanitize',
+    [lambda_fns_main, lambda_fns_src],
+    include_directories: [lambda_fns_inc, common_inc],
+    install: true,
+    cpp_args: ['-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ lambda_fns_inc_opt_o ],
+)
+
+lambda_fns_exe_no_opt_sanitize = executable(
+    'lambda_fns_no_opt_sanitize',
+    [lambda_fns_main, lambda_fns_src],
+    include_directories: [lambda_fns_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g', '-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ lambda_fns_inc_opt_o ],
+)
+
 # executable(
 #     'lambda_fns_simple',
 #     [lambda_fns_simple],

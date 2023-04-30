@@ -33,6 +33,34 @@ non_standard_member_vars_inc_no_opt_o = non_standard_member_vars_exe_no_opt.extr
     non_standard_member_vars_src,
 )
 
+asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
+
+non_standard_member_vars_exe_sanitize = executable(
+    'non_standard_member_vars_opt_sanitize',
+    [non_standard_member_vars_main, non_standard_member_vars_src],
+    include_directories: [non_standard_member_vars_inc, common_inc],
+    install: true,
+    cpp_args: ['-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ non_standard_member_vars_inc_opt_o ],
+)
+
+non_standard_member_vars_exe_no_opt_sanitize = executable(
+    'non_standard_member_vars_no_opt_sanitize',
+    [non_standard_member_vars_main, non_standard_member_vars_src],
+    include_directories: [non_standard_member_vars_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g', '-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ non_standard_member_vars_inc_opt_o ],
+)
+
 # executable(
 #     'non_standard_member_vars_simple',
 #     [non_standard_member_vars_simple],

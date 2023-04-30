@@ -33,6 +33,34 @@ virtual_base_class_inc_no_opt_o = virtual_base_class_exe_no_opt.extract_objects(
     virtual_base_class_src,
 )
 
+asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
+
+virtual_base_class_exe_sanitize = executable(
+    'virtual_base_class_opt_sanitize',
+    [virtual_base_class_main, virtual_base_class_src],
+    include_directories: [virtual_base_class_inc, common_inc],
+    install: true,
+    cpp_args: ['-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ virtual_base_class_inc_opt_o ],
+)
+
+virtual_base_class_exe_no_opt_sanitize = executable(
+    'virtual_base_class_no_opt_sanitize',
+    [virtual_base_class_main, virtual_base_class_src],
+    include_directories: [virtual_base_class_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g', '-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ virtual_base_class_inc_opt_o ],
+)
+
 # executable(
 #     'virtual_base_class_simple',
 #     [virtual_base_class_simple],

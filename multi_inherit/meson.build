@@ -33,6 +33,34 @@ multi_inherit_inc_no_opt_o = multi_inherit_exe_no_opt.extract_objects(
     multi_inherit_src,
 )
 
+asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
+
+multi_inherit_exe_sanitize = executable(
+    'multi_inherit_opt_sanitize',
+    [multi_inherit_main, multi_inherit_src],
+    include_directories: [multi_inherit_inc, common_inc],
+    install: true,
+    cpp_args: ['-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ multi_inherit_inc_opt_o ],
+)
+
+multi_inherit_exe_no_opt_sanitize = executable(
+    'multi_inherit_no_opt_sanitize',
+    [multi_inherit_main, multi_inherit_src],
+    include_directories: [multi_inherit_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g', '-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ multi_inherit_inc_opt_o ],
+)
+
 # executable(
 #     'multi_inherit_simple',
 #     [multi_inherit_simple],

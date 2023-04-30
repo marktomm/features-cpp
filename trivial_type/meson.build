@@ -33,6 +33,34 @@ trivial_type_inc_no_opt_o = trivial_type_exe_no_opt.extract_objects(
     trivial_type_src,
 )
 
+asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
+
+trivial_type_exe_sanitize = executable(
+    'trivial_type_opt_sanitize',
+    [trivial_type_main, trivial_type_src],
+    include_directories: [trivial_type_inc, common_inc],
+    install: true,
+    cpp_args: ['-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ trivial_type_inc_opt_o ],
+)
+
+trivial_type_exe_no_opt_sanitize = executable(
+    'trivial_type_no_opt_sanitize',
+    [trivial_type_main, trivial_type_src],
+    include_directories: [trivial_type_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g', '-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ trivial_type_inc_opt_o ],
+)
+
 # executable(
 #     'trivial_type_simple',
 #     [trivial_type_simple],

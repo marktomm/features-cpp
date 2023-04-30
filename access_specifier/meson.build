@@ -33,6 +33,34 @@ access_specifier_inc_no_opt_o = access_specifier_exe_no_opt.extract_objects(
     access_specifier_src,
 )
 
+asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
+
+access_specifier_exe_sanitize = executable(
+    'access_specifier_opt_sanitize',
+    [access_specifier_main, access_specifier_src],
+    include_directories: [access_specifier_inc, common_inc],
+    install: true,
+    cpp_args: ['-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ access_specifier_inc_opt_o ],
+)
+
+access_specifier_exe_no_opt_sanitize = executable(
+    'access_specifier_no_opt_sanitize',
+    [access_specifier_main, access_specifier_src],
+    include_directories: [access_specifier_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g', '-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ access_specifier_inc_opt_o ],
+)
+
 # executable(
 #     'access_specifier_simple',
 #     [access_specifier_simple],

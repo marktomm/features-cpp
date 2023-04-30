@@ -59,6 +59,34 @@ ${ARG1}_inc_no_opt_o = ${ARG1}_exe_no_opt.extract_objects(
     ${ARG1}_src,
 )
 
+asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
+
+${ARG1}_exe_sanitize = executable(
+    '${ARG1}_opt_sanitize',
+    [${ARG1}_main, ${ARG1}_src],
+    include_directories: [${ARG1}_inc, common_inc],
+    install: true,
+    cpp_args: ['-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ ${ARG1}_inc_opt_o ],
+)
+
+${ARG1}_exe_no_opt_sanitize = executable(
+    '${ARG1}_no_opt_sanitize',
+    [${ARG1}_main, ${ARG1}_src],
+    include_directories: [${ARG1}_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-g', '-fsanitize=address'],
+    dependencies: [
+        asandep,
+    ],
+    link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
+    # objects: [ ${ARG1}_inc_opt_o ],
+)
+
 # executable(
 #     '${ARG1}_simple',
 #     [${ARG1}_simple],
