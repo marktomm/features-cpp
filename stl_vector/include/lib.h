@@ -24,6 +24,7 @@ Container generateRandomContainer(std::size_t size) {
 }
 
 // GEN_PROTO_BEGIN
+
 // GEN_PROTO_END
 
 }; // namespace stl_vector
