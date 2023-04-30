@@ -83,8 +83,7 @@ std::size_t GetNextGlobalIndex() {
     return (++it == 100 ? it = 1 : it);
 }
 
-void loop_vbools_pause_resume_sfn(std::function<void(int)> callback,
-                                  benchmark::State& state) {
+void loop_vbools_pause_resume_sfn(ci callback, benchmark::State& state) {
     auto v = GetRandomBools();
     std::size_t it = 0;
     for (auto _ : state) {
@@ -197,8 +196,7 @@ int strip_ErrorCodeVbools(std::vector<bool> const& v) {
     return 0;
 }
 
-void loop_getrandom_try_block_ptr(benchmark::State& state,
-                                  void (*callback)(bool)) {
+void loop_getrandom_try_block_ptr(benchmark::State& state, cb callback) {
 
     for (auto _ : state) {
         bool res = getRandom() == errorInt;
@@ -210,8 +208,14 @@ void loop_getrandom_try_block_ptr(benchmark::State& state,
     }
 }
 
-void loop_getrandom_try_block_sfn(benchmark::State& state,
-                                  std::function<void(bool)> callback) {
+void fnx1() {
+    bool res = getRandom() == errorInt;
+    auto err = strip_ErrorCode(res);
+    if (err < 0) {
+    }
+}
+
+void loop_getrandom_try_block_sfn(benchmark::State& state, cf callback) {
 
     for (auto _ : state) {
         bool res = getRandom() == errorInt;
@@ -223,8 +227,15 @@ void loop_getrandom_try_block_sfn(benchmark::State& state,
     }
 }
 
-void loop_vbools_try_block_ptr(benchmark::State& state,
-                               void (*callback)(bool)) {
+void fnx2(std::function<int(bool)> fn) {
+
+    bool res = getRandom() == errorInt;
+    auto err = fn(res);
+    if (err < 0) {
+    }
+}
+
+void loop_vbools_try_block_ptr(benchmark::State& state, cb callback) {
 
     auto v = GetRandomBools();
     for (auto _ : state) {

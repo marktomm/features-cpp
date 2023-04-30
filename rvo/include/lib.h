@@ -20,6 +20,11 @@ struct LargeObject {
     std::array<uint32_t, 10000> data;
 };
 
+// GEN_PROTO_BEGIN
+LargeObject return_by_value_no_rvo(const LargeObject& obj);
+LargeObject return_by_value_rvo();
+// GEN_PROTO_END
+
 }; // namespace rvo
 
 #endif

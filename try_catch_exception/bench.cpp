@@ -12,6 +12,8 @@
 #include <random>
 #include <stdexcept>
 
+using namespace try_catch_exception;
+
 // clang-format off
 // grep -E '^[[:blank:]]*(inline[[:blank:]]+)?(virtual[[:blank:]]+)?(explicit[[:blank:]]+)?(static[[:blank:]]+)?(const[[:blank:]]+)?(constexpr[[:blank:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:blank:]]+[a-zA-Z_][a-zA-Z0-9_]*\s*\([^{}]*\)\s*(const)?[[:blank:]]*\{' try_catch_exception/bench.cpp | sed -E 's/(.*\)) *\{.*/\1;/' | sort -k 2,1
 // clang-format on
@@ -171,10 +173,7 @@ void BM_B5_getrandom_try_block_ptr_Return(benchmark::State& state) {
 // 4.
 void BM_B6_getrandom_try_block_ptr_ErrorCode(benchmark::State& state) {
     for (auto _ : state) {
-        bool res = getRandom() == errorInt;
-        auto err = strip_ErrorCode(res);
-        if (err < 0) {
-        }
+        fnx1();
     }
 }
 // 5.
@@ -202,10 +201,7 @@ void BM_B9_getrandom_try_block_fsn_Return(benchmark::State& state) {
 void BM_C1_getrandom_try_block_fsn_ErrorCode(benchmark::State& state) {
     std::function<int(bool)> fn = strip_ErrorCode;
     for (auto _ : state) {
-        bool res = getRandom() == errorInt;
-        auto err = fn(res);
-        if (err < 0) {
-        }
+        fnx2(fn);
     }
 }
 // 5.

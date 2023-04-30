@@ -16,7 +16,7 @@ ARG1=$(trimFwdSlashes ${ARG1})
     toFile=include/lib.h
     protoCpp=$(mktemp)
     # void fn(\n // will fail
-    grep -E '^[[:blank:]]*(inline[[:blank:]]+)?(virtual[[:blank:]]+)?(explicit[[:blank:]]+)?(static[[:blank:]]+)?(const[[:blank:]]+)?(constexpr[[:blank:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:blank:]]+[a-zA-Z_][a-zA-Z0-9_]*\s*\([^{}]*\)\s*(const)?[[:blank:]]*\{' "${cppFile}" | sed -E 's/(.*\)) *\{.*/\1;/' | sort -k 2,1 > ${protoCpp}
+    grep -E '^[[:blank:]]*(inline[[:blank:]]+)?(virtual[[:blank:]]+)?(explicit[[:blank:]]+)?(static[[:blank:]]+)?(const[[:blank:]]+)?(constexpr[[:blank:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:blank:]]+[a-zA-Z_][a-zA-Z0-9_]*\s*\([^{}]*\)\s*(const)?[[:blank:]]*\{|^std::vector<[a-zA-Z0-9_]*> .*\(.*{|^std::size_t .*\(.*{' "${cppFile}" | sed -E 's/(.*\)) *\{.*/\1;/' | sort -k 2,1 > ${protoCpp}
 
     tempFile=$(mktemp)
 
