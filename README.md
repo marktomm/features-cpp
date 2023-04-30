@@ -61,6 +61,12 @@ Syntax check and format meson.build files
 sort bench_output.txt | sed -E 's/(^.*[^0-9])[0-9]*$/\1/'
 ```
 
+# heaptrack
+
+```shell
+./_build.sh && heaptrack ./builddir/lambda_fns/lambda_fns_no_opt
+```
+
 # output: google benchmark compare two bechmark runs
 
 required: pip3
