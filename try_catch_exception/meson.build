@@ -42,7 +42,7 @@ try_catch_exception_exe_sanitize = executable(
     [try_catch_exception_main, try_catch_exception_src],
     include_directories: [try_catch_exception_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ try_catch_exception_inc_opt_o ],
@@ -82,6 +82,7 @@ if bench.found()
         'try_catch_exception_benchmark_google_opt',
         try_catch_exception_benchmark_google_opt_exe,
         suite: 'try_catch_exception',
+        timeout: 0,
     )
 
     try_catch_exception_benchmark_google_no_opt_exe = executable(
@@ -97,6 +98,7 @@ if bench.found()
         'try_catch_exception_benchmark_google_no_opt',
         try_catch_exception_benchmark_google_no_opt_exe,
         suite: 'try_catch_exception',
+        timeout: 0,
     )
 
     custom_target(

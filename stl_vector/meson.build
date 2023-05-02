@@ -42,7 +42,7 @@ stl_vector_exe_sanitize = executable(
     [stl_vector_main, stl_vector_src],
     include_directories: [stl_vector_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ stl_vector_inc_opt_o ],
@@ -82,6 +82,7 @@ if bench.found()
         'stl_vector_benchmark_google_opt',
         stl_vector_benchmark_google_opt_exe,
         suite: 'stl_vector',
+        timeout: 0,
     )
 
     stl_vector_benchmark_google_no_opt_exe = executable(
@@ -97,6 +98,7 @@ if bench.found()
         'stl_vector_benchmark_google_no_opt',
         stl_vector_benchmark_google_no_opt_exe,
         suite: 'stl_vector',
+        timeout: 0,
     )
 
     custom_target(

@@ -42,7 +42,7 @@ virtual_base_class_exe_sanitize = executable(
     [virtual_base_class_main, virtual_base_class_src],
     include_directories: [virtual_base_class_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ virtual_base_class_inc_opt_o ],
@@ -82,6 +82,7 @@ if bench.found()
         'virtual_base_class_benchmark_google_opt',
         virtual_base_class_benchmark_google_opt_exe,
         suite: 'virtual_base_class',
+        timeout: 0,
     )
 
     virtual_base_class_benchmark_google_no_opt_exe = executable(
@@ -97,6 +98,7 @@ if bench.found()
         'virtual_base_class_benchmark_google_no_opt',
         virtual_base_class_benchmark_google_no_opt_exe,
         suite: 'virtual_base_class',
+        timeout: 0,
     )
 
     custom_target(

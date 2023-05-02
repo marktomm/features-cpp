@@ -42,7 +42,7 @@ trivial_type_exe_sanitize = executable(
     [trivial_type_main, trivial_type_src],
     include_directories: [trivial_type_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ trivial_type_inc_opt_o ],
@@ -82,6 +82,7 @@ if bench.found()
         'trivial_type_benchmark_google_opt',
         trivial_type_benchmark_google_opt_exe,
         suite: 'trivial_type',
+        timeout: 0,
     )
 
     trivial_type_benchmark_google_no_opt_exe = executable(
@@ -97,6 +98,7 @@ if bench.found()
         'trivial_type_benchmark_google_no_opt',
         trivial_type_benchmark_google_no_opt_exe,
         suite: 'trivial_type',
+        timeout: 0,
     )
 
     custom_target(

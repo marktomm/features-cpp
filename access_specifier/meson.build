@@ -42,7 +42,7 @@ access_specifier_exe_sanitize = executable(
     [access_specifier_main, access_specifier_src],
     include_directories: [access_specifier_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ access_specifier_inc_opt_o ],
@@ -82,6 +82,7 @@ if bench.found()
         'access_specifier_benchmark_google_opt',
         access_specifier_benchmark_google_opt_exe,
         suite: 'access_specifier',
+        timeout: 0,
     )
 
     access_specifier_benchmark_google_no_opt_exe = executable(
@@ -97,6 +98,7 @@ if bench.found()
         'access_specifier_benchmark_google_no_opt',
         access_specifier_benchmark_google_no_opt_exe,
         suite: 'access_specifier',
+        timeout: 0,
     )
 
     custom_target(

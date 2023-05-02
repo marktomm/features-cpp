@@ -42,7 +42,7 @@ class_member_funcion_exe_sanitize = executable(
     [class_member_funcion_main, class_member_funcion_src],
     include_directories: [class_member_funcion_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ class_member_funcion_inc_opt_o ],
@@ -82,6 +82,7 @@ if bench.found()
         'class_member_funcion_benchmark_google_opt',
         class_member_funcion_benchmark_google_opt_exe,
         suite: 'class_member_funcion',
+        timeout: 0,
     )
 
     class_member_funcion_benchmark_google_no_opt_exe = executable(
@@ -97,6 +98,7 @@ if bench.found()
         'class_member_funcion_benchmark_google_no_opt',
         class_member_funcion_benchmark_google_no_opt_exe,
         suite: 'class_member_funcion',
+        timeout: 0,
     )
 
     custom_target(

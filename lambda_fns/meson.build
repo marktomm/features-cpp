@@ -42,7 +42,7 @@ lambda_fns_exe_sanitize = executable(
     [lambda_fns_main, lambda_fns_src],
     include_directories: [lambda_fns_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ lambda_fns_inc_opt_o ],
@@ -82,6 +82,7 @@ if bench.found()
         'lambda_fns_benchmark_google_opt',
         lambda_fns_benchmark_google_opt_exe,
         suite: 'lambda_fns',
+        timeout: 0,
     )
 
     lambda_fns_benchmark_google_no_opt_exe = executable(
@@ -97,6 +98,7 @@ if bench.found()
         'lambda_fns_benchmark_google_no_opt',
         lambda_fns_benchmark_google_no_opt_exe,
         suite: 'lambda_fns',
+        timeout: 0,
     )
 
     custom_target(

@@ -42,7 +42,7 @@ non_standard_member_vars_exe_sanitize = executable(
     [non_standard_member_vars_main, non_standard_member_vars_src],
     include_directories: [non_standard_member_vars_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ non_standard_member_vars_inc_opt_o ],
@@ -82,6 +82,7 @@ if bench.found()
         'non_standard_member_vars_benchmark_google_opt',
         non_standard_member_vars_benchmark_google_opt_exe,
         suite: 'non_standard_member_vars',
+        timeout: 0,
     )
 
     non_standard_member_vars_benchmark_google_no_opt_exe = executable(
@@ -97,6 +98,7 @@ if bench.found()
         'non_standard_member_vars_benchmark_google_no_opt',
         non_standard_member_vars_benchmark_google_no_opt_exe,
         suite: 'non_standard_member_vars',
+        timeout: 0,
     )
 
     custom_target(

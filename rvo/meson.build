@@ -42,7 +42,7 @@ rvo_exe_sanitize = executable(
     [rvo_main, rvo_src],
     include_directories: [rvo_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ rvo_inc_opt_o ],
@@ -82,6 +82,7 @@ if bench.found()
         'rvo_benchmark_google_opt',
         rvo_benchmark_google_opt_exe,
         suite: 'rvo',
+        timeout: 0,
     )
 
     rvo_benchmark_google_no_opt_exe = executable(
@@ -97,6 +98,7 @@ if bench.found()
         'rvo_benchmark_google_no_opt',
         rvo_benchmark_google_no_opt_exe,
         suite: 'rvo',
+        timeout: 0,
     )
 
     custom_target(

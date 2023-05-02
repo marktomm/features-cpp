@@ -68,7 +68,7 @@ ${ARG1}_exe_sanitize = executable(
     [${ARG1}_main, ${ARG1}_src],
     include_directories: [${ARG1}_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ ${ARG1}_inc_opt_o ],
@@ -108,6 +108,7 @@ if bench.found()
         '${ARG1}_benchmark_google_opt',
         ${ARG1}_benchmark_google_opt_exe,
         suite: '${ARG1}',
+        timeout: 0,
     )
 
     ${ARG1}_benchmark_google_no_opt_exe = executable(
@@ -123,6 +124,7 @@ if bench.found()
         '${ARG1}_benchmark_google_no_opt',
         ${ARG1}_benchmark_google_no_opt_exe,
         suite: '${ARG1}',
+        timeout: 0,
     )
 
     custom_target(
@@ -209,13 +211,14 @@ cat << EOF
 #include <benchmark/benchmark.h>
 #include "lib.h"
 
+using namespace ${ARG1};
+
 struct SomeType {};
 
 // GEN_PROTO_BEGIN
 // GEN_PROTO_END
 
 static void ${ARG1}_bench(benchmark::State& state) {
-    using namespace ${ARG1};
     // Perform setup here
     using Ports = std::vector<SomeType>;
     Ports ports;
