@@ -59,6 +59,7 @@ ARG1=$(trimFwdSlashes ${ARG1})
     protoCpp=$(mktemp)
     # void fn(\n // will fail
     grep -E '^[[:blank:]]*(inline[[:blank:]]+)?(virtual[[:blank:]]+)?(explicit[[:blank:]]+)?(static[[:blank:]]+)?(const[[:blank:]]+)?(constexpr[[:blank:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:blank:]]+[a-zA-Z_][a-zA-Z0-9_]*\s*\([^{}]*\)\s*(const)?[[:blank:]]*\{' "${cppFile}" | sed -E 's/(.*\)) *\{.*/\1;/' | grep -F 'BM_' | sed -E 's/.*(BM_[^(]*).*/BENCHMARK(\1);/' | sort -k1.14 > ${protoCpp}
+    sed -Ei 's/(^.*[a-z0-9_]Manual.*\));/\1->UseManualTime();/' ${protoCpp}
 
     tempFile=$(mktemp)
 
