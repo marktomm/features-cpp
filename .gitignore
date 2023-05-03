@@ -1,2 +1,5 @@
 .cache
+.docs
+/build
 amalgamation.cpp
+*.png

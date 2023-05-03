@@ -16,12 +16,14 @@ project(
 cpp = meson.get_compiler('cpp')
 cpp_prog = find_program(cpp.get_id())
 
-# common_inc = include_directories('common/', './')
-common_inc = []
-common_src = []
+# common_inc = []
+# common_src = []
 
 bench = dependency('benchmark', required: false)
 thread = dependency('threads')
+
+subdir('common')
+common_inc = include_directories('common/', './')
 
 subdir('access_specifier')
 subdir('virtual_base_class')

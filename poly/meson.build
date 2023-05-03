@@ -16,6 +16,7 @@ poly_exe = executable(
     include_directories: [poly_inc, common_inc],
     dependencies: [bench, thread],
     install: true,
+    objects: [common_inc_opt_o],
 )
 
 poly_exe_no_opt = executable(
@@ -25,56 +26,57 @@ poly_exe_no_opt = executable(
     dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
+    objects: [common_inc_opt_o],
 )
 
 poly_inc_opt_o = poly_exe.extract_objects(
     poly_src,
 )
 
+poly_main_opt_o = poly_exe.extract_objects(
+    poly_main,
+)
+
+poly_inc_o = poly_inc_opt_o
+
 poly_inc_no_opt_o = poly_exe_no_opt.extract_objects(
     poly_src,
+)
+
+poly_main_no_opt_o = poly_exe_no_opt.extract_objects(
+    poly_main,
 )
 
 asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
 
 poly_exe_sanitize = executable(
     'poly_opt_sanitize',
-    [poly_main, poly_src],
     include_directories: [poly_inc, common_inc],
     install: true,
     cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ poly_inc_opt_o ],
+    objects: [poly_main_opt_o, poly_inc_opt_o, common_inc_opt_o],
 )
 
 poly_exe_no_opt_sanitize = executable(
     'poly_no_opt_sanitize',
-    [poly_main, poly_src],
     include_directories: [poly_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ poly_inc_opt_o ],
+    objects: [poly_main_no_opt_o, poly_inc_no_opt_o, common_inc_opt_o],
 )
-
-# executable(
-#     'poly_simple',
-#     [poly_simple],
-#     objects: [poly_inc_opt_o],
-#     include_directories: [poly_inc, common_inc],
-#     install: true,
-# )
 
 if bench.found()
     poly_benchmark_test = ['bench.cpp']
 
     poly_benchmark_google_opt_exe = executable(
         'poly_benchmark_google_opt',
-        [poly_benchmark_test, common_src],
-        objects: poly_inc_opt_o,
-        include_directories: poly_inc,
+        [poly_benchmark_test],
+        objects: [poly_inc_opt_o, common_inc_opt_o],
+        include_directories: [poly_inc, common_inc],
         dependencies: [bench, thread],
     )
 
@@ -87,9 +89,9 @@ if bench.found()
 
     poly_benchmark_google_no_opt_exe = executable(
         'poly_benchmark_google_no_opt',
-        [poly_benchmark_test, common_src],
-        objects: poly_inc_no_opt_o,
-        include_directories: poly_inc,
+        [poly_benchmark_test],
+        objects: [poly_inc_no_opt_o, common_inc_opt_o],
+        include_directories: [poly_inc, common_inc],
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
     )
@@ -122,6 +124,7 @@ gen_asm = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -137,6 +140,7 @@ gen_asm_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -152,6 +156,7 @@ gen_asm_lib = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -167,6 +172,7 @@ gen_asm_lib_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',

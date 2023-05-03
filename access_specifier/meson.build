@@ -16,6 +16,7 @@ access_specifier_exe = executable(
     include_directories: [access_specifier_inc, common_inc],
     dependencies: [bench, thread],
     install: true,
+    objects: [common_inc_opt_o],
 )
 
 access_specifier_exe_no_opt = executable(
@@ -25,56 +26,57 @@ access_specifier_exe_no_opt = executable(
     dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
+    objects: [common_inc_opt_o],
 )
 
 access_specifier_inc_opt_o = access_specifier_exe.extract_objects(
     access_specifier_src,
 )
 
+access_specifier_main_opt_o = access_specifier_exe.extract_objects(
+    access_specifier_main,
+)
+
+access_specifier_inc_o = access_specifier_inc_opt_o
+
 access_specifier_inc_no_opt_o = access_specifier_exe_no_opt.extract_objects(
     access_specifier_src,
+)
+
+access_specifier_main_no_opt_o = access_specifier_exe_no_opt.extract_objects(
+    access_specifier_main,
 )
 
 asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
 
 access_specifier_exe_sanitize = executable(
     'access_specifier_opt_sanitize',
-    [access_specifier_main, access_specifier_src],
     include_directories: [access_specifier_inc, common_inc],
     install: true,
     cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ access_specifier_inc_opt_o ],
+    objects: [access_specifier_main_opt_o, access_specifier_inc_opt_o, common_inc_opt_o],
 )
 
 access_specifier_exe_no_opt_sanitize = executable(
     'access_specifier_no_opt_sanitize',
-    [access_specifier_main, access_specifier_src],
     include_directories: [access_specifier_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ access_specifier_inc_opt_o ],
+    objects: [access_specifier_main_no_opt_o, access_specifier_inc_no_opt_o, common_inc_opt_o],
 )
-
-# executable(
-#     'access_specifier_simple',
-#     [access_specifier_simple],
-#     objects: [access_specifier_inc_opt_o],
-#     include_directories: [access_specifier_inc, common_inc],
-#     install: true,
-# )
 
 if bench.found()
     access_specifier_benchmark_test = ['bench.cpp']
 
     access_specifier_benchmark_google_opt_exe = executable(
         'access_specifier_benchmark_google_opt',
-        [access_specifier_benchmark_test, common_src],
-        objects: access_specifier_inc_opt_o,
-        include_directories: access_specifier_inc,
+        [access_specifier_benchmark_test],
+        objects: [access_specifier_inc_opt_o, common_inc_opt_o],
+        include_directories: [access_specifier_inc, common_inc],
         dependencies: [bench, thread],
     )
 
@@ -87,9 +89,9 @@ if bench.found()
 
     access_specifier_benchmark_google_no_opt_exe = executable(
         'access_specifier_benchmark_google_no_opt',
-        [access_specifier_benchmark_test, common_src],
-        objects: access_specifier_inc_no_opt_o,
-        include_directories: access_specifier_inc,
+        [access_specifier_benchmark_test],
+        objects: [access_specifier_inc_no_opt_o, common_inc_opt_o],
+        include_directories: [access_specifier_inc, common_inc],
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
     )
@@ -122,6 +124,7 @@ gen_asm = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -137,6 +140,7 @@ gen_asm_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -152,6 +156,7 @@ gen_asm_lib = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -167,6 +172,7 @@ gen_asm_lib_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',

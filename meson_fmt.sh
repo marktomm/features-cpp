@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 function is-app-installed(){
     hash $1 2>&-
     return $?

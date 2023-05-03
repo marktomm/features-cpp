@@ -16,6 +16,7 @@ non_standard_member_vars_exe = executable(
     include_directories: [non_standard_member_vars_inc, common_inc],
     dependencies: [bench, thread],
     install: true,
+    objects: [common_inc_opt_o],
 )
 
 non_standard_member_vars_exe_no_opt = executable(
@@ -25,56 +26,57 @@ non_standard_member_vars_exe_no_opt = executable(
     dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
+    objects: [common_inc_opt_o],
 )
 
 non_standard_member_vars_inc_opt_o = non_standard_member_vars_exe.extract_objects(
     non_standard_member_vars_src,
 )
 
+non_standard_member_vars_main_opt_o = non_standard_member_vars_exe.extract_objects(
+    non_standard_member_vars_main,
+)
+
+non_standard_member_vars_inc_o = non_standard_member_vars_inc_opt_o
+
 non_standard_member_vars_inc_no_opt_o = non_standard_member_vars_exe_no_opt.extract_objects(
     non_standard_member_vars_src,
+)
+
+non_standard_member_vars_main_no_opt_o = non_standard_member_vars_exe_no_opt.extract_objects(
+    non_standard_member_vars_main,
 )
 
 asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
 
 non_standard_member_vars_exe_sanitize = executable(
     'non_standard_member_vars_opt_sanitize',
-    [non_standard_member_vars_main, non_standard_member_vars_src],
     include_directories: [non_standard_member_vars_inc, common_inc],
     install: true,
     cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ non_standard_member_vars_inc_opt_o ],
+    objects: [non_standard_member_vars_main_opt_o, non_standard_member_vars_inc_opt_o, common_inc_opt_o],
 )
 
 non_standard_member_vars_exe_no_opt_sanitize = executable(
     'non_standard_member_vars_no_opt_sanitize',
-    [non_standard_member_vars_main, non_standard_member_vars_src],
     include_directories: [non_standard_member_vars_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ non_standard_member_vars_inc_opt_o ],
+    objects: [non_standard_member_vars_main_no_opt_o, non_standard_member_vars_inc_no_opt_o, common_inc_opt_o],
 )
-
-# executable(
-#     'non_standard_member_vars_simple',
-#     [non_standard_member_vars_simple],
-#     objects: [non_standard_member_vars_inc_opt_o],
-#     include_directories: [non_standard_member_vars_inc, common_inc],
-#     install: true,
-# )
 
 if bench.found()
     non_standard_member_vars_benchmark_test = ['bench.cpp']
 
     non_standard_member_vars_benchmark_google_opt_exe = executable(
         'non_standard_member_vars_benchmark_google_opt',
-        [non_standard_member_vars_benchmark_test, common_src],
-        objects: non_standard_member_vars_inc_opt_o,
-        include_directories: non_standard_member_vars_inc,
+        [non_standard_member_vars_benchmark_test],
+        objects: [non_standard_member_vars_inc_opt_o, common_inc_opt_o],
+        include_directories: [non_standard_member_vars_inc, common_inc],
         dependencies: [bench, thread],
     )
 
@@ -87,9 +89,9 @@ if bench.found()
 
     non_standard_member_vars_benchmark_google_no_opt_exe = executable(
         'non_standard_member_vars_benchmark_google_no_opt',
-        [non_standard_member_vars_benchmark_test, common_src],
-        objects: non_standard_member_vars_inc_no_opt_o,
-        include_directories: non_standard_member_vars_inc,
+        [non_standard_member_vars_benchmark_test],
+        objects: [non_standard_member_vars_inc_no_opt_o, common_inc_opt_o],
+        include_directories: [non_standard_member_vars_inc, common_inc],
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
     )
@@ -122,6 +124,7 @@ gen_asm = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -137,6 +140,7 @@ gen_asm_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -152,6 +156,7 @@ gen_asm_lib = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -167,6 +172,7 @@ gen_asm_lib_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',

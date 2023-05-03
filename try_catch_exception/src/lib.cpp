@@ -13,31 +13,33 @@ namespace try_catch_exception {
 // https://pspdfkit.com/blog/2020/performance-overhead-of-exceptions-in-cpp/
 // BEGIN
 
-const int randomRange = 2; // Give me a number between 0 and 2.
-const int errorInt = 0;    // Stop every time the number is 0.
-int getRandom() { return static_cast<int>(random()) % randomRange; }
+const int randomRange12 = 2; // Give me a number between 0 and 2.
+const int errorInt = 0;      // Stop every time the number is 0.
+int getRandom12() { return static_cast<int>(random()) % randomRange12; }
+const int randomRange13 = 2; // Give me a number between 0 and 2.
+int getRandom13() { return static_cast<int>(random()) % randomRange13; }
 
 // 1.
 void pspdfkit_BasicException() {
-    if (getRandom() == errorInt) {
+    if (getRandom13() == errorInt) {
         throw -2;
     }
 }
 // 2.
 void pspdfkit_MessageException() {
-    if (getRandom() == errorInt) {
+    if (getRandom13() == errorInt) {
         throw std::runtime_error("Halt! Who goes there?");
     }
 }
 // 3.
 void pspdfkit_Return() {
-    if (getRandom() == errorInt) {
+    if (getRandom13() == errorInt) {
         return;
     }
 }
 // 4.
 int pspdfkit_ErrorCode() {
-    if (getRandom() == errorInt) {
+    if (getRandom13() == errorInt) {
         return -1;
     }
     return 0;
@@ -157,7 +159,7 @@ void loop_vbools_global_index_access_no_opt(benchmark::State& state) {
 
 void loop_random(benchmark::State& state) {
     for (auto _ : state) {
-        benchmark::DoNotOptimize(getRandom() == errorInt);
+        benchmark::DoNotOptimize(getRandom13() == errorInt);
     }
 }
 
@@ -199,7 +201,7 @@ int strip_ErrorCodeVbools(std::vector<bool> const& v) {
 void loop_getrandom_try_block_ptr(benchmark::State& state, cb callback) {
 
     for (auto _ : state) {
-        bool res = getRandom() == errorInt;
+        bool res = getRandom13() == errorInt;
         try {
             callback(res);
         } catch (int ex) {
@@ -209,7 +211,7 @@ void loop_getrandom_try_block_ptr(benchmark::State& state, cb callback) {
 }
 
 void fnx1() {
-    bool res = getRandom() == errorInt;
+    bool res = getRandom13() == errorInt;
     auto err = strip_ErrorCode(res);
     if (err < 0) {
     }
@@ -218,7 +220,7 @@ void fnx1() {
 void loop_getrandom_try_block_sfn(benchmark::State& state, cf callback) {
 
     for (auto _ : state) {
-        bool res = getRandom() == errorInt;
+        bool res = getRandom13() == errorInt;
         try {
             callback(res);
         } catch (int ex) {
@@ -229,7 +231,7 @@ void loop_getrandom_try_block_sfn(benchmark::State& state, cf callback) {
 
 void fnx2(std::function<int(bool)> fn) {
 
-    bool res = getRandom() == errorInt;
+    bool res = getRandom13() == errorInt;
     auto err = fn(res);
     if (err < 0) {
     }

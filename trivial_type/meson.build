@@ -16,6 +16,7 @@ trivial_type_exe = executable(
     include_directories: [trivial_type_inc, common_inc],
     dependencies: [bench, thread],
     install: true,
+    objects: [common_inc_opt_o],
 )
 
 trivial_type_exe_no_opt = executable(
@@ -25,56 +26,57 @@ trivial_type_exe_no_opt = executable(
     dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
+    objects: [common_inc_opt_o],
 )
 
 trivial_type_inc_opt_o = trivial_type_exe.extract_objects(
     trivial_type_src,
 )
 
+trivial_type_main_opt_o = trivial_type_exe.extract_objects(
+    trivial_type_main,
+)
+
+trivial_type_inc_o = trivial_type_inc_opt_o
+
 trivial_type_inc_no_opt_o = trivial_type_exe_no_opt.extract_objects(
     trivial_type_src,
+)
+
+trivial_type_main_no_opt_o = trivial_type_exe_no_opt.extract_objects(
+    trivial_type_main,
 )
 
 asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
 
 trivial_type_exe_sanitize = executable(
     'trivial_type_opt_sanitize',
-    [trivial_type_main, trivial_type_src],
     include_directories: [trivial_type_inc, common_inc],
     install: true,
     cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ trivial_type_inc_opt_o ],
+    objects: [trivial_type_main_opt_o, trivial_type_inc_opt_o, common_inc_opt_o],
 )
 
 trivial_type_exe_no_opt_sanitize = executable(
     'trivial_type_no_opt_sanitize',
-    [trivial_type_main, trivial_type_src],
     include_directories: [trivial_type_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ trivial_type_inc_opt_o ],
+    objects: [trivial_type_main_no_opt_o, trivial_type_inc_no_opt_o, common_inc_opt_o],
 )
-
-# executable(
-#     'trivial_type_simple',
-#     [trivial_type_simple],
-#     objects: [trivial_type_inc_opt_o],
-#     include_directories: [trivial_type_inc, common_inc],
-#     install: true,
-# )
 
 if bench.found()
     trivial_type_benchmark_test = ['bench.cpp']
 
     trivial_type_benchmark_google_opt_exe = executable(
         'trivial_type_benchmark_google_opt',
-        [trivial_type_benchmark_test, common_src],
-        objects: trivial_type_inc_opt_o,
-        include_directories: trivial_type_inc,
+        [trivial_type_benchmark_test],
+        objects: [trivial_type_inc_opt_o, common_inc_opt_o],
+        include_directories: [trivial_type_inc, common_inc],
         dependencies: [bench, thread],
     )
 
@@ -87,9 +89,9 @@ if bench.found()
 
     trivial_type_benchmark_google_no_opt_exe = executable(
         'trivial_type_benchmark_google_no_opt',
-        [trivial_type_benchmark_test, common_src],
-        objects: trivial_type_inc_no_opt_o,
-        include_directories: trivial_type_inc,
+        [trivial_type_benchmark_test],
+        objects: [trivial_type_inc_no_opt_o, common_inc_opt_o],
+        include_directories: [trivial_type_inc, common_inc],
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
     )
@@ -122,6 +124,7 @@ gen_asm = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -137,6 +140,7 @@ gen_asm_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -152,6 +156,7 @@ gen_asm_lib = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -167,6 +172,7 @@ gen_asm_lib_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',

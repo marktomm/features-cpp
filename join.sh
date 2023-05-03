@@ -2,6 +2,12 @@
 
 set -e
 
+trimFwdSlashes() {
+  a1="${1#/}"       # Remove leading /
+  a1="${a1%/}"     # Remove preceding /
+  echo "${a1}"
+}
+
 test -z $1 && {
     echo "first arg must be subdir"
     exit 1
@@ -12,30 +18,21 @@ test -d $1 || {
     exit 1
 }
 
-trimFwdSlashes() {
-  a1="${1#/}"       # Remove leading /
-  a1="${a1%/}"     # Remove preceding /
-  echo "${a1}"
-}
-
 APP_ROOT=.
-SUB=$1
-SUB=$(trimFwdSlashes ${SUB})
+SUB=$(trimFwdSlashes ${1})
 OUTPUT=${SUB}/amalgamation.cpp
-REGEX='"dev.*\.h\|common/.*\.h\|include.*types.h"'
-firstFile=true
+REGEX='"dev.*\.h\|common/.*\.h\|include.*types.h"\|include\/lib.h"'
+
+rm -f ${outputMain} ${outputLib} ${outputBench} ${outputApi} ${OUTPUT}
 
 fn() {
-    if [[ firstFile == true ]]; then 
-        firstFile=false
-        echo "// ${1}" > ${OUTPUT}
-    else
-        echo "// ${1}" >> ${OUTPUT}
-    fi
-    test -f "${1}" && grep -v ${REGEX} $_ >> ${OUTPUT}
-    echo "// ${1} end" >> ${OUTPUT}
+    echo "// ${1}" >> ${2}
+    test -f "${1}" && grep -v ${REGEX} $_ >> ${2}
+    echo "// ${1} end" >> ${2}
 }
 
-fn ${SUB}/include/lib.h
-fn ${SUB}/src/lib.cpp
-fn ${SUB}/src/main.cpp
+fn ${APP_ROOT}/common/include/lib.h ${OUTPUT}
+fn ${APP_ROOT}/common/src/lib.cpp ${OUTPUT}
+fn ${SUB}/include/lib.h ${OUTPUT}
+fn ${SUB}/src/lib.cpp ${OUTPUT}
+fn ${SUB}/src/main.cpp ${OUTPUT}

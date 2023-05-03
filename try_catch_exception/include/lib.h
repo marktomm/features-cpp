@@ -17,7 +17,8 @@ using cf = std::function<void(bool)>;
 using ci = std::function<void(int)>;
 
 // GEN_PROTO_BEGIN
-int getRandom();
+int getRandom12();
+int getRandom13();
 int pspdfkit_ErrorCode();
 int strip_ErrorCode(bool res);
 int strip_ErrorCodeVbools(std::vector<bool> const& v);
