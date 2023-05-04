@@ -2,11 +2,16 @@
 
 namespace trivial_type {
 
-void fn([[maybe_unused]] std::unique_ptr<int>) {}
-void fn([[maybe_unused]] int*) {}
+void FnNoop([[maybe_unused]] std::unique_ptr<int>) {}
+void FnNoop([[maybe_unused]] int*) {}
 
-int testFunction(std::unique_ptr<int> x) { return *x; }
+int TestFunction(std::unique_ptr<int> x) { return *x; }
 
-int testFunctionPtr(int* x) { return *x; }
+int TestFunction(int* x) { return *x; }
+
+static void escape(void* p) { asm volatile("" : : "g"(p) : "memory"); }
+
+void FnEscape([[maybe_unused]] std::unique_ptr<int> p) { escape(p.get()); }
+void FnEscape([[maybe_unused]] int* p) { escape(p); }
 
 } // namespace trivial_type

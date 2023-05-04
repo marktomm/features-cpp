@@ -6,11 +6,14 @@
 
 namespace trivial_type {
 
-void fn(std::unique_ptr<int>);
-void fn(int*);
-
-int testFunction(std::unique_ptr<int> x);
-int testFunctionPtr(int* x);
+// GEN_PROTO_BEGIN
+int TestFunction(int* x);
+int TestFunction(std::unique_ptr<int> x);
+void FnEscape([[maybe_unused]] int* p);
+void FnEscape([[maybe_unused]] std::unique_ptr<int> p);
+void FnNoop([[maybe_unused]] int*);
+void FnNoop([[maybe_unused]] std::unique_ptr<int>);
+// GEN_PROTO_END
 
 }; // namespace trivial_type
 
