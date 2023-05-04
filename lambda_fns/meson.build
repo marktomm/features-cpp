@@ -26,7 +26,7 @@ lambda_fns_exe_no_opt = executable(
     dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
-    objects: [common_inc_opt_o],
+    objects: [common_inc_no_opt_o],
 )
 
 lambda_fns_inc_opt_o = lambda_fns_exe.extract_objects(
@@ -66,7 +66,11 @@ lambda_fns_exe_no_opt_sanitize = executable(
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    objects: [lambda_fns_main_no_opt_o, lambda_fns_inc_no_opt_o, common_inc_opt_o],
+    objects: [
+        lambda_fns_main_no_opt_o,
+        lambda_fns_inc_no_opt_o,
+        common_inc_no_opt_o,
+    ],
 )
 
 if bench.found()
@@ -90,7 +94,7 @@ if bench.found()
     lambda_fns_benchmark_google_no_opt_exe = executable(
         'lambda_fns_benchmark_google_no_opt',
         [lambda_fns_benchmark_test],
-        objects: [lambda_fns_inc_no_opt_o, common_inc_opt_o],
+        objects: [lambda_fns_inc_no_opt_o, common_inc_no_opt_o],
         include_directories: [lambda_fns_inc, common_inc],
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],

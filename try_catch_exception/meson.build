@@ -26,7 +26,7 @@ try_catch_exception_exe_no_opt = executable(
     dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
-    objects: [common_inc_opt_o],
+    objects: [common_inc_no_opt_o],
 )
 
 try_catch_exception_inc_opt_o = try_catch_exception_exe.extract_objects(
@@ -56,7 +56,11 @@ try_catch_exception_exe_sanitize = executable(
     cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    objects: [try_catch_exception_main_opt_o, try_catch_exception_inc_opt_o, common_inc_opt_o],
+    objects: [
+        try_catch_exception_main_opt_o,
+        try_catch_exception_inc_opt_o,
+        common_inc_opt_o,
+    ],
 )
 
 try_catch_exception_exe_no_opt_sanitize = executable(
@@ -66,7 +70,11 @@ try_catch_exception_exe_no_opt_sanitize = executable(
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    objects: [try_catch_exception_main_no_opt_o, try_catch_exception_inc_no_opt_o, common_inc_opt_o],
+    objects: [
+        try_catch_exception_main_no_opt_o,
+        try_catch_exception_inc_no_opt_o,
+        common_inc_no_opt_o,
+    ],
 )
 
 if bench.found()
@@ -90,7 +98,7 @@ if bench.found()
     try_catch_exception_benchmark_google_no_opt_exe = executable(
         'try_catch_exception_benchmark_google_no_opt',
         [try_catch_exception_benchmark_test],
-        objects: [try_catch_exception_inc_no_opt_o, common_inc_opt_o],
+        objects: [try_catch_exception_inc_no_opt_o, common_inc_no_opt_o],
         include_directories: [try_catch_exception_inc, common_inc],
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],

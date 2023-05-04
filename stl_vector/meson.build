@@ -26,7 +26,7 @@ stl_vector_exe_no_opt = executable(
     dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
-    objects: [common_inc_opt_o],
+    objects: [common_inc_no_opt_o],
 )
 
 stl_vector_inc_opt_o = stl_vector_exe.extract_objects(
@@ -66,7 +66,11 @@ stl_vector_exe_no_opt_sanitize = executable(
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    objects: [stl_vector_main_no_opt_o, stl_vector_inc_no_opt_o, common_inc_opt_o],
+    objects: [
+        stl_vector_main_no_opt_o,
+        stl_vector_inc_no_opt_o,
+        common_inc_no_opt_o,
+    ],
 )
 
 if bench.found()
@@ -90,7 +94,7 @@ if bench.found()
     stl_vector_benchmark_google_no_opt_exe = executable(
         'stl_vector_benchmark_google_no_opt',
         [stl_vector_benchmark_test],
-        objects: [stl_vector_inc_no_opt_o, common_inc_opt_o],
+        objects: [stl_vector_inc_no_opt_o, common_inc_no_opt_o],
         include_directories: [stl_vector_inc, common_inc],
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],

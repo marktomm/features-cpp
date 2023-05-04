@@ -26,7 +26,7 @@ access_specifier_exe_no_opt = executable(
     dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
-    objects: [common_inc_opt_o],
+    objects: [common_inc_no_opt_o],
 )
 
 access_specifier_inc_opt_o = access_specifier_exe.extract_objects(
@@ -56,7 +56,11 @@ access_specifier_exe_sanitize = executable(
     cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    objects: [access_specifier_main_opt_o, access_specifier_inc_opt_o, common_inc_opt_o],
+    objects: [
+        access_specifier_main_opt_o,
+        access_specifier_inc_opt_o,
+        common_inc_opt_o,
+    ],
 )
 
 access_specifier_exe_no_opt_sanitize = executable(
@@ -66,7 +70,11 @@ access_specifier_exe_no_opt_sanitize = executable(
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    objects: [access_specifier_main_no_opt_o, access_specifier_inc_no_opt_o, common_inc_opt_o],
+    objects: [
+        access_specifier_main_no_opt_o,
+        access_specifier_inc_no_opt_o,
+        common_inc_no_opt_o,
+    ],
 )
 
 if bench.found()
@@ -90,7 +98,7 @@ if bench.found()
     access_specifier_benchmark_google_no_opt_exe = executable(
         'access_specifier_benchmark_google_no_opt',
         [access_specifier_benchmark_test],
-        objects: [access_specifier_inc_no_opt_o, common_inc_opt_o],
+        objects: [access_specifier_inc_no_opt_o, common_inc_no_opt_o],
         include_directories: [access_specifier_inc, common_inc],
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
