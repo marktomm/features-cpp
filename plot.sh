@@ -43,7 +43,7 @@ set title '$(echo ${1} | sed "s/_/ /g")'
 set xtics rotate by -45
 set datafile separator ","
 set lmargin 10
-set rmargin 8
+set rmargin 10
 set tmargin 2
 set bmargin 10
 plot '${temp_csv}' using 2:xtic(1) with boxes notitle
