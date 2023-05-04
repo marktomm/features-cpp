@@ -15,6 +15,7 @@ ARG1=${1}
 ARG1=$(trimFwdSlashes ${ARG1})
 ARG2=${2}
 EARG2=$(printf '%q' "$ARG2")
+EARG2=$(echo -n ${EARG2} | md5sum | sed -E 's/(^.......).*/\1/')
 ARG3=${3}
 
 line=${ARG1}
