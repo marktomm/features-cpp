@@ -16,8 +16,8 @@ ARG2=${2}
 
 while IFS= read -r line; do
     echo "Init ${line}/${line}_${ARG2}_${EARG1}.png"
-    ./builddir/${line}/${line}_benchmark_google_$( [[ -n "${ARG2}" && "${ARG2}" == 'opt' ]] && echo "" || echo "no_" )opt --benchmark_filter="${ARG1}" --benchmark_format=csv 2>&1  | ./plot.sh ${line} && mv ${line}/bench.png ${line}/${line}_${ARG2}_${EARG1}.png || echo "${line}/${line}_${ARG2}_${EARG1}.png skip"
+    ./builddir/${line}/${line}_benchmark_google_$( [[ -n "${ARG2}" && "${ARG2}" == 'opt' ]] && echo "" || echo "no_" )opt --benchmark_filter="${ARG1}" --benchmark_format=csv 2>&1  | ./plot.sh ${line} ${ARG2} && mv ${line}/bench.png ${line}/${line}_${ARG2}_${EARG1}.png || echo "${line}/${line}_${ARG2}_${EARG1}.png skip"
 done <<< "$(./feature_list.sh)"
 line=benchmarks
-./builddir/${line}/${line}_benchmark_google_$( [[ -n "${ARG2}" && "${ARG2}" == 'opt' ]] && echo "" || echo "no_" )opt --benchmark_filter="${ARG1}" --benchmark_format=csv 2>&1  | ./plot.sh ${line} && mv ${line}/bench.png ${line}/${line}_${ARG2}_${EARG1}.png || echo "${line}/${line}_${ARG2}_${EARG1}.png skip"
+./builddir/${line}/${line}_benchmark_google_$( [[ -n "${ARG2}" && "${ARG2}" == 'opt' ]] && echo "" || echo "no_" )opt --benchmark_filter="${ARG1}" --benchmark_format=csv 2>&1  | ./plot.sh ${line} ${ARG2} && mv ${line}/bench.png ${line}/${line}_${ARG2}_${EARG1}.png || echo "${line}/${line}_${ARG2}_${EARG1}.png skip"
 

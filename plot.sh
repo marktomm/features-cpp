@@ -28,6 +28,9 @@ gnuplot_script="$(mktemp)"
 # plot '${temp_csv}' using 2:xtic(1) with boxes notitle
 # EOL
 
+ARG2=${2}
+xlabel=$( [[ -n "${ARG2}" && "${ARG2}" == 'opt' ]] && echo "-O3" || echo "-O0" )
+
 cat > "${gnuplot_script}" << EOL
 set terminal pngcairo size 720,500 font 'Verdana,12:italic'
 set output '${1}/bench.png'
@@ -35,7 +38,7 @@ set boxwidth 0.5
 set style fill solid
 set grid y
 set ylabel 'Aeg (ns)'
-# set xlabel 'Benchmark'
+set xlabel 'Optimisatsioon: ${xlabel}'
 set title '$(echo ${1} | sed "s/_/ /g")'
 set xtics rotate by -45
 set datafile separator ","

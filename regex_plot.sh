@@ -19,5 +19,5 @@ EARG2=$(echo -n ${EARG2} | md5sum | sed -E 's/(^.......).*/\1/')
 ARG3=${3}
 
 line=${ARG1}
-./builddir/${line}/${line}_benchmark_google_$( [[ -n "${ARG3}" && "${ARG3}" == 'opt' ]] && echo "" || echo "no_" )opt --benchmark_filter="${ARG2}" --benchmark_format=csv 2>&1  | ./plot.sh ${line} && mv ${line}/bench.png ${line}/${line}_${ARG3}_${EARG2}.png || echo "${line}/${line}_${ARG3}_${EARG2}.png skip"
+./builddir/${line}/${line}_benchmark_google_$( [[ -n "${ARG3}" && "${ARG3}" == 'opt' ]] && echo "" || echo "no_" )opt --benchmark_filter="${ARG2}" --benchmark_format=csv 2>&1  | ./plot.sh ${line} ${ARG3} && mv ${line}/bench.png ${line}/${line}_${ARG3}_${EARG2}.png || echo "${line}/${line}_${ARG3}_${EARG2}.png skip"
 
