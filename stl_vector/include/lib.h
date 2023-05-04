@@ -14,7 +14,7 @@ template<typename Container>
 Container generateRandomContainer(std::size_t size) {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dist(-10000, 10000);
+    std::uniform_int_distribution<> dist(0, static_cast<int>(size));
 
     Container c;
     for (std::size_t i = 0; i < size; ++i) {

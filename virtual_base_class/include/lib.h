@@ -3,7 +3,9 @@
 
 #include <cstdint>
 
+/// @cond NO_NAMESPACE_IN_DOC
 namespace virtual_base_class {
+/// @endcond
 
 class A {
 public:

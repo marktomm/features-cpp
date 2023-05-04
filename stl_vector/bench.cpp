@@ -1,3 +1,4 @@
+#include "common/include/lib.h"
 #include "lib.h"
 #include <benchmark/benchmark.h>
 #include <cstddef>
@@ -5,7 +6,10 @@
 struct SomeType {};
 
 // GEN_PROTO_BEGIN
-
+static void BM_00_100El_Dbl_Access(benchmark::State& state);
+static void BM_01_Local_Idx_Incr_And_Access(benchmark::State& state);
+static void BM_02_Global_Idx_Incr_And_Access(benchmark::State& state);
+static void BM_03_100El_Dbl_Access_Global_Idx(benchmark::State& state);
 // GEN_PROTO_END
 
 #include <deque>
@@ -13,9 +17,46 @@ struct SomeType {};
 #include <vector>
 
 using namespace stl_vector;
+using namespace common;
 
 template<typename Container, std::size_t A>
 static Container global_container = generateRandomContainer<Container>(A);
+
+static void BM_00_100El_Dbl_Access(benchmark::State& state) {
+    using namespace std;
+    auto c1 = global_container<vector<uint32_t>, 100>;
+    auto c2 = global_container<vector<uint32_t>, 100>;
+    for (auto _ : state) {
+        uint32_t c = c1[c2[0]];
+        benchmark::DoNotOptimize(c);
+    }
+}
+
+static void BM_01_Local_Idx_Incr_And_Access(benchmark::State& state) {
+    using namespace std;
+    std::size_t it = 0;
+    for (auto _ : state) {
+        auto x = ++it == 100 ? it = 1 : it;
+        benchmark::DoNotOptimize(x);
+    }
+}
+
+static void BM_02_Global_Idx_Incr_And_Access(benchmark::State& state) {
+    using namespace std;
+    for (auto _ : state) {
+        benchmark::DoNotOptimize(GetNextGlobalIndex());
+    }
+}
+
+static void BM_03_100El_Dbl_Access_Global_Idx(benchmark::State& state) {
+    using namespace std;
+    auto c1 = global_container<vector<uint32_t>, 100>;
+    auto c2 = global_container<vector<uint32_t>, 100>;
+    for (auto _ : state) {
+        uint32_t c = c1[c2[GetNextGlobalIndex()]];
+        benchmark::DoNotOptimize(c);
+    }
+}
 
 template<typename Container>
 static void BMT_DefaultCtor(benchmark::State& state) {
@@ -219,12 +260,15 @@ static void BMT_CtorReserved100000ElemsInsertMiddle(benchmark::State& state) {
     BENCHMARK_TEMPLATE(BMT_CtorReserved10000ElemsInsertMiddle, Container);     \
     BENCHMARK_TEMPLATE(BMT_CtorReserved100000ElemsInsertMiddle, Container);
 
-REGISTER_BENCHMARKS_FOR_CONTAINER(std::vector<int>);
-REGISTER_BENCHMARKS_FOR_CONTAINER(std::deque<int>);
-REGISTER_BENCHMARKS_FOR_CONTAINER(std::list<int>);
+REGISTER_BENCHMARKS_FOR_CONTAINER(std::vector<uint32_t>);
+REGISTER_BENCHMARKS_FOR_CONTAINER(std::deque<uint32_t>);
+REGISTER_BENCHMARKS_FOR_CONTAINER(std::list<uint32_t>);
 
 // GEN_BENCHMARK_BEGIN
-
+BENCHMARK(BM_00_100El_Dbl_Access);
+BENCHMARK(BM_01_Local_Idx_Incr_And_Access);
+BENCHMARK(BM_02_Global_Idx_Incr_And_Access);
+BENCHMARK(BM_03_100El_Dbl_Access_Global_Idx);
 // GEN_BENCHMARK_END
 
 // Run the benchmark
