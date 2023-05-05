@@ -1,0 +1,23 @@
+@startuml
+class A {
+    +{abstract} ~A() : void
+    +a : int
+}
+
+class B {
+    +b : int
+}
+
+class C {
+    +c : int
+}
+
+class D {
+    +d : int
+}
+
+B --|> A : virtual
+C --|> A : virtual
+D --|> B
+D --|> C
+@enduml

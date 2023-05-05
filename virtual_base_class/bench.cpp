@@ -3,7 +3,7 @@
 
 using namespace virtual_base_class;
 
-static void BM_00_Non_Diamond_Ctor_Dtor(benchmark::State& state) {
+static void BM_00_nD_Ctor_Dtor_Heap(benchmark::State& state) {
     for (auto _ : state) {
         nonDiamondA* a_ptr = new nonDiamondD();
         benchmark::DoNotOptimize(a_ptr);
@@ -11,9 +11,9 @@ static void BM_00_Non_Diamond_Ctor_Dtor(benchmark::State& state) {
     }
 }
 
-static void BM_A0_Diamond_Ctor_Dtor(benchmark::State& state) {
+static void BM_A0_D_Ctor_Dtor_Heap(benchmark::State& state) {
     for (auto _ : state) {
-        D* d_ptr = new D();
+        A* d_ptr = new D();
         benchmark::DoNotOptimize(d_ptr);
         delete d_ptr;
     }
@@ -22,7 +22,7 @@ static void BM_A0_Diamond_Ctor_Dtor(benchmark::State& state) {
 //// 1
 // BM_Diamond_BaseToDerived: Dynamic casting from the base class to the derived
 // class in a diamond hierarchy.
-static void BM_A1_Diamond_Base_To_Derived(benchmark::State& state) {
+static void BM_A1_D_Base_To_Derived(benchmark::State& state) {
     A* a_ptr = new D();
     for (auto _ : state) {
         D* d_ptr = dynamic_cast<D*>(a_ptr);
@@ -32,7 +32,7 @@ static void BM_A1_Diamond_Base_To_Derived(benchmark::State& state) {
 }
 // BM_NonDiamond_BaseToDerived: Dynamic casting from the base class to the
 // derived class in a non-diamond hierarchy.
-static void BM_01_Non_Diamond_Base_To_Derived(benchmark::State& state) {
+static void BM_01_nD_Base_To_Derived(benchmark::State& state) {
     nonDiamondA* a_ptr = new nonDiamondD();
     for (auto _ : state) {
         nonDiamondD* d_ptr = dynamic_cast<nonDiamondD*>(a_ptr);
@@ -54,7 +54,7 @@ static void BM_NonDiamond_BaseToDerived_StaticCast(benchmark::State& state) {
 //// 2 Sideways
 // BM_Diamond_Sideways: Dynamic casting from one sibling class to another in
 // a diamond hierarchy.
-static void BM_A2_Diamond_Sideways(benchmark::State& state) {
+static void BM_A2_D_Sideways(benchmark::State& state) {
     B* b_ptr = new D();
     for (auto _ : state) {
         C* c_ptr = dynamic_cast<C*>(b_ptr);
@@ -163,7 +163,7 @@ static void BM_NonVirtualDiamond_Intermediate_Casting(benchmark::State& state) {
 // BM_02_Non_Diamond_Sideways_Casting: Dynamic casting from one sibling class to
 // another in a multiple inheritance hierarchy, where the classes don't share
 // the same base class (cross-casting).
-static void BM_02_Non_Diamond_Sideways(benchmark::State& state) {
+static void BM_02_nD_Sideways(benchmark::State& state) {
     X* x_ptr = new Z();
     for (auto _ : state) {
         Y* y_ptr = dynamic_cast<Y*>(x_ptr);
@@ -198,12 +198,12 @@ static void BM_Unrelated_Casting(benchmark::State& state) {
 }
 
 // GEN_BENCHMARK_BEGIN
-BENCHMARK(BM_00_Non_Diamond_Ctor_Dtor);
-BENCHMARK(BM_01_Non_Diamond_Base_To_Derived);
-BENCHMARK(BM_02_Non_Diamond_Sideways);
-BENCHMARK(BM_A0_Diamond_Ctor_Dtor);
-BENCHMARK(BM_A1_Diamond_Base_To_Derived);
-BENCHMARK(BM_A2_Diamond_Sideways);
+BENCHMARK(BM_00_nD_Ctor_Dtor_Heap);
+BENCHMARK(BM_01_nD_Base_To_Derived);
+BENCHMARK(BM_02_nD_Sideways);
+BENCHMARK(BM_A0_D_Ctor_Dtor_Heap);
+BENCHMARK(BM_A1_D_Base_To_Derived);
+BENCHMARK(BM_A2_D_Sideways);
 BENCHMARK(BM_Diamond_DerivedToBase);
 BENCHMARK(BM_Diamond_DerivedToBase_StaticCast);
 BENCHMARK(BM_Intermediate_Casting);
