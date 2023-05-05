@@ -9,13 +9,13 @@ namespace poly {
 class A {
 public:
     virtual ~A() {}
-    virtual void PureVirtualFn() = 0;
+    virtual void PureVFn() = 0;
     int a;
 };
 
 class B: public A {
 public:
-    virtual void VirtualFn(){};
+    virtual void VFn(){};
     int b;
 };
 
@@ -26,43 +26,64 @@ public:
 
 class D final: public C {
 public:
-    void PureVirtualFn() override {}
-    void VirtualFn() override{};
+    void PureVFn() override {}
+    void VFn() override{};
     int d;
 };
 
 class E: public C {
 public:
-    void PureVirtualFn() override {}
-    void VirtualFn() override{};
+    void PureVFn() override {}
+    void VFn() override{};
     int e;
 };
 
 class F: public C {
 public:
-    void PureVirtualFn() override {}
-    void VirtualFn() override{};
+    void PureVFn() override {}
+    void VFn() override{};
     int f;
 };
 
 // depth: 4
-class nonVirtualA {
+class nonVA {
 public:
     void Fn() {}
     int a;
 };
 
-class nonVirtualB: public nonVirtualA {
+class nonVB: public nonVA {
 public:
     int b;
 };
 
-class nonVirtualC: public nonVirtualB {
+class nonVC: public nonVB {
 public:
     int c;
 };
 
-class nonVirtualD final: public nonVirtualC {
+class nonVD final: public nonVC {
+public:
+    int d;
+};
+
+class Ax {
+public:
+    virtual ~Ax() {}
+    int a;
+};
+
+class Bx: virtual public Ax {
+public:
+    int b;
+};
+
+class Cx: virtual public Ax {
+public:
+    int c;
+};
+
+class Dx: public Bx, public Cx {
 public:
     int d;
 };
