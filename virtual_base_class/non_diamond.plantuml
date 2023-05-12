@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+
+class nDA {
+    +{abstract} ~nDA() : void
+    +a : int
+}
+
+class nDB {
+    +b : int
+}
+
+class nDC {
+    +c : int
+}
+
+class nDD {
+    +d : int
+}
+
+nDB --|> nDA
+nDC --|> nDB
+nDD --|> nDC
+@enduml
