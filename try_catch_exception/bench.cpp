@@ -18,38 +18,41 @@ using namespace try_catch_exception;
 // grep -E '^[[:blank:]]*(inline[[:blank:]]+)?(virtual[[:blank:]]+)?(explicit[[:blank:]]+)?(static[[:blank:]]+)?(const[[:blank:]]+)?(constexpr[[:blank:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:blank:]]+[a-zA-Z_][a-zA-Z0-9_]*\s*\([^{}]*\)\s*(const)?[[:blank:]]*\{' try_catch_exception/bench.cpp | sed -E 's/(.*\)) *\{.*/\1;/' | sort -k 2,1
 // clang-format on
 // GEN_PROTO_BEGIN
-void BM_00_A1_random(benchmark::State& state);
-void BM_00_A5_vbools_global_index_access(benchmark::State& state);
-void BM_00_A8_pspdfkit_BasicException(benchmark::State& state);
-void BM_01_A9_pspdfkit_MessageException(benchmark::State& state);
-void BM_02_B1_pspdfkit_Return(benchmark::State& state);
-void BM_03_B2_pspdfkit_ErrorCode(benchmark::State& state);
-void BM_04_C2_vbools_try_block_ptr_BasicException(benchmark::State& state);
-void BM_05_C3_vbools_try_block_ptr_MessageException(benchmark::State& state);
-void BM_06_C4_vbools_try_block_ptr_Return(benchmark::State& state);
-void BM_07_C5_vbools_try_block_ptr_ErrorCode(benchmark::State& state);
-void BM_08_C51_vbools_try_block_ptr_ErrorCode(benchmark::State& state);
-void BM_A0_vbools_pause_resume_sfn(benchmark::State& state);
-void BM_A2_pause_resume(benchmark::State& state);
-void BM_A3_vbools_access_opt(benchmark::State& state);
-void BM_A4_vbools_access(benchmark::State& state);
-void BM_A6_std_function(benchmark::State& state);
-void BM_A71_std_function_call_throw(benchmark::State& state);
-void BM_A7_std_function_call(benchmark::State& state);
-void BM_B3_getrandom_try_block_ptr_BasicException(benchmark::State& state);
-void BM_B4_getrandom_try_block_ptr_MessageException(benchmark::State& state);
-void BM_B5_getrandom_try_block_ptr_Return(benchmark::State& state);
-void BM_B6_getrandom_try_block_ptr_ErrorCode(benchmark::State& state);
-void BM_B7_getrandom_try_block_fsn_BasicException(benchmark::State& state);
-void BM_B8_getrandom_try_block_fsn_MessageException(benchmark::State& state);
-void BM_B9_getrandom_try_block_fsn_Return(benchmark::State& state);
-void BM_C1_getrandom_try_block_fsn_ErrorCode(benchmark::State& state);
-void BM_C6_vbools_pause_resume_sfn_BasicException(benchmark::State& state);
-void BM_C7_vbools_pause_resume_sfn_MessageException(benchmark::State& state);
-void BM_C8_vbools_pause_resume_sfn_Return(benchmark::State& state);
-void BM_C9_vbools_pause_resume_sfn_ErrorCode(benchmark::State& state);
-void BM_test21_exitWithErrorCode(benchmark::State& state);
-void BM_test31_exitWithErrorCode(benchmark::State& state);
+void BM_51_Ex_VecRand_Cb_Arg_Message(benchmark::State& state);
+void BM_53_Ex_Rand_33p_Cb_Arg_Message(benchmark::State& state);
+void BM_55_Ex_Rand_33p_Basic(benchmark::State& state);
+void BM_56_Ex_Rand_33p_Message(benchmark::State& state);
+void BM_64_Ex_StdFn_Call(benchmark::State& state);
+void BM_72_VecRand_Cb_Arg_Return(benchmark::State& state);
+void BM_73_Ex_Rand_50p_Cb_Arg_Message(benchmark::State& state);
+void BM_75_Rand_50p_Cb_Arg_Return(benchmark::State& state);
+void BM_E0_StdFn_Cr_Dr(benchmark::State& state);
+void BM_E1_StdFn_Call(benchmark::State& state);
+void BM_E8_Ex_Rand_50p_Cb_Arg_Basic(benchmark::State& state);
+void BM_I0_RuntimeEx_Cr_Dr(benchmark::State& state);
+void BM_J1_Ex_VecRand_Cb_Arg_Basic(benchmark::State& state);
+void BM_R0_Rand_33p(benchmark::State& state);
+void BM_R1_Rand_33p_Return(benchmark::State& state);
+void BM_R2_Rand_33p_ErrCode(benchmark::State& state);
+void BM_R3_Rand_33p_Cb_Arg_StdFn_ErrCode(benchmark::State& state);
+void BM_R4_Rand_33p_Cb_Arg_ErrCode(benchmark::State& state);
+void BM_R5_Rand_33p_Cb_Arg_Return(benchmark::State& state);
+void BM_R8_Rand_50p(benchmark::State& state);
+void BM_R9_Ex_Rand_33p_Cb_Arg_Basic(benchmark::State& state);
+void BM_U1_VecRand_Cb_Arg_Return(benchmark::State& state);
+void BM_U5_Ex_None(benchmark::State& state);
+void BM_V0_VecRand_Local_Idx(benchmark::State& state);
+void BM_V9_VecRand_Global_Idx(benchmark::State& state);
+void BM_W1_VecRand_Local_Idx_Opt(benchmark::State& state);
+void BM_XX_Ex_vbools_pause_resume_sfn_Basic(benchmark::State& state);
+void BM_XX_pause_resume(benchmark::State& state);
+void BM_XX_test21_exitWithErrCode(benchmark::State& state);
+void BM_XX_test31_exitWithErrCode(benchmark::State& state);
+void BM_XX_vbools_pause_resume_sfn(benchmark::State& state);
+void BM_XX_vbools_pause_resume_sfn_ErrCode(benchmark::State& state);
+void BM_XX_vbools_pause_resume_sfn_Return(benchmark::State& state);
+void BM_YY_VecRand_Cb_Arg_ErrCode_2(benchmark::State& state);
+void BM_YY_VecRand_Cb_Arg_ErrCode(benchmark::State& state);
 // GEN_PROTO_END
 
 // Initial base code taken from:
@@ -57,35 +60,35 @@ void BM_test31_exitWithErrorCode(benchmark::State& state);
 // BEGIN
 
 // 1.
-void BM_00_A8_pspdfkit_BasicException(benchmark::State& state) {
+void BM_55_Ex_Rand_33p_Basic(benchmark::State& state) {
     for (auto _ : state) {
         try {
-            pspdfkit_BasicException();
+            pspdfkit_BasicEx();
         } catch (int ex) {
             // Caught! Carry on next iteration.
         }
     }
 }
 // 2.
-void BM_01_A9_pspdfkit_MessageException(benchmark::State& state) {
+void BM_56_Ex_Rand_33p_Message(benchmark::State& state) {
     for (auto _ : state) {
         try {
-            pspdfkit_MessageException();
+            pspdfkit_MessageEx();
         } catch (const std::runtime_error& ex) {
             // Caught! Carry on next iteration.
         }
     }
 }
 // 3.
-void BM_02_B1_pspdfkit_Return(benchmark::State& state) {
+void BM_R1_Rand_33p_Return(benchmark::State& state) {
     for (auto _ : state) {
-        pspdfkit_Return();
+        Return_33p();
     }
 }
 // 4.
-void BM_03_B2_pspdfkit_ErrorCode(benchmark::State& state) {
+void BM_R2_Rand_33p_ErrCode(benchmark::State& state) {
     for (auto _ : state) {
-        auto err = pspdfkit_ErrorCode();
+        auto err = ErrCode_33p();
         if (err < 0) {
             // `handle_error()` ...
         }
@@ -96,124 +99,139 @@ void BM_03_B2_pspdfkit_ErrorCode(benchmark::State& state) {
 // https://pspdfkit.com/blog/2020/performance-overhead-of-exceptions-in-cpp/
 // END
 
-void BM_A0_vbools_pause_resume_sfn(benchmark::State& state) {
+void BM_XX_vbools_pause_resume_sfn(benchmark::State& state) {
     loop_vbools_pause_resume_sfn([](int) {}, state);
 }
 
-void BM_00_A1_random(benchmark::State& state) { loop_random(state); }
+void BM_R0_Rand_33p(benchmark::State& state) { loop_random(state); }
+void BM_R8_Rand_50p(benchmark::State& state) { loop_random50(state); }
 
-void BM_A2_pause_resume(benchmark::State& state) { loop_pause_resume(state); }
-
-void BM_A3_vbools_access_opt(benchmark::State& state) {
-    loop_vbools_access_opt(state);
+void BM_I0_RuntimeEx_Cr_Dr(benchmark::State& state) {
+    for (auto _ : state) {
+        std::runtime_error("Message");
+    }
 }
 
-void BM_A4_vbools_access(benchmark::State& state) {
-    loop_vbools_access_no_opt(state);
+void BM_XX_pause_resume(benchmark::State& state) { loop_pause_resume(state); }
+
+void BM_V0_VecRand_Local_Idx(benchmark::State& state) {
+    loop_VecRand_Local_Idx(state);
 }
 
-void BM_00_A5_vbools_global_index_access(benchmark::State& state) {
-    loop_vbools_global_index_access_no_opt(state);
+void BM_W1_VecRand_Local_Idx_Opt(benchmark::State& state) {
+    loop_VecRand_Local_Idx_Opt(state);
 }
 
-void BM_A6_std_function(benchmark::State& state) { loop_std_function(state); }
-
-void BM_A7_std_function_call(benchmark::State& state) {
-    loop_std_function_call(state);
+void BM_V9_VecRand_Global_Idx(benchmark::State& state) {
+    loop_VecRand_Global_Idx(state);
 }
-void BM_A71_std_function_call_throw(benchmark::State& state) {
-    loop_std_function_call_throw(state);
+
+void BM_E0_StdFn_Cr_Dr(benchmark::State& state) { loop_StdFn_Cr_Dr(state); }
+
+void BM_E1_StdFn_Call(benchmark::State& state) { loop_StdFn_Call(state); }
+void BM_64_Ex_StdFn_Call(benchmark::State& state) {
+    loop_StdFn_Call_throw(state);
 }
 
 // 1.
-void BM_04_C2_vbools_try_block_ptr_BasicException(benchmark::State& state) {
-    loop_vbools_try_block_ptr(state, strip_BasicException);
+void BM_J1_Ex_VecRand_Cb_Arg_Basic(benchmark::State& state) {
+    loop_VecRand_Cb_Arg(state, strip_BasicEx);
 }
 // 2.
-void BM_05_C3_vbools_try_block_ptr_MessageException(benchmark::State& state) {
-    loop_vbools_try_block_ptr(state, strip_MessageException);
+void BM_51_Ex_VecRand_Cb_Arg_Message(benchmark::State& state) {
+    loop_VecRand_Cb_Arg(state, strip_MessageEx);
 }
 // 3.
-void BM_06_C4_vbools_try_block_ptr_Return(benchmark::State& state) {
-    loop_vbools_try_block_ptr(state, strip_Return);
+void BM_U1_VecRand_Cb_Arg_Return(benchmark::State& state) {
+    loop_VecRand_Cb_Arg(state, strip_Return);
 }
+
+// 21.
+void BM_R9_Ex_Rand_33p_Cb_Arg_Basic(benchmark::State& state) {
+    loop_Rand_33p_Cb_Arg(state, strip_BasicEx);
+}
+// 22.
+void BM_53_Ex_Rand_33p_Cb_Arg_Message(benchmark::State& state) {
+    loop_Rand_33p_Cb_Arg(state, strip_MessageEx);
+}
+
+// 23.
+void BM_R5_Rand_33p_Cb_Arg_Return(benchmark::State& state) {
+    loop_Rand_33p_Cb_Arg(state, strip_Return);
+}
+
+// 3.
+void BM_72_VecRand_Cb_Arg_Return(benchmark::State& state) {
+    loop_VecRand_Cb_Arg(state, strip_Return);
+}
+
+// 21.
+void BM_E8_Ex_Rand_50p_Cb_Arg_Basic(benchmark::State& state) {
+    loop_Rand_50p_Cb_Arg(state, strip_BasicEx);
+}
+// 22.
+void BM_73_Ex_Rand_50p_Cb_Arg_Message(benchmark::State& state) {
+    loop_Rand_50p_Cb_Arg(state, strip_MessageEx);
+}
+
+// 23.
+void BM_75_Rand_50p_Cb_Arg_Return(benchmark::State& state) {
+    loop_Rand_50p_Cb_Arg(state, strip_Return);
+}
+
 // 4.
-void BM_07_C5_vbools_try_block_ptr_ErrorCode(benchmark::State& state) {
-    auto v = GetRandomBools();
+void BM_YY_VecRand_Cb_Arg_ErrCode(benchmark::State& state) {
+    auto v = GetRandBools();
     for (auto _ : state) {
         auto it = GetNextGlobalIndex();
         bool res = v[it];
-        auto err = strip_ErrorCode(res);
+        auto err = ErrCode_Arg(res);
         if (err < 0) {
         }
     }
 }
 // x.
-void BM_08_C51_vbools_try_block_ptr_ErrorCode(benchmark::State& state) {
-    auto v = GetRandomBools();
+void BM_YY_VecRand_Cb_Arg_ErrCode_2(benchmark::State& state) {
+    auto v = GetRandBools();
     for (auto _ : state) {
-        auto err = strip_ErrorCodeVbools(v);
+        auto err = ErrCode_Vec_Rand(v);
         if (err < 0) {
         }
     }
 }
 
-// 1.
-void BM_B3_getrandom_try_block_ptr_BasicException(benchmark::State& state) {
-    loop_getrandom_try_block_ptr(state, strip_BasicException);
-}
-// 2.
-void BM_B4_getrandom_try_block_ptr_MessageException(benchmark::State& state) {
-    loop_getrandom_try_block_ptr(state, strip_MessageException);
-}
-// 3.
-void BM_B5_getrandom_try_block_ptr_Return(benchmark::State& state) {
-    loop_getrandom_try_block_ptr(state, strip_Return);
-}
 // 4.
-void BM_B6_getrandom_try_block_ptr_ErrorCode(benchmark::State& state) {
+void BM_R4_Rand_33p_Cb_Arg_ErrCode(benchmark::State& state) {
     for (auto _ : state) {
         fnx1();
     }
 }
 // 5.
-void BM_test21_exitWithErrorCode(benchmark::State& state) {
+void BM_XX_test21_exitWithErrCode(benchmark::State& state) {
     for (auto _ : state) {
-        auto err = pspdfkit_ErrorCode();
+        auto err = ErrCode_33p();
         if (err < 0) {
         }
     }
 }
 
-// 1.
-void BM_B7_getrandom_try_block_fsn_BasicException(benchmark::State& state) {
-    loop_getrandom_try_block_sfn(state, strip_BasicException);
-}
-// 2.
-void BM_B8_getrandom_try_block_fsn_MessageException(benchmark::State& state) {
-    loop_getrandom_try_block_sfn(state, strip_MessageException);
-}
-// 3.
-void BM_B9_getrandom_try_block_fsn_Return(benchmark::State& state) {
-    loop_getrandom_try_block_sfn(state, strip_Return);
-}
 // 4.
-void BM_C1_getrandom_try_block_fsn_ErrorCode(benchmark::State& state) {
-    std::function<int(bool)> fn = strip_ErrorCode;
+void BM_R3_Rand_33p_Cb_Arg_StdFn_ErrCode(benchmark::State& state) {
+    std::function<int(bool)> fn = ErrCode_Arg;
     for (auto _ : state) {
         fnx2(fn);
     }
 }
 // 5.
-void BM_test31_exitWithErrorCode(benchmark::State& state) {
+void BM_XX_test31_exitWithErrCode(benchmark::State& state) {
     for (auto _ : state) {
-        auto err = pspdfkit_ErrorCode();
+        auto err = ErrCode_33p();
         if (err < 0) {
         }
     }
 }
 
-void BM_C6_vbools_pause_resume_sfn_BasicException(benchmark::State& state) {
+void BM_XX_Ex_vbools_pause_resume_sfn_Basic(benchmark::State& state) {
     loop_vbools_pause_resume_sfn(
         [](bool it) {
             try {
@@ -226,20 +244,20 @@ void BM_C6_vbools_pause_resume_sfn_BasicException(benchmark::State& state) {
         state);
 }
 
-void BM_C7_vbools_pause_resume_sfn_MessageException(benchmark::State& state) {
-    loop_vbools_pause_resume_sfn(
-        [](bool it) {
-            try {
-                if (it == true) {
-                    throw std::runtime_error("Message");
-                }
-            } catch (std::runtime_error const& ex) {
+void BM_U5_Ex_None(benchmark::State& state) {
+    auto it = false;
+    for (auto _ : state) {
+        try {
+            if (it == true) {
+                throw 0;
             }
-        },
-        state);
+            benchmark::DoNotOptimize(it);
+        } catch (int ex) {
+        }
+    }
 }
 
-void BM_C8_vbools_pause_resume_sfn_Return(benchmark::State& state) {
+void BM_XX_vbools_pause_resume_sfn_Return(benchmark::State& state) {
     loop_vbools_pause_resume_sfn(
         [](bool it) {
             if (it == true) {
@@ -249,7 +267,7 @@ void BM_C8_vbools_pause_resume_sfn_Return(benchmark::State& state) {
         state);
 }
 
-void BM_C9_vbools_pause_resume_sfn_ErrorCode(benchmark::State& state) {
+void BM_XX_vbools_pause_resume_sfn_ErrCode(benchmark::State& state) {
     loop_vbools_pause_resume_sfn(
         [](bool it) {
             if (it) {
@@ -267,38 +285,41 @@ void BM_C9_vbools_pause_resume_sfn_ErrorCode(benchmark::State& state) {
 // grep -E '^[[:blank:]]*(inline[[:blank:]]+)?(virtual[[:blank:]]+)?(explicit[[:blank:]]+)?(static[[:blank:]]+)?(const[[:blank:]]+)?(constexpr[[:blank:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:blank:]]+[a-zA-Z_][a-zA-Z0-9_]*\s*\([^{}]*\)\s*(const)?[[:blank:]]*\{' try_catch_exception/bench.cpp | sed -E 's/(.*\)) *\{.*/\1;/' | grep -F 'BM_' | sed -E 's/.*(BM_[^(]*).*/BENCHMARK(\1);/' | sort -k1.14
 // clang-format on
 // GEN_BENCHMARK_BEGIN
-BENCHMARK(BM_00_A1_random);
-BENCHMARK(BM_00_A5_vbools_global_index_access);
-BENCHMARK(BM_00_A8_pspdfkit_BasicException);
-BENCHMARK(BM_01_A9_pspdfkit_MessageException);
-BENCHMARK(BM_02_B1_pspdfkit_Return);
-BENCHMARK(BM_03_B2_pspdfkit_ErrorCode);
-BENCHMARK(BM_04_C2_vbools_try_block_ptr_BasicException);
-BENCHMARK(BM_05_C3_vbools_try_block_ptr_MessageException);
-BENCHMARK(BM_06_C4_vbools_try_block_ptr_Return);
-BENCHMARK(BM_07_C5_vbools_try_block_ptr_ErrorCode);
-BENCHMARK(BM_08_C51_vbools_try_block_ptr_ErrorCode);
-BENCHMARK(BM_A0_vbools_pause_resume_sfn);
-BENCHMARK(BM_A2_pause_resume);
-BENCHMARK(BM_A3_vbools_access_opt);
-BENCHMARK(BM_A4_vbools_access);
-BENCHMARK(BM_A6_std_function);
-BENCHMARK(BM_A71_std_function_call_throw);
-BENCHMARK(BM_A7_std_function_call);
-BENCHMARK(BM_B3_getrandom_try_block_ptr_BasicException);
-BENCHMARK(BM_B4_getrandom_try_block_ptr_MessageException);
-BENCHMARK(BM_B5_getrandom_try_block_ptr_Return);
-BENCHMARK(BM_B6_getrandom_try_block_ptr_ErrorCode);
-BENCHMARK(BM_B7_getrandom_try_block_fsn_BasicException);
-BENCHMARK(BM_B8_getrandom_try_block_fsn_MessageException);
-BENCHMARK(BM_B9_getrandom_try_block_fsn_Return);
-BENCHMARK(BM_C1_getrandom_try_block_fsn_ErrorCode);
-BENCHMARK(BM_C6_vbools_pause_resume_sfn_BasicException);
-BENCHMARK(BM_C7_vbools_pause_resume_sfn_MessageException);
-BENCHMARK(BM_C8_vbools_pause_resume_sfn_Return);
-BENCHMARK(BM_C9_vbools_pause_resume_sfn_ErrorCode);
-BENCHMARK(BM_test21_exitWithErrorCode);
-BENCHMARK(BM_test31_exitWithErrorCode);
+BENCHMARK(BM_51_Ex_VecRand_Cb_Arg_Message);
+BENCHMARK(BM_53_Ex_Rand_33p_Cb_Arg_Message);
+BENCHMARK(BM_55_Ex_Rand_33p_Basic);
+BENCHMARK(BM_56_Ex_Rand_33p_Message);
+BENCHMARK(BM_64_Ex_StdFn_Call);
+BENCHMARK(BM_72_VecRand_Cb_Arg_Return);
+BENCHMARK(BM_73_Ex_Rand_50p_Cb_Arg_Message);
+BENCHMARK(BM_75_Rand_50p_Cb_Arg_Return);
+BENCHMARK(BM_E0_StdFn_Cr_Dr);
+BENCHMARK(BM_E1_StdFn_Call);
+BENCHMARK(BM_E8_Ex_Rand_50p_Cb_Arg_Basic);
+BENCHMARK(BM_I0_RuntimeEx_Cr_Dr);
+BENCHMARK(BM_J1_Ex_VecRand_Cb_Arg_Basic);
+BENCHMARK(BM_R0_Rand_33p);
+BENCHMARK(BM_R1_Rand_33p_Return);
+BENCHMARK(BM_R2_Rand_33p_ErrCode);
+BENCHMARK(BM_R3_Rand_33p_Cb_Arg_StdFn_ErrCode);
+BENCHMARK(BM_R4_Rand_33p_Cb_Arg_ErrCode);
+BENCHMARK(BM_R5_Rand_33p_Cb_Arg_Return);
+BENCHMARK(BM_R8_Rand_50p);
+BENCHMARK(BM_R9_Ex_Rand_33p_Cb_Arg_Basic);
+BENCHMARK(BM_U1_VecRand_Cb_Arg_Return);
+BENCHMARK(BM_U5_Ex_None);
+BENCHMARK(BM_V0_VecRand_Local_Idx);
+BENCHMARK(BM_V9_VecRand_Global_Idx);
+BENCHMARK(BM_W1_VecRand_Local_Idx_Opt);
+BENCHMARK(BM_XX_Ex_vbools_pause_resume_sfn_Basic);
+BENCHMARK(BM_XX_pause_resume);
+BENCHMARK(BM_XX_test21_exitWithErrCode);
+BENCHMARK(BM_XX_test31_exitWithErrCode);
+BENCHMARK(BM_XX_vbools_pause_resume_sfn);
+BENCHMARK(BM_XX_vbools_pause_resume_sfn_ErrCode);
+BENCHMARK(BM_XX_vbools_pause_resume_sfn_Return);
+BENCHMARK(BM_YY_VecRand_Cb_Arg_ErrCode);
+BENCHMARK(BM_YY_VecRand_Cb_Arg_ErrCode_2);
 // GEN_BENCHMARK_END
 #endif
 
