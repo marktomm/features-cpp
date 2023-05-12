@@ -20,32 +20,44 @@ gnuplot_script="$(mktemp)"
 # set boxwidth 0.1
 # set style fill solid
 # set grid x
-# set xlabel 'Benchmark'
+# set optArg 'Benchmark'
 # set ylabel 'Aeg (ns)'
 # set title '$(echo ${1} | sed "s/_/ /g")'
 # set xtics rotate by -45
 # set datafile separator ","
 # plot '${temp_csv}' using 2:xtic(1) with boxes notitle
 # EOL
+ARG1=${1}
 
 ARG2=${2}
-xlabel=$( [[ -n "${ARG2}" && "${ARG2}" == 'opt' ]] && echo "-O3" || echo "-O0" )
+
+ARG3=${3}
+optArg=$( [[ -n "${ARG3}" && "${ARG3}" == 'opt' ]] && echo "-O3" || echo "-O0" )
+xlabel="Optimisation: ${optArg}"
+xlabel_fixed=${xlabel//_/\\_}
+xlabel_fixed=${xlabel_fixed//^/\\^}
+
+slabel="./regex_plot.sh ${ARG1} \"${ARG2}\" ${ARG3}"
+slabel_fixed=${slabel//_/\\_}
+slabel_fixed=${slabel_fixed//^/\\^}
 
 cat > "${gnuplot_script}" << EOL
 set terminal pngcairo size 720,500 font 'Verdana,12:italic'
-set output '${1}/bench.png'
+set output '${ARG1}/bench.png'
 set boxwidth 0.5
 set style fill solid
+set yrange [0:*]
 set grid y
-set ylabel 'Aeg (ns)'
-set xlabel 'Optimisatsioon: ${xlabel}'
-set title '$(echo ${1} | sed "s/_/ /g")'
+set ylabel 'Time (ns)'
+set xlabel '${xlabel_fixed}'
+set label '${slabel_fixed}' at graph 0.5, -1.6 center
+set title '$(echo ${ARG1} | sed "s/_/ /g")'
 set xtics rotate by -45
 set datafile separator ","
 set lmargin 10
 set rmargin 10
 set tmargin 2
-set bmargin 10
+set bmargin 14
 plot '${temp_csv}' using 2:xtic(1) with boxes notitle
 EOL
 

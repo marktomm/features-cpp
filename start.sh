@@ -4,4 +4,4 @@ set -e
 
 ./_clean.sh
 ./_build.sh
-./_benchmark.sh $1
+./benchmark.sh $1
