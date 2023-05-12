@@ -6,17 +6,17 @@
 struct SomeType {};
 
 // GEN_PROTO_BEGIN
-static void BM_01_Local_Idx_Incr(benchmark::State& state);
-static void BM_02_Global_Idx_Incr(benchmark::State& state);
-static void BM_03_100El_Single_Access(benchmark::State& state);
-static void BM_04_100El_Sgl_Acc_Local_Idx(benchmark::State& state);
-static void BM_05_100El_Sgl_Acc_Global_Idx(benchmark::State& state);
-static void BM_07_100El_Dbl_Access(benchmark::State& state);
-static void BM_08_100El_Dbl_Acc_Local_Idx(benchmark::State& state);
-static void BM_09_100El_Dbl_Acc_Global_Idx(benchmark::State& state);
-static void BM_A6_10000El_Dbl_Access(benchmark::State& state);
+static void BM_03_100El_Single_Access_Static(benchmark::State& state);
+static void BM_04_100El_Single_Access_Local_Idx(benchmark::State& state);
+static void BM_A6_10000El_Dbl_Access_Static(benchmark::State& state);
 static void BM_A7_10000El_Dbl_Access_Local_Idx(benchmark::State& state);
 static void BM_A8_10000El_Dbl_Access_Global_Idx(benchmark::State& state);
+static void BM_C1_Local_Idx_Incr(benchmark::State& state);
+static void BM_C2_Global_Idx_Incr(benchmark::State& state);
+static void BM_C5_100El_Single_Access_Global_Idx(benchmark::State& state);
+static void BM_C7_100El_Dbl_Access_Static(benchmark::State& state);
+static void BM_C8_100El_Dbl_Access_Local_Idx(benchmark::State& state);
+static void BM_C9_100El_Dbl_Access_Global_Idx(benchmark::State& state);
 // GEN_PROTO_END
 
 #include <deque>
@@ -30,48 +30,53 @@ using namespace common;
 template<typename Container, std::size_t A>
 static Container global_container = generateRandomContainer<Container>(A);
 
-static void BM_01_Local_Idx_Incr(benchmark::State& state) {
+static void BM_C1_Local_Idx_Incr(benchmark::State& state) {
     using namespace std;
     std::size_t it = 0;
     for (auto _ : state) {
-        auto x = ++it == 100 ? it = 1 : it;
-        benchmark::DoNotOptimize(x);
+        benchmark::DoNotOptimize(++it == 100 ? it = 1 : it);
     }
 }
 
-static void BM_02_Global_Idx_Incr(benchmark::State& state) {
+static void BM_C2_Global_Idx_Incr(benchmark::State& state) {
     using namespace std;
     for (auto _ : state) {
         benchmark::DoNotOptimize(GetNextGlobalIndex());
     }
 }
 
-static void BM_03_100El_Single_Access(benchmark::State& state) {
+static void BM_03_100El_Single_Access_Static(benchmark::State& state) {
     using namespace std;
     auto c1 = global_container<vector<uint32_t>, 100>;
     for (auto _ : state) {
         uint32_t c = c1[0];
         benchmark::DoNotOptimize(c);
+        benchmark::DoNotOptimize(c1.data());
     }
 }
 
-static void BM_04_100El_Sgl_Acc_Local_Idx(benchmark::State& state) {
+static void BM_04_100El_Single_Access_Local_Idx(benchmark::State& state) {
     using namespace std;
     auto c1 = global_container<vector<uint32_t>, 100>;
     std::size_t it = 0;
     for (auto _ : state) {
         auto x = ++it == 100 ? it = 1 : it;
         uint32_t c = c1[x];
+        benchmark::DoNotOptimize(x);
         benchmark::DoNotOptimize(c);
+        benchmark::DoNotOptimize(c1.data());
     }
 }
 
-static void BM_05_100El_Sgl_Acc_Global_Idx(benchmark::State& state) {
+static void BM_C5_100El_Single_Access_Global_Idx(benchmark::State& state) {
     using namespace std;
     auto c1 = global_container<vector<uint32_t>, 100>;
     for (auto _ : state) {
-        uint32_t c = c1[GetNextGlobalIndex()];
+        auto x = GetNextGlobalIndex();
+        uint32_t c = c1[x];
+        benchmark::DoNotOptimize(x);
         benchmark::DoNotOptimize(c);
+        benchmark::DoNotOptimize(c1.data());
     }
 }
 
@@ -86,17 +91,19 @@ static void BM_05_100El_Sgl_Acc_Global_Idx(benchmark::State& state) {
 //     }
 // }
 
-static void BM_07_100El_Dbl_Access(benchmark::State& state) {
+static void BM_C7_100El_Dbl_Access_Static(benchmark::State& state) {
     using namespace std;
     auto c1 = global_container<vector<uint32_t>, 100>;
     auto c2 = global_container<vector<uint32_t>, 100>;
     for (auto _ : state) {
         uint32_t c = c1[c2[0]];
         benchmark::DoNotOptimize(c);
+        benchmark::DoNotOptimize(c1.data());
+        benchmark::DoNotOptimize(c2.data());
     }
 }
 
-static void BM_08_100El_Dbl_Acc_Local_Idx(benchmark::State& state) {
+static void BM_C8_100El_Dbl_Access_Local_Idx(benchmark::State& state) {
     using namespace std;
     auto c1 = global_container<vector<uint32_t>, 100>;
     auto c2 = global_container<vector<uint32_t>, 100>;
@@ -104,27 +111,36 @@ static void BM_08_100El_Dbl_Acc_Local_Idx(benchmark::State& state) {
     for (auto _ : state) {
         auto x = ++it == 100 ? it = 1 : it;
         uint32_t c = c1[c2[x]];
+        benchmark::DoNotOptimize(x);
         benchmark::DoNotOptimize(c);
+        benchmark::DoNotOptimize(c1.data());
+        benchmark::DoNotOptimize(c2.data());
     }
 }
 
-static void BM_09_100El_Dbl_Acc_Global_Idx(benchmark::State& state) {
+static void BM_C9_100El_Dbl_Access_Global_Idx(benchmark::State& state) {
     using namespace std;
     auto c1 = global_container<vector<uint32_t>, 100>;
     auto c2 = global_container<vector<uint32_t>, 100>;
     for (auto _ : state) {
-        uint32_t c = c1[c2[GetNextGlobalIndex()]];
+        auto x = GetNextGlobalIndex();
+        uint32_t c = c1[c2[x]];
+        benchmark::DoNotOptimize(x);
         benchmark::DoNotOptimize(c);
+        benchmark::DoNotOptimize(c1.data());
+        benchmark::DoNotOptimize(c2.data());
     }
 }
 
-static void BM_A6_10000El_Dbl_Access(benchmark::State& state) {
+static void BM_A6_10000El_Dbl_Access_Static(benchmark::State& state) {
     using namespace std;
     auto c1 = global_container<vector<uint32_t>, 10000>;
     auto c2 = global_container<vector<uint32_t>, 10000>;
     for (auto _ : state) {
         uint32_t c = c1[c2[0]];
         benchmark::DoNotOptimize(c);
+        benchmark::DoNotOptimize(c1.data());
+        benchmark::DoNotOptimize(c2.data());
     }
 }
 
@@ -136,7 +152,10 @@ static void BM_A7_10000El_Dbl_Access_Local_Idx(benchmark::State& state) {
     for (auto _ : state) {
         auto x = ++it == 100 ? it = 1 : it;
         uint32_t c = c1[c2[x]];
+        benchmark::DoNotOptimize(x);
         benchmark::DoNotOptimize(c);
+        benchmark::DoNotOptimize(c1.data());
+        benchmark::DoNotOptimize(c2.data());
     }
 }
 
@@ -145,8 +164,12 @@ static void BM_A8_10000El_Dbl_Access_Global_Idx(benchmark::State& state) {
     auto c1 = global_container<vector<uint32_t>, 10000>;
     auto c2 = global_container<vector<uint32_t>, 10000>;
     for (auto _ : state) {
-        uint32_t c = c1[c2[GetNextGlobalIndex()]];
+        auto x = GetNextGlobalIndex();
+        uint32_t c = c1[c2[x]];
+        benchmark::DoNotOptimize(x);
         benchmark::DoNotOptimize(c);
+        benchmark::DoNotOptimize(c1.data());
+        benchmark::DoNotOptimize(c2.data());
     }
 }
 
@@ -357,17 +380,17 @@ REGISTER_BENCHMARKS_FOR_CONTAINER(std::deque<uint32_t>);
 REGISTER_BENCHMARKS_FOR_CONTAINER(std::list<uint32_t>);
 
 // GEN_BENCHMARK_BEGIN
-BENCHMARK(BM_01_Local_Idx_Incr);
-BENCHMARK(BM_02_Global_Idx_Incr);
-BENCHMARK(BM_03_100El_Single_Access);
-BENCHMARK(BM_04_100El_Sgl_Acc_Local_Idx);
-BENCHMARK(BM_05_100El_Sgl_Acc_Global_Idx);
-BENCHMARK(BM_07_100El_Dbl_Access);
-BENCHMARK(BM_08_100El_Dbl_Acc_Local_Idx);
-BENCHMARK(BM_09_100El_Dbl_Acc_Global_Idx);
-BENCHMARK(BM_A6_10000El_Dbl_Access);
+BENCHMARK(BM_03_100El_Single_Access_Static);
+BENCHMARK(BM_04_100El_Single_Access_Local_Idx);
+BENCHMARK(BM_A6_10000El_Dbl_Access_Static);
 BENCHMARK(BM_A7_10000El_Dbl_Access_Local_Idx);
 BENCHMARK(BM_A8_10000El_Dbl_Access_Global_Idx);
+BENCHMARK(BM_C1_Local_Idx_Incr);
+BENCHMARK(BM_C2_Global_Idx_Incr);
+BENCHMARK(BM_C5_100El_Single_Access_Global_Idx);
+BENCHMARK(BM_C7_100El_Dbl_Access_Static);
+BENCHMARK(BM_C8_100El_Dbl_Access_Local_Idx);
+BENCHMARK(BM_C9_100El_Dbl_Access_Global_Idx);
 // GEN_BENCHMARK_END
 
 // Run the benchmark
