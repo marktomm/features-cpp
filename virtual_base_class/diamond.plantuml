@@ -16,8 +16,8 @@ class D {
     +d : int
 }
 
-B --|> A : virtual
-C --|> A : virtual
-D --|> B
-D --|> C
+A <|-- B : virtual
+A <|-- C : virtual
+B <|-- D
+C <|-- D
 @enduml
