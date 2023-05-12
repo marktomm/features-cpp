@@ -9,50 +9,50 @@
 using namespace poly;
 
 // GEN_PROTO_BEGIN
-static void BM_00_NonV_D_Ctor_Dtor(benchmark::State& state);
-static void BM_01_V_D_Ctor_Dtor(benchmark::State& state);
-static void BM_02_VBase_Dx_Ctor_Dtor(benchmark::State& state);
-static void BM_04_NonV_D_Fn(benchmark::State& state);
-static void BM_05_NonV_A_Fn(benchmark::State& state);
-static void BM_06_PureV_A_Fn_Ptr(benchmark::State& state);
-static void BM_07_PureV_D_Fn_Ptr(benchmark::State& state);
-static void BM_08_PureV_Random_Fn(benchmark::State& state);
-static void BM_09_PureV_Same_Fn(benchmark::State& state);
-static void BM_0A_PureV_Same_Fn_2(benchmark::State& state);
-static void BM_0B_V_B_Fn_Ptr(benchmark::State& state);
-static void BM_0C_V_D_Fn_Ptr(benchmark::State& state);
+static void BM_00_Regular_Base_Cr_Dr(benchmark::State& state);
+static void BM_01_Regular_Drv_Cr_Dr(benchmark::State& state);
+static void BM_03_Virt_Drv_Cr_Dr(benchmark::State& state);
+static void BM_04_Regular_Base_Call(benchmark::State& state);
+static void BM_05_Regular_Drv_Call(benchmark::State& state);
+static void BM_07_Virt_Base_Call(benchmark::State& state);
+static void BM_08_Virt_Drv_Call(benchmark::State& state);
+static void BM_09_Virt_Random_Call(benchmark::State& state);
+static void BM_F0_VirtA_Drv_Cr_Dr(benchmark::State& state);
+static void BM_F1_VirtA_Base_Call(benchmark::State& state);
+static void BM_F2_VirtA_Drv_Call(benchmark::State& state);
+static void BM_F3_Virt_Same_Call(benchmark::State& state);
+static void BM_F4_Virt_Int_Call(benchmark::State& state);
 // GEN_PROTO_END
 
-static void BM_02_VBase_Dx_Ctor_Dtor(benchmark::State& state) {
+static void BM_00_Regular_Base_Cr_Dr(benchmark::State& state) {
     for (auto _ : state) {
-        Dx d;
-        benchmark::DoNotOptimize(&d);
+        nonVA a;
+        benchmark::DoNotOptimize(&a);
     }
 }
 
-static void BM_01_V_D_Ctor_Dtor(benchmark::State& state) {
-    for (auto _ : state) {
-        D d;
-        benchmark::DoNotOptimize(&d);
-    }
-}
-
-static void BM_00_NonV_D_Ctor_Dtor(benchmark::State& state) {
+static void BM_01_Regular_Drv_Cr_Dr(benchmark::State& state) {
     for (auto _ : state) {
         nonVD d;
         benchmark::DoNotOptimize(&d);
     }
 }
 
-static void BM_04_NonV_D_Fn(benchmark::State& state) {
-    nonVD d;
+static void BM_F0_VirtA_Drv_Cr_Dr(benchmark::State& state) {
     for (auto _ : state) {
-        d.Fn();
+        Dx d;
         benchmark::DoNotOptimize(&d);
     }
 }
 
-static void BM_05_NonV_A_Fn(benchmark::State& state) {
+static void BM_03_Virt_Drv_Cr_Dr(benchmark::State& state) {
+    for (auto _ : state) {
+        D d;
+        benchmark::DoNotOptimize(&d);
+    }
+}
+
+static void BM_04_Regular_Base_Call(benchmark::State& state) {
     nonVA a;
     for (auto _ : state) {
         a.Fn();
@@ -60,16 +60,31 @@ static void BM_05_NonV_A_Fn(benchmark::State& state) {
     }
 }
 
-static void BM_07_PureV_D_Fn_Ptr(benchmark::State& state) {
-    D d;
-    D* ptr = &d;
+static void BM_05_Regular_Drv_Call(benchmark::State& state) {
+    nonVD d;
     for (auto _ : state) {
-        ptr->PureVFn();
-        benchmark::DoNotOptimize(ptr);
+        d.Fn();
+        benchmark::DoNotOptimize(&d);
     }
 }
 
-static void BM_06_PureV_A_Fn_Ptr(benchmark::State& state) {
+static void BM_F1_VirtA_Base_Call(benchmark::State& state) {
+    Ax d;
+    for (auto _ : state) {
+        d.Fn();
+        benchmark::DoNotOptimize(&d);
+    }
+}
+
+static void BM_F2_VirtA_Drv_Call(benchmark::State& state) {
+    Dx d;
+    for (auto _ : state) {
+        d.Fn();
+        benchmark::DoNotOptimize(&d);
+    }
+}
+
+static void BM_07_Virt_Base_Call(benchmark::State& state) {
     D d;
     A* ptr = &d;
     for (auto _ : state) {
@@ -78,25 +93,16 @@ static void BM_06_PureV_A_Fn_Ptr(benchmark::State& state) {
     }
 }
 
-static void BM_0C_V_D_Fn_Ptr(benchmark::State& state) {
+static void BM_08_Virt_Drv_Call(benchmark::State& state) {
     D d;
     D* ptr = &d;
     for (auto _ : state) {
-        ptr->VFn();
+        ptr->PureVFn();
         benchmark::DoNotOptimize(ptr);
     }
 }
 
-static void BM_0B_V_B_Fn_Ptr(benchmark::State& state) {
-    D d;
-    B* ptr = &d;
-    for (auto _ : state) {
-        ptr->VFn();
-        benchmark::DoNotOptimize(ptr);
-    }
-}
-
-static void BM_08_PureV_Random_Fn(benchmark::State& state) {
+static void BM_09_Virt_Random_Call(benchmark::State& state) {
     // Create a container with random instances of derived classes
     std::vector<A*> container;
     std::random_device rd;
@@ -133,7 +139,7 @@ static void BM_08_PureV_Random_Fn(benchmark::State& state) {
     }
 }
 
-static void BM_09_PureV_Same_Fn(benchmark::State& state) {
+static void BM_F3_Virt_Same_Call(benchmark::State& state) {
     // Create a container with random instances of derived classes
     std::vector<A*> container;
 
@@ -158,39 +164,29 @@ static void BM_09_PureV_Same_Fn(benchmark::State& state) {
     }
 }
 
-static void BM_0A_PureV_Same_Fn_2(benchmark::State& state) {
-    // Create a container with random instances of derived classes
-    std::vector<A*> container;
-
-    for (int i = 0; i < 1000; ++i) {
-        container.push_back(new D);
-    }
-
-    // Benchmark the virtual calls
+static void BM_F4_Virt_Int_Call(benchmark::State& state) {
+    D d;
+    B* ptr = &d;
     for (auto _ : state) {
-        container[1]->PureVFn();
-    }
-    benchmark::DoNotOptimize(container.data());
-
-    // Clean up memory
-    for (auto* ptr : container) {
-        delete ptr;
+        ptr->VFn();
+        benchmark::DoNotOptimize(ptr);
     }
 }
 
 // GEN_BENCHMARK_BEGIN
-BENCHMARK(BM_00_NonV_D_Ctor_Dtor);
-BENCHMARK(BM_01_V_D_Ctor_Dtor);
-BENCHMARK(BM_02_VBase_Dx_Ctor_Dtor);
-BENCHMARK(BM_04_NonV_D_Fn);
-BENCHMARK(BM_05_NonV_A_Fn);
-BENCHMARK(BM_06_PureV_A_Fn_Ptr);
-BENCHMARK(BM_07_PureV_D_Fn_Ptr);
-BENCHMARK(BM_08_PureV_Random_Fn);
-BENCHMARK(BM_09_PureV_Same_Fn);
-BENCHMARK(BM_0A_PureV_Same_Fn_2);
-BENCHMARK(BM_0B_V_B_Fn_Ptr);
-BENCHMARK(BM_0C_V_D_Fn_Ptr);
+BENCHMARK(BM_00_Regular_Base_Cr_Dr);
+BENCHMARK(BM_01_Regular_Drv_Cr_Dr);
+BENCHMARK(BM_03_Virt_Drv_Cr_Dr);
+BENCHMARK(BM_04_Regular_Base_Call);
+BENCHMARK(BM_05_Regular_Drv_Call);
+BENCHMARK(BM_07_Virt_Base_Call);
+BENCHMARK(BM_08_Virt_Drv_Call);
+BENCHMARK(BM_09_Virt_Random_Call);
+BENCHMARK(BM_F0_VirtA_Drv_Cr_Dr);
+BENCHMARK(BM_F1_VirtA_Base_Call);
+BENCHMARK(BM_F2_VirtA_Drv_Call);
+BENCHMARK(BM_F3_Virt_Same_Call);
+BENCHMARK(BM_F4_Virt_Int_Call);
 // GEN_BENCHMARK_END
 
 BENCHMARK_MAIN();
