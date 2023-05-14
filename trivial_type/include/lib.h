@@ -7,6 +7,8 @@
 namespace trivial_type {
 
 // GEN_PROTO_BEGIN
+int FnRet([[maybe_unused]] int* p);
+int FnRet([[maybe_unused]] std::unique_ptr<int> p);
 int TestFunction(int* x);
 int TestFunction(std::unique_ptr<int> x);
 void FnEscape([[maybe_unused]] int* p);

@@ -14,4 +14,13 @@ static void escape(void* p) { asm volatile("" : : "g"(p) : "memory"); }
 void FnEscape([[maybe_unused]] std::unique_ptr<int> p) { escape(p.get()); }
 void FnEscape([[maybe_unused]] int* p) { escape(p); }
 
+int FnRet([[maybe_unused]] std::unique_ptr<int> p) {
+    escape(p.get());
+    return *p;
+}
+int FnRet([[maybe_unused]] int* p) {
+    escape(p);
+    return *p;
+}
+
 } // namespace trivial_type
