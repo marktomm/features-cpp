@@ -27,6 +27,16 @@ public:
     int d;
 };
 
+class nonVD1 final: public nonVC {
+public:
+    int d;
+};
+
+class nonVD2 final: public nonVC {
+public:
+    int d;
+};
+
 class Ax {
 public:
     virtual ~Ax() {}
