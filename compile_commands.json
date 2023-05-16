@@ -1,662 +1,470 @@
 [
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ access_specifier/access_specifier_opt.p/src_main.cpp.o -MF access_specifier/access_specifier_opt.p/src_main.cpp.o.d -o access_specifier/access_specifier_opt.p/src_main.cpp.o -c ../access_specifier/src/main.cpp",
+    "command": "c++ -Icommon/common_opt.p -Icommon -I../common -I../common/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ common/common_opt.p/src_main.cpp.o -MF common/common_opt.p/src_main.cpp.o.d -o common/common_opt.p/src_main.cpp.o -c ../common/src/main.cpp",
+    "file": "../common/src/main.cpp",
+    "output": "common/common_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Icommon/common_opt.p -Icommon -I../common -I../common/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ common/common_opt.p/src_lib.cpp.o -MF common/common_opt.p/src_lib.cpp.o.d -o common/common_opt.p/src_lib.cpp.o -c ../common/src/lib.cpp",
+    "file": "../common/src/lib.cpp",
+    "output": "common/common_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Icommon/common_no_opt.p -Icommon -I../common -I../common/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ common/common_no_opt.p/src_main.cpp.o -MF common/common_no_opt.p/src_main.cpp.o.d -o common/common_no_opt.p/src_main.cpp.o -c ../common/src/main.cpp",
+    "file": "../common/src/main.cpp",
+    "output": "common/common_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Icommon/common_no_opt.p -Icommon -I../common -I../common/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ common/common_no_opt.p/src_lib.cpp.o -MF common/common_no_opt.p/src_lib.cpp.o.d -o common/common_no_opt.p/src_lib.cpp.o -c ../common/src/lib.cpp",
+    "file": "../common/src/lib.cpp",
+    "output": "common/common_no_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Icommon/common_benchmark_google_opt.p -Icommon -I../common -I../common/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ common/common_benchmark_google_opt.p/bench.cpp.o -MF common/common_benchmark_google_opt.p/bench.cpp.o.d -o common/common_benchmark_google_opt.p/bench.cpp.o -c ../common/bench.cpp",
+    "file": "../common/bench.cpp",
+    "output": "common/common_benchmark_google_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Icommon/common_benchmark_google_no_opt.p -Icommon -I../common -I../common/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ common/common_benchmark_google_no_opt.p/bench.cpp.o -MF common/common_benchmark_google_no_opt.p/bench.cpp.o.d -o common/common_benchmark_google_no_opt.p/bench.cpp.o -c ../common/bench.cpp",
+    "file": "../common/bench.cpp",
+    "output": "common/common_benchmark_google_no_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Iaccess_specifier/access_specifier_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ access_specifier/access_specifier_opt.p/src_main.cpp.o -MF access_specifier/access_specifier_opt.p/src_main.cpp.o.d -o access_specifier/access_specifier_opt.p/src_main.cpp.o -c ../access_specifier/src/main.cpp",
     "file": "../access_specifier/src/main.cpp",
     "output": "access_specifier/access_specifier_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ access_specifier/access_specifier_opt.p/src_lib.cpp.o -MF access_specifier/access_specifier_opt.p/src_lib.cpp.o.d -o access_specifier/access_specifier_opt.p/src_lib.cpp.o -c ../access_specifier/src/lib.cpp",
+    "command": "c++ -Iaccess_specifier/access_specifier_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ access_specifier/access_specifier_opt.p/src_lib.cpp.o -MF access_specifier/access_specifier_opt.p/src_lib.cpp.o.d -o access_specifier/access_specifier_opt.p/src_lib.cpp.o -c ../access_specifier/src/lib.cpp",
     "file": "../access_specifier/src/lib.cpp",
     "output": "access_specifier/access_specifier_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier_no_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ access_specifier/access_specifier_no_opt.p/src_main.cpp.o -MF access_specifier/access_specifier_no_opt.p/src_main.cpp.o.d -o access_specifier/access_specifier_no_opt.p/src_main.cpp.o -c ../access_specifier/src/main.cpp",
+    "command": "c++ -Iaccess_specifier/access_specifier_no_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ access_specifier/access_specifier_no_opt.p/src_main.cpp.o -MF access_specifier/access_specifier_no_opt.p/src_main.cpp.o.d -o access_specifier/access_specifier_no_opt.p/src_main.cpp.o -c ../access_specifier/src/main.cpp",
     "file": "../access_specifier/src/main.cpp",
     "output": "access_specifier/access_specifier_no_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier_no_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ access_specifier/access_specifier_no_opt.p/src_lib.cpp.o -MF access_specifier/access_specifier_no_opt.p/src_lib.cpp.o.d -o access_specifier/access_specifier_no_opt.p/src_lib.cpp.o -c ../access_specifier/src/lib.cpp",
+    "command": "c++ -Iaccess_specifier/access_specifier_no_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ access_specifier/access_specifier_no_opt.p/src_lib.cpp.o -MF access_specifier/access_specifier_no_opt.p/src_lib.cpp.o.d -o access_specifier/access_specifier_no_opt.p/src_lib.cpp.o -c ../access_specifier/src/lib.cpp",
     "file": "../access_specifier/src/lib.cpp",
     "output": "access_specifier/access_specifier_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier_opt_sanitize.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ access_specifier/access_specifier_opt_sanitize.p/src_main.cpp.o -MF access_specifier/access_specifier_opt_sanitize.p/src_main.cpp.o.d -o access_specifier/access_specifier_opt_sanitize.p/src_main.cpp.o -c ../access_specifier/src/main.cpp",
-    "file": "../access_specifier/src/main.cpp",
-    "output": "access_specifier/access_specifier_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier_opt_sanitize.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ access_specifier/access_specifier_opt_sanitize.p/src_lib.cpp.o -MF access_specifier/access_specifier_opt_sanitize.p/src_lib.cpp.o.d -o access_specifier/access_specifier_opt_sanitize.p/src_lib.cpp.o -c ../access_specifier/src/lib.cpp",
-    "file": "../access_specifier/src/lib.cpp",
-    "output": "access_specifier/access_specifier_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier_no_opt_sanitize.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ access_specifier/access_specifier_no_opt_sanitize.p/src_main.cpp.o -MF access_specifier/access_specifier_no_opt_sanitize.p/src_main.cpp.o.d -o access_specifier/access_specifier_no_opt_sanitize.p/src_main.cpp.o -c ../access_specifier/src/main.cpp",
-    "file": "../access_specifier/src/main.cpp",
-    "output": "access_specifier/access_specifier_no_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier_no_opt_sanitize.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ access_specifier/access_specifier_no_opt_sanitize.p/src_lib.cpp.o -MF access_specifier/access_specifier_no_opt_sanitize.p/src_lib.cpp.o.d -o access_specifier/access_specifier_no_opt_sanitize.p/src_lib.cpp.o -c ../access_specifier/src/lib.cpp",
-    "file": "../access_specifier/src/lib.cpp",
-    "output": "access_specifier/access_specifier_no_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier_benchmark_google_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ access_specifier/access_specifier_benchmark_google_opt.p/bench.cpp.o -MF access_specifier/access_specifier_benchmark_google_opt.p/bench.cpp.o.d -o access_specifier/access_specifier_benchmark_google_opt.p/bench.cpp.o -c ../access_specifier/bench.cpp",
+    "command": "c++ -Iaccess_specifier/access_specifier_benchmark_google_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ access_specifier/access_specifier_benchmark_google_opt.p/bench.cpp.o -MF access_specifier/access_specifier_benchmark_google_opt.p/bench.cpp.o.d -o access_specifier/access_specifier_benchmark_google_opt.p/bench.cpp.o -c ../access_specifier/bench.cpp",
     "file": "../access_specifier/bench.cpp",
     "output": "access_specifier/access_specifier_benchmark_google_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iaccess_specifier/access_specifier_benchmark_google_no_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ access_specifier/access_specifier_benchmark_google_no_opt.p/bench.cpp.o -MF access_specifier/access_specifier_benchmark_google_no_opt.p/bench.cpp.o.d -o access_specifier/access_specifier_benchmark_google_no_opt.p/bench.cpp.o -c ../access_specifier/bench.cpp",
+    "command": "c++ -Iaccess_specifier/access_specifier_benchmark_google_no_opt.p -Iaccess_specifier -I../access_specifier -I../access_specifier/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ access_specifier/access_specifier_benchmark_google_no_opt.p/bench.cpp.o -MF access_specifier/access_specifier_benchmark_google_no_opt.p/bench.cpp.o.d -o access_specifier/access_specifier_benchmark_google_no_opt.p/bench.cpp.o -c ../access_specifier/bench.cpp",
     "file": "../access_specifier/bench.cpp",
     "output": "access_specifier/access_specifier_benchmark_google_no_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ virtual_base_class/virtual_base_class_opt.p/src_main.cpp.o -MF virtual_base_class/virtual_base_class_opt.p/src_main.cpp.o.d -o virtual_base_class/virtual_base_class_opt.p/src_main.cpp.o -c ../virtual_base_class/src/main.cpp",
+    "command": "c++ -Ivirtual_base_class/virtual_base_class_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ virtual_base_class/virtual_base_class_opt.p/src_main.cpp.o -MF virtual_base_class/virtual_base_class_opt.p/src_main.cpp.o.d -o virtual_base_class/virtual_base_class_opt.p/src_main.cpp.o -c ../virtual_base_class/src/main.cpp",
     "file": "../virtual_base_class/src/main.cpp",
     "output": "virtual_base_class/virtual_base_class_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ virtual_base_class/virtual_base_class_opt.p/src_lib.cpp.o -MF virtual_base_class/virtual_base_class_opt.p/src_lib.cpp.o.d -o virtual_base_class/virtual_base_class_opt.p/src_lib.cpp.o -c ../virtual_base_class/src/lib.cpp",
+    "command": "c++ -Ivirtual_base_class/virtual_base_class_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ virtual_base_class/virtual_base_class_opt.p/src_lib.cpp.o -MF virtual_base_class/virtual_base_class_opt.p/src_lib.cpp.o.d -o virtual_base_class/virtual_base_class_opt.p/src_lib.cpp.o -c ../virtual_base_class/src/lib.cpp",
     "file": "../virtual_base_class/src/lib.cpp",
     "output": "virtual_base_class/virtual_base_class_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class_no_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ virtual_base_class/virtual_base_class_no_opt.p/src_main.cpp.o -MF virtual_base_class/virtual_base_class_no_opt.p/src_main.cpp.o.d -o virtual_base_class/virtual_base_class_no_opt.p/src_main.cpp.o -c ../virtual_base_class/src/main.cpp",
+    "command": "c++ -Ivirtual_base_class/virtual_base_class_no_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ virtual_base_class/virtual_base_class_no_opt.p/src_main.cpp.o -MF virtual_base_class/virtual_base_class_no_opt.p/src_main.cpp.o.d -o virtual_base_class/virtual_base_class_no_opt.p/src_main.cpp.o -c ../virtual_base_class/src/main.cpp",
     "file": "../virtual_base_class/src/main.cpp",
     "output": "virtual_base_class/virtual_base_class_no_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class_no_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ virtual_base_class/virtual_base_class_no_opt.p/src_lib.cpp.o -MF virtual_base_class/virtual_base_class_no_opt.p/src_lib.cpp.o.d -o virtual_base_class/virtual_base_class_no_opt.p/src_lib.cpp.o -c ../virtual_base_class/src/lib.cpp",
+    "command": "c++ -Ivirtual_base_class/virtual_base_class_no_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ virtual_base_class/virtual_base_class_no_opt.p/src_lib.cpp.o -MF virtual_base_class/virtual_base_class_no_opt.p/src_lib.cpp.o.d -o virtual_base_class/virtual_base_class_no_opt.p/src_lib.cpp.o -c ../virtual_base_class/src/lib.cpp",
     "file": "../virtual_base_class/src/lib.cpp",
     "output": "virtual_base_class/virtual_base_class_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class_opt_sanitize.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ virtual_base_class/virtual_base_class_opt_sanitize.p/src_main.cpp.o -MF virtual_base_class/virtual_base_class_opt_sanitize.p/src_main.cpp.o.d -o virtual_base_class/virtual_base_class_opt_sanitize.p/src_main.cpp.o -c ../virtual_base_class/src/main.cpp",
-    "file": "../virtual_base_class/src/main.cpp",
-    "output": "virtual_base_class/virtual_base_class_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class_opt_sanitize.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ virtual_base_class/virtual_base_class_opt_sanitize.p/src_lib.cpp.o -MF virtual_base_class/virtual_base_class_opt_sanitize.p/src_lib.cpp.o.d -o virtual_base_class/virtual_base_class_opt_sanitize.p/src_lib.cpp.o -c ../virtual_base_class/src/lib.cpp",
-    "file": "../virtual_base_class/src/lib.cpp",
-    "output": "virtual_base_class/virtual_base_class_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class_no_opt_sanitize.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ virtual_base_class/virtual_base_class_no_opt_sanitize.p/src_main.cpp.o -MF virtual_base_class/virtual_base_class_no_opt_sanitize.p/src_main.cpp.o.d -o virtual_base_class/virtual_base_class_no_opt_sanitize.p/src_main.cpp.o -c ../virtual_base_class/src/main.cpp",
-    "file": "../virtual_base_class/src/main.cpp",
-    "output": "virtual_base_class/virtual_base_class_no_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class_no_opt_sanitize.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ virtual_base_class/virtual_base_class_no_opt_sanitize.p/src_lib.cpp.o -MF virtual_base_class/virtual_base_class_no_opt_sanitize.p/src_lib.cpp.o.d -o virtual_base_class/virtual_base_class_no_opt_sanitize.p/src_lib.cpp.o -c ../virtual_base_class/src/lib.cpp",
-    "file": "../virtual_base_class/src/lib.cpp",
-    "output": "virtual_base_class/virtual_base_class_no_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class_benchmark_google_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ virtual_base_class/virtual_base_class_benchmark_google_opt.p/bench.cpp.o -MF virtual_base_class/virtual_base_class_benchmark_google_opt.p/bench.cpp.o.d -o virtual_base_class/virtual_base_class_benchmark_google_opt.p/bench.cpp.o -c ../virtual_base_class/bench.cpp",
+    "command": "c++ -Ivirtual_base_class/virtual_base_class_benchmark_google_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ virtual_base_class/virtual_base_class_benchmark_google_opt.p/bench.cpp.o -MF virtual_base_class/virtual_base_class_benchmark_google_opt.p/bench.cpp.o.d -o virtual_base_class/virtual_base_class_benchmark_google_opt.p/bench.cpp.o -c ../virtual_base_class/bench.cpp",
     "file": "../virtual_base_class/bench.cpp",
     "output": "virtual_base_class/virtual_base_class_benchmark_google_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ivirtual_base_class/virtual_base_class_benchmark_google_no_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ virtual_base_class/virtual_base_class_benchmark_google_no_opt.p/bench.cpp.o -MF virtual_base_class/virtual_base_class_benchmark_google_no_opt.p/bench.cpp.o.d -o virtual_base_class/virtual_base_class_benchmark_google_no_opt.p/bench.cpp.o -c ../virtual_base_class/bench.cpp",
+    "command": "c++ -Ivirtual_base_class/virtual_base_class_benchmark_google_no_opt.p -Ivirtual_base_class -I../virtual_base_class -I../virtual_base_class/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ virtual_base_class/virtual_base_class_benchmark_google_no_opt.p/bench.cpp.o -MF virtual_base_class/virtual_base_class_benchmark_google_no_opt.p/bench.cpp.o.d -o virtual_base_class/virtual_base_class_benchmark_google_no_opt.p/bench.cpp.o -c ../virtual_base_class/bench.cpp",
     "file": "../virtual_base_class/bench.cpp",
     "output": "virtual_base_class/virtual_base_class_benchmark_google_no_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ non_standard_member_vars/non_standard_member_vars_opt.p/src_main.cpp.o -MF non_standard_member_vars/non_standard_member_vars_opt.p/src_main.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_opt.p/src_main.cpp.o -c ../non_standard_member_vars/src/main.cpp",
+    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ non_standard_member_vars/non_standard_member_vars_opt.p/src_main.cpp.o -MF non_standard_member_vars/non_standard_member_vars_opt.p/src_main.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_opt.p/src_main.cpp.o -c ../non_standard_member_vars/src/main.cpp",
     "file": "../non_standard_member_vars/src/main.cpp",
     "output": "non_standard_member_vars/non_standard_member_vars_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ non_standard_member_vars/non_standard_member_vars_opt.p/src_lib.cpp.o -MF non_standard_member_vars/non_standard_member_vars_opt.p/src_lib.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_opt.p/src_lib.cpp.o -c ../non_standard_member_vars/src/lib.cpp",
+    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ non_standard_member_vars/non_standard_member_vars_opt.p/src_lib.cpp.o -MF non_standard_member_vars/non_standard_member_vars_opt.p/src_lib.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_opt.p/src_lib.cpp.o -c ../non_standard_member_vars/src/lib.cpp",
     "file": "../non_standard_member_vars/src/lib.cpp",
     "output": "non_standard_member_vars/non_standard_member_vars_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_no_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ non_standard_member_vars/non_standard_member_vars_no_opt.p/src_main.cpp.o -MF non_standard_member_vars/non_standard_member_vars_no_opt.p/src_main.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_no_opt.p/src_main.cpp.o -c ../non_standard_member_vars/src/main.cpp",
+    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_no_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ non_standard_member_vars/non_standard_member_vars_no_opt.p/src_main.cpp.o -MF non_standard_member_vars/non_standard_member_vars_no_opt.p/src_main.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_no_opt.p/src_main.cpp.o -c ../non_standard_member_vars/src/main.cpp",
     "file": "../non_standard_member_vars/src/main.cpp",
     "output": "non_standard_member_vars/non_standard_member_vars_no_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_no_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ non_standard_member_vars/non_standard_member_vars_no_opt.p/src_lib.cpp.o -MF non_standard_member_vars/non_standard_member_vars_no_opt.p/src_lib.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_no_opt.p/src_lib.cpp.o -c ../non_standard_member_vars/src/lib.cpp",
+    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_no_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ non_standard_member_vars/non_standard_member_vars_no_opt.p/src_lib.cpp.o -MF non_standard_member_vars/non_standard_member_vars_no_opt.p/src_lib.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_no_opt.p/src_lib.cpp.o -c ../non_standard_member_vars/src/lib.cpp",
     "file": "../non_standard_member_vars/src/lib.cpp",
     "output": "non_standard_member_vars/non_standard_member_vars_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_opt_sanitize.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ non_standard_member_vars/non_standard_member_vars_opt_sanitize.p/src_main.cpp.o -MF non_standard_member_vars/non_standard_member_vars_opt_sanitize.p/src_main.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_opt_sanitize.p/src_main.cpp.o -c ../non_standard_member_vars/src/main.cpp",
-    "file": "../non_standard_member_vars/src/main.cpp",
-    "output": "non_standard_member_vars/non_standard_member_vars_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_opt_sanitize.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ non_standard_member_vars/non_standard_member_vars_opt_sanitize.p/src_lib.cpp.o -MF non_standard_member_vars/non_standard_member_vars_opt_sanitize.p/src_lib.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_opt_sanitize.p/src_lib.cpp.o -c ../non_standard_member_vars/src/lib.cpp",
-    "file": "../non_standard_member_vars/src/lib.cpp",
-    "output": "non_standard_member_vars/non_standard_member_vars_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_no_opt_sanitize.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ non_standard_member_vars/non_standard_member_vars_no_opt_sanitize.p/src_main.cpp.o -MF non_standard_member_vars/non_standard_member_vars_no_opt_sanitize.p/src_main.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_no_opt_sanitize.p/src_main.cpp.o -c ../non_standard_member_vars/src/main.cpp",
-    "file": "../non_standard_member_vars/src/main.cpp",
-    "output": "non_standard_member_vars/non_standard_member_vars_no_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_no_opt_sanitize.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ non_standard_member_vars/non_standard_member_vars_no_opt_sanitize.p/src_lib.cpp.o -MF non_standard_member_vars/non_standard_member_vars_no_opt_sanitize.p/src_lib.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_no_opt_sanitize.p/src_lib.cpp.o -c ../non_standard_member_vars/src/lib.cpp",
-    "file": "../non_standard_member_vars/src/lib.cpp",
-    "output": "non_standard_member_vars/non_standard_member_vars_no_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_benchmark_google_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ non_standard_member_vars/non_standard_member_vars_benchmark_google_opt.p/bench.cpp.o -MF non_standard_member_vars/non_standard_member_vars_benchmark_google_opt.p/bench.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_benchmark_google_opt.p/bench.cpp.o -c ../non_standard_member_vars/bench.cpp",
+    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_benchmark_google_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ non_standard_member_vars/non_standard_member_vars_benchmark_google_opt.p/bench.cpp.o -MF non_standard_member_vars/non_standard_member_vars_benchmark_google_opt.p/bench.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_benchmark_google_opt.p/bench.cpp.o -c ../non_standard_member_vars/bench.cpp",
     "file": "../non_standard_member_vars/bench.cpp",
     "output": "non_standard_member_vars/non_standard_member_vars_benchmark_google_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ non_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p/bench.cpp.o -MF non_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p/bench.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p/bench.cpp.o -c ../non_standard_member_vars/bench.cpp",
+    "command": "c++ -Inon_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p -Inon_standard_member_vars -I../non_standard_member_vars -I../non_standard_member_vars/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ non_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p/bench.cpp.o -MF non_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p/bench.cpp.o.d -o non_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p/bench.cpp.o -c ../non_standard_member_vars/bench.cpp",
     "file": "../non_standard_member_vars/bench.cpp",
     "output": "non_standard_member_vars/non_standard_member_vars_benchmark_google_no_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ trivial_type/trivial_type_opt.p/src_main.cpp.o -MF trivial_type/trivial_type_opt.p/src_main.cpp.o.d -o trivial_type/trivial_type_opt.p/src_main.cpp.o -c ../trivial_type/src/main.cpp",
+    "command": "c++ -Itrivial_type/trivial_type_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ trivial_type/trivial_type_opt.p/src_main.cpp.o -MF trivial_type/trivial_type_opt.p/src_main.cpp.o.d -o trivial_type/trivial_type_opt.p/src_main.cpp.o -c ../trivial_type/src/main.cpp",
     "file": "../trivial_type/src/main.cpp",
     "output": "trivial_type/trivial_type_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ trivial_type/trivial_type_opt.p/src_lib.cpp.o -MF trivial_type/trivial_type_opt.p/src_lib.cpp.o.d -o trivial_type/trivial_type_opt.p/src_lib.cpp.o -c ../trivial_type/src/lib.cpp",
+    "command": "c++ -Itrivial_type/trivial_type_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ trivial_type/trivial_type_opt.p/src_lib.cpp.o -MF trivial_type/trivial_type_opt.p/src_lib.cpp.o.d -o trivial_type/trivial_type_opt.p/src_lib.cpp.o -c ../trivial_type/src/lib.cpp",
     "file": "../trivial_type/src/lib.cpp",
     "output": "trivial_type/trivial_type_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type_no_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ trivial_type/trivial_type_no_opt.p/src_main.cpp.o -MF trivial_type/trivial_type_no_opt.p/src_main.cpp.o.d -o trivial_type/trivial_type_no_opt.p/src_main.cpp.o -c ../trivial_type/src/main.cpp",
+    "command": "c++ -Itrivial_type/trivial_type_no_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ trivial_type/trivial_type_no_opt.p/src_main.cpp.o -MF trivial_type/trivial_type_no_opt.p/src_main.cpp.o.d -o trivial_type/trivial_type_no_opt.p/src_main.cpp.o -c ../trivial_type/src/main.cpp",
     "file": "../trivial_type/src/main.cpp",
     "output": "trivial_type/trivial_type_no_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type_no_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ trivial_type/trivial_type_no_opt.p/src_lib.cpp.o -MF trivial_type/trivial_type_no_opt.p/src_lib.cpp.o.d -o trivial_type/trivial_type_no_opt.p/src_lib.cpp.o -c ../trivial_type/src/lib.cpp",
+    "command": "c++ -Itrivial_type/trivial_type_no_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ trivial_type/trivial_type_no_opt.p/src_lib.cpp.o -MF trivial_type/trivial_type_no_opt.p/src_lib.cpp.o.d -o trivial_type/trivial_type_no_opt.p/src_lib.cpp.o -c ../trivial_type/src/lib.cpp",
     "file": "../trivial_type/src/lib.cpp",
     "output": "trivial_type/trivial_type_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type_opt_sanitize.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ trivial_type/trivial_type_opt_sanitize.p/src_main.cpp.o -MF trivial_type/trivial_type_opt_sanitize.p/src_main.cpp.o.d -o trivial_type/trivial_type_opt_sanitize.p/src_main.cpp.o -c ../trivial_type/src/main.cpp",
-    "file": "../trivial_type/src/main.cpp",
-    "output": "trivial_type/trivial_type_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type_opt_sanitize.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ trivial_type/trivial_type_opt_sanitize.p/src_lib.cpp.o -MF trivial_type/trivial_type_opt_sanitize.p/src_lib.cpp.o.d -o trivial_type/trivial_type_opt_sanitize.p/src_lib.cpp.o -c ../trivial_type/src/lib.cpp",
-    "file": "../trivial_type/src/lib.cpp",
-    "output": "trivial_type/trivial_type_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type_no_opt_sanitize.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ trivial_type/trivial_type_no_opt_sanitize.p/src_main.cpp.o -MF trivial_type/trivial_type_no_opt_sanitize.p/src_main.cpp.o.d -o trivial_type/trivial_type_no_opt_sanitize.p/src_main.cpp.o -c ../trivial_type/src/main.cpp",
-    "file": "../trivial_type/src/main.cpp",
-    "output": "trivial_type/trivial_type_no_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type_no_opt_sanitize.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ trivial_type/trivial_type_no_opt_sanitize.p/src_lib.cpp.o -MF trivial_type/trivial_type_no_opt_sanitize.p/src_lib.cpp.o.d -o trivial_type/trivial_type_no_opt_sanitize.p/src_lib.cpp.o -c ../trivial_type/src/lib.cpp",
-    "file": "../trivial_type/src/lib.cpp",
-    "output": "trivial_type/trivial_type_no_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type_benchmark_google_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ trivial_type/trivial_type_benchmark_google_opt.p/bench.cpp.o -MF trivial_type/trivial_type_benchmark_google_opt.p/bench.cpp.o.d -o trivial_type/trivial_type_benchmark_google_opt.p/bench.cpp.o -c ../trivial_type/bench.cpp",
+    "command": "c++ -Itrivial_type/trivial_type_benchmark_google_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ trivial_type/trivial_type_benchmark_google_opt.p/bench.cpp.o -MF trivial_type/trivial_type_benchmark_google_opt.p/bench.cpp.o.d -o trivial_type/trivial_type_benchmark_google_opt.p/bench.cpp.o -c ../trivial_type/bench.cpp",
     "file": "../trivial_type/bench.cpp",
     "output": "trivial_type/trivial_type_benchmark_google_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itrivial_type/trivial_type_benchmark_google_no_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ trivial_type/trivial_type_benchmark_google_no_opt.p/bench.cpp.o -MF trivial_type/trivial_type_benchmark_google_no_opt.p/bench.cpp.o.d -o trivial_type/trivial_type_benchmark_google_no_opt.p/bench.cpp.o -c ../trivial_type/bench.cpp",
+    "command": "c++ -Itrivial_type/trivial_type_benchmark_google_no_opt.p -Itrivial_type -I../trivial_type -I../trivial_type/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ trivial_type/trivial_type_benchmark_google_no_opt.p/bench.cpp.o -MF trivial_type/trivial_type_benchmark_google_no_opt.p/bench.cpp.o.d -o trivial_type/trivial_type_benchmark_google_no_opt.p/bench.cpp.o -c ../trivial_type/bench.cpp",
     "file": "../trivial_type/bench.cpp",
     "output": "trivial_type/trivial_type_benchmark_google_no_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ class_member_funcion/class_member_funcion_opt.p/src_main.cpp.o -MF class_member_funcion/class_member_funcion_opt.p/src_main.cpp.o.d -o class_member_funcion/class_member_funcion_opt.p/src_main.cpp.o -c ../class_member_funcion/src/main.cpp",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ class_member_funcion/class_member_funcion_opt.p/src_main.cpp.o -MF class_member_funcion/class_member_funcion_opt.p/src_main.cpp.o.d -o class_member_funcion/class_member_funcion_opt.p/src_main.cpp.o -c ../class_member_funcion/src/main.cpp",
     "file": "../class_member_funcion/src/main.cpp",
     "output": "class_member_funcion/class_member_funcion_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ class_member_funcion/class_member_funcion_opt.p/src_lib.cpp.o -MF class_member_funcion/class_member_funcion_opt.p/src_lib.cpp.o.d -o class_member_funcion/class_member_funcion_opt.p/src_lib.cpp.o -c ../class_member_funcion/src/lib.cpp",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ class_member_funcion/class_member_funcion_opt.p/src_lib.cpp.o -MF class_member_funcion/class_member_funcion_opt.p/src_lib.cpp.o.d -o class_member_funcion/class_member_funcion_opt.p/src_lib.cpp.o -c ../class_member_funcion/src/lib.cpp",
     "file": "../class_member_funcion/src/lib.cpp",
     "output": "class_member_funcion/class_member_funcion_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion_no_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ class_member_funcion/class_member_funcion_no_opt.p/src_main.cpp.o -MF class_member_funcion/class_member_funcion_no_opt.p/src_main.cpp.o.d -o class_member_funcion/class_member_funcion_no_opt.p/src_main.cpp.o -c ../class_member_funcion/src/main.cpp",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_no_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ class_member_funcion/class_member_funcion_no_opt.p/src_main.cpp.o -MF class_member_funcion/class_member_funcion_no_opt.p/src_main.cpp.o.d -o class_member_funcion/class_member_funcion_no_opt.p/src_main.cpp.o -c ../class_member_funcion/src/main.cpp",
     "file": "../class_member_funcion/src/main.cpp",
     "output": "class_member_funcion/class_member_funcion_no_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion_no_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ class_member_funcion/class_member_funcion_no_opt.p/src_lib.cpp.o -MF class_member_funcion/class_member_funcion_no_opt.p/src_lib.cpp.o.d -o class_member_funcion/class_member_funcion_no_opt.p/src_lib.cpp.o -c ../class_member_funcion/src/lib.cpp",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_no_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ class_member_funcion/class_member_funcion_no_opt.p/src_lib.cpp.o -MF class_member_funcion/class_member_funcion_no_opt.p/src_lib.cpp.o.d -o class_member_funcion/class_member_funcion_no_opt.p/src_lib.cpp.o -c ../class_member_funcion/src/lib.cpp",
     "file": "../class_member_funcion/src/lib.cpp",
     "output": "class_member_funcion/class_member_funcion_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion_opt_sanitize.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ class_member_funcion/class_member_funcion_opt_sanitize.p/src_main.cpp.o -MF class_member_funcion/class_member_funcion_opt_sanitize.p/src_main.cpp.o.d -o class_member_funcion/class_member_funcion_opt_sanitize.p/src_main.cpp.o -c ../class_member_funcion/src/main.cpp",
-    "file": "../class_member_funcion/src/main.cpp",
-    "output": "class_member_funcion/class_member_funcion_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion_opt_sanitize.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ class_member_funcion/class_member_funcion_opt_sanitize.p/src_lib.cpp.o -MF class_member_funcion/class_member_funcion_opt_sanitize.p/src_lib.cpp.o.d -o class_member_funcion/class_member_funcion_opt_sanitize.p/src_lib.cpp.o -c ../class_member_funcion/src/lib.cpp",
-    "file": "../class_member_funcion/src/lib.cpp",
-    "output": "class_member_funcion/class_member_funcion_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion_no_opt_sanitize.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ class_member_funcion/class_member_funcion_no_opt_sanitize.p/src_main.cpp.o -MF class_member_funcion/class_member_funcion_no_opt_sanitize.p/src_main.cpp.o.d -o class_member_funcion/class_member_funcion_no_opt_sanitize.p/src_main.cpp.o -c ../class_member_funcion/src/main.cpp",
-    "file": "../class_member_funcion/src/main.cpp",
-    "output": "class_member_funcion/class_member_funcion_no_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion_no_opt_sanitize.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ class_member_funcion/class_member_funcion_no_opt_sanitize.p/src_lib.cpp.o -MF class_member_funcion/class_member_funcion_no_opt_sanitize.p/src_lib.cpp.o.d -o class_member_funcion/class_member_funcion_no_opt_sanitize.p/src_lib.cpp.o -c ../class_member_funcion/src/lib.cpp",
-    "file": "../class_member_funcion/src/lib.cpp",
-    "output": "class_member_funcion/class_member_funcion_no_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion_benchmark_google_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ class_member_funcion/class_member_funcion_benchmark_google_opt.p/bench.cpp.o -MF class_member_funcion/class_member_funcion_benchmark_google_opt.p/bench.cpp.o.d -o class_member_funcion/class_member_funcion_benchmark_google_opt.p/bench.cpp.o -c ../class_member_funcion/bench.cpp",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_benchmark_google_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ class_member_funcion/class_member_funcion_benchmark_google_opt.p/bench.cpp.o -MF class_member_funcion/class_member_funcion_benchmark_google_opt.p/bench.cpp.o.d -o class_member_funcion/class_member_funcion_benchmark_google_opt.p/bench.cpp.o -c ../class_member_funcion/bench.cpp",
     "file": "../class_member_funcion/bench.cpp",
     "output": "class_member_funcion/class_member_funcion_benchmark_google_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Iclass_member_funcion/class_member_funcion_benchmark_google_no_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ class_member_funcion/class_member_funcion_benchmark_google_no_opt.p/bench.cpp.o -MF class_member_funcion/class_member_funcion_benchmark_google_no_opt.p/bench.cpp.o.d -o class_member_funcion/class_member_funcion_benchmark_google_no_opt.p/bench.cpp.o -c ../class_member_funcion/bench.cpp",
+    "command": "c++ -Iclass_member_funcion/class_member_funcion_benchmark_google_no_opt.p -Iclass_member_funcion -I../class_member_funcion -I../class_member_funcion/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ class_member_funcion/class_member_funcion_benchmark_google_no_opt.p/bench.cpp.o -MF class_member_funcion/class_member_funcion_benchmark_google_no_opt.p/bench.cpp.o.d -o class_member_funcion/class_member_funcion_benchmark_google_no_opt.p/bench.cpp.o -c ../class_member_funcion/bench.cpp",
     "file": "../class_member_funcion/bench.cpp",
     "output": "class_member_funcion/class_member_funcion_benchmark_google_no_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ multi_inherit/multi_inherit_opt.p/src_main.cpp.o -MF multi_inherit/multi_inherit_opt.p/src_main.cpp.o.d -o multi_inherit/multi_inherit_opt.p/src_main.cpp.o -c ../multi_inherit/src/main.cpp",
+    "command": "c++ -Imulti_inherit/multi_inherit_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ multi_inherit/multi_inherit_opt.p/src_main.cpp.o -MF multi_inherit/multi_inherit_opt.p/src_main.cpp.o.d -o multi_inherit/multi_inherit_opt.p/src_main.cpp.o -c ../multi_inherit/src/main.cpp",
     "file": "../multi_inherit/src/main.cpp",
     "output": "multi_inherit/multi_inherit_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ multi_inherit/multi_inherit_opt.p/src_lib.cpp.o -MF multi_inherit/multi_inherit_opt.p/src_lib.cpp.o.d -o multi_inherit/multi_inherit_opt.p/src_lib.cpp.o -c ../multi_inherit/src/lib.cpp",
+    "command": "c++ -Imulti_inherit/multi_inherit_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ multi_inherit/multi_inherit_opt.p/src_lib.cpp.o -MF multi_inherit/multi_inherit_opt.p/src_lib.cpp.o.d -o multi_inherit/multi_inherit_opt.p/src_lib.cpp.o -c ../multi_inherit/src/lib.cpp",
     "file": "../multi_inherit/src/lib.cpp",
     "output": "multi_inherit/multi_inherit_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit_no_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ multi_inherit/multi_inherit_no_opt.p/src_main.cpp.o -MF multi_inherit/multi_inherit_no_opt.p/src_main.cpp.o.d -o multi_inherit/multi_inherit_no_opt.p/src_main.cpp.o -c ../multi_inherit/src/main.cpp",
+    "command": "c++ -Imulti_inherit/multi_inherit_no_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ multi_inherit/multi_inherit_no_opt.p/src_main.cpp.o -MF multi_inherit/multi_inherit_no_opt.p/src_main.cpp.o.d -o multi_inherit/multi_inherit_no_opt.p/src_main.cpp.o -c ../multi_inherit/src/main.cpp",
     "file": "../multi_inherit/src/main.cpp",
     "output": "multi_inherit/multi_inherit_no_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit_no_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ multi_inherit/multi_inherit_no_opt.p/src_lib.cpp.o -MF multi_inherit/multi_inherit_no_opt.p/src_lib.cpp.o.d -o multi_inherit/multi_inherit_no_opt.p/src_lib.cpp.o -c ../multi_inherit/src/lib.cpp",
+    "command": "c++ -Imulti_inherit/multi_inherit_no_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ multi_inherit/multi_inherit_no_opt.p/src_lib.cpp.o -MF multi_inherit/multi_inherit_no_opt.p/src_lib.cpp.o.d -o multi_inherit/multi_inherit_no_opt.p/src_lib.cpp.o -c ../multi_inherit/src/lib.cpp",
     "file": "../multi_inherit/src/lib.cpp",
     "output": "multi_inherit/multi_inherit_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit_opt_sanitize.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ multi_inherit/multi_inherit_opt_sanitize.p/src_main.cpp.o -MF multi_inherit/multi_inherit_opt_sanitize.p/src_main.cpp.o.d -o multi_inherit/multi_inherit_opt_sanitize.p/src_main.cpp.o -c ../multi_inherit/src/main.cpp",
-    "file": "../multi_inherit/src/main.cpp",
-    "output": "multi_inherit/multi_inherit_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit_opt_sanitize.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ multi_inherit/multi_inherit_opt_sanitize.p/src_lib.cpp.o -MF multi_inherit/multi_inherit_opt_sanitize.p/src_lib.cpp.o.d -o multi_inherit/multi_inherit_opt_sanitize.p/src_lib.cpp.o -c ../multi_inherit/src/lib.cpp",
-    "file": "../multi_inherit/src/lib.cpp",
-    "output": "multi_inherit/multi_inherit_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit_no_opt_sanitize.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ multi_inherit/multi_inherit_no_opt_sanitize.p/src_main.cpp.o -MF multi_inherit/multi_inherit_no_opt_sanitize.p/src_main.cpp.o.d -o multi_inherit/multi_inherit_no_opt_sanitize.p/src_main.cpp.o -c ../multi_inherit/src/main.cpp",
-    "file": "../multi_inherit/src/main.cpp",
-    "output": "multi_inherit/multi_inherit_no_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit_no_opt_sanitize.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ multi_inherit/multi_inherit_no_opt_sanitize.p/src_lib.cpp.o -MF multi_inherit/multi_inherit_no_opt_sanitize.p/src_lib.cpp.o.d -o multi_inherit/multi_inherit_no_opt_sanitize.p/src_lib.cpp.o -c ../multi_inherit/src/lib.cpp",
-    "file": "../multi_inherit/src/lib.cpp",
-    "output": "multi_inherit/multi_inherit_no_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit_benchmark_google_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ multi_inherit/multi_inherit_benchmark_google_opt.p/bench.cpp.o -MF multi_inherit/multi_inherit_benchmark_google_opt.p/bench.cpp.o.d -o multi_inherit/multi_inherit_benchmark_google_opt.p/bench.cpp.o -c ../multi_inherit/bench.cpp",
+    "command": "c++ -Imulti_inherit/multi_inherit_benchmark_google_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ multi_inherit/multi_inherit_benchmark_google_opt.p/bench.cpp.o -MF multi_inherit/multi_inherit_benchmark_google_opt.p/bench.cpp.o.d -o multi_inherit/multi_inherit_benchmark_google_opt.p/bench.cpp.o -c ../multi_inherit/bench.cpp",
     "file": "../multi_inherit/bench.cpp",
     "output": "multi_inherit/multi_inherit_benchmark_google_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Imulti_inherit/multi_inherit_benchmark_google_no_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ multi_inherit/multi_inherit_benchmark_google_no_opt.p/bench.cpp.o -MF multi_inherit/multi_inherit_benchmark_google_no_opt.p/bench.cpp.o.d -o multi_inherit/multi_inherit_benchmark_google_no_opt.p/bench.cpp.o -c ../multi_inherit/bench.cpp",
+    "command": "c++ -Imulti_inherit/multi_inherit_benchmark_google_no_opt.p -Imulti_inherit -I../multi_inherit -I../multi_inherit/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ multi_inherit/multi_inherit_benchmark_google_no_opt.p/bench.cpp.o -MF multi_inherit/multi_inherit_benchmark_google_no_opt.p/bench.cpp.o.d -o multi_inherit/multi_inherit_benchmark_google_no_opt.p/bench.cpp.o -c ../multi_inherit/bench.cpp",
     "file": "../multi_inherit/bench.cpp",
     "output": "multi_inherit/multi_inherit_benchmark_google_no_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly_opt.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ poly/poly_opt.p/src_main.cpp.o -MF poly/poly_opt.p/src_main.cpp.o.d -o poly/poly_opt.p/src_main.cpp.o -c ../poly/src/main.cpp",
+    "command": "c++ -Ipoly/poly_opt.p -Ipoly -I../poly -I../poly/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ poly/poly_opt.p/src_main.cpp.o -MF poly/poly_opt.p/src_main.cpp.o.d -o poly/poly_opt.p/src_main.cpp.o -c ../poly/src/main.cpp",
     "file": "../poly/src/main.cpp",
     "output": "poly/poly_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly_opt.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ poly/poly_opt.p/src_lib.cpp.o -MF poly/poly_opt.p/src_lib.cpp.o.d -o poly/poly_opt.p/src_lib.cpp.o -c ../poly/src/lib.cpp",
+    "command": "c++ -Ipoly/poly_opt.p -Ipoly -I../poly -I../poly/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ poly/poly_opt.p/src_lib.cpp.o -MF poly/poly_opt.p/src_lib.cpp.o.d -o poly/poly_opt.p/src_lib.cpp.o -c ../poly/src/lib.cpp",
     "file": "../poly/src/lib.cpp",
     "output": "poly/poly_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly_no_opt.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ poly/poly_no_opt.p/src_main.cpp.o -MF poly/poly_no_opt.p/src_main.cpp.o.d -o poly/poly_no_opt.p/src_main.cpp.o -c ../poly/src/main.cpp",
+    "command": "c++ -Ipoly/poly_no_opt.p -Ipoly -I../poly -I../poly/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ poly/poly_no_opt.p/src_main.cpp.o -MF poly/poly_no_opt.p/src_main.cpp.o.d -o poly/poly_no_opt.p/src_main.cpp.o -c ../poly/src/main.cpp",
     "file": "../poly/src/main.cpp",
     "output": "poly/poly_no_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly_no_opt.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ poly/poly_no_opt.p/src_lib.cpp.o -MF poly/poly_no_opt.p/src_lib.cpp.o.d -o poly/poly_no_opt.p/src_lib.cpp.o -c ../poly/src/lib.cpp",
+    "command": "c++ -Ipoly/poly_no_opt.p -Ipoly -I../poly -I../poly/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ poly/poly_no_opt.p/src_lib.cpp.o -MF poly/poly_no_opt.p/src_lib.cpp.o.d -o poly/poly_no_opt.p/src_lib.cpp.o -c ../poly/src/lib.cpp",
     "file": "../poly/src/lib.cpp",
     "output": "poly/poly_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly_opt_sanitize.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ poly/poly_opt_sanitize.p/src_main.cpp.o -MF poly/poly_opt_sanitize.p/src_main.cpp.o.d -o poly/poly_opt_sanitize.p/src_main.cpp.o -c ../poly/src/main.cpp",
-    "file": "../poly/src/main.cpp",
-    "output": "poly/poly_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly_opt_sanitize.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ poly/poly_opt_sanitize.p/src_lib.cpp.o -MF poly/poly_opt_sanitize.p/src_lib.cpp.o.d -o poly/poly_opt_sanitize.p/src_lib.cpp.o -c ../poly/src/lib.cpp",
-    "file": "../poly/src/lib.cpp",
-    "output": "poly/poly_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly_no_opt_sanitize.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ poly/poly_no_opt_sanitize.p/src_main.cpp.o -MF poly/poly_no_opt_sanitize.p/src_main.cpp.o.d -o poly/poly_no_opt_sanitize.p/src_main.cpp.o -c ../poly/src/main.cpp",
-    "file": "../poly/src/main.cpp",
-    "output": "poly/poly_no_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly_no_opt_sanitize.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ poly/poly_no_opt_sanitize.p/src_lib.cpp.o -MF poly/poly_no_opt_sanitize.p/src_lib.cpp.o.d -o poly/poly_no_opt_sanitize.p/src_lib.cpp.o -c ../poly/src/lib.cpp",
-    "file": "../poly/src/lib.cpp",
-    "output": "poly/poly_no_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly_benchmark_google_opt.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ poly/poly_benchmark_google_opt.p/bench.cpp.o -MF poly/poly_benchmark_google_opt.p/bench.cpp.o.d -o poly/poly_benchmark_google_opt.p/bench.cpp.o -c ../poly/bench.cpp",
+    "command": "c++ -Ipoly/poly_benchmark_google_opt.p -Ipoly -I../poly -I../poly/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ poly/poly_benchmark_google_opt.p/bench.cpp.o -MF poly/poly_benchmark_google_opt.p/bench.cpp.o.d -o poly/poly_benchmark_google_opt.p/bench.cpp.o -c ../poly/bench.cpp",
     "file": "../poly/bench.cpp",
     "output": "poly/poly_benchmark_google_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ipoly/poly_benchmark_google_no_opt.p -Ipoly -I../poly -I../poly/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ poly/poly_benchmark_google_no_opt.p/bench.cpp.o -MF poly/poly_benchmark_google_no_opt.p/bench.cpp.o.d -o poly/poly_benchmark_google_no_opt.p/bench.cpp.o -c ../poly/bench.cpp",
+    "command": "c++ -Ipoly/poly_benchmark_google_no_opt.p -Ipoly -I../poly -I../poly/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ poly/poly_benchmark_google_no_opt.p/bench.cpp.o -MF poly/poly_benchmark_google_no_opt.p/bench.cpp.o.d -o poly/poly_benchmark_google_no_opt.p/bench.cpp.o -c ../poly/bench.cpp",
     "file": "../poly/bench.cpp",
     "output": "poly/poly_benchmark_google_no_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ try_catch_exception/try_catch_exception_opt.p/src_main.cpp.o -MF try_catch_exception/try_catch_exception_opt.p/src_main.cpp.o.d -o try_catch_exception/try_catch_exception_opt.p/src_main.cpp.o -c ../try_catch_exception/src/main.cpp",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ try_catch_exception/try_catch_exception_opt.p/src_main.cpp.o -MF try_catch_exception/try_catch_exception_opt.p/src_main.cpp.o.d -o try_catch_exception/try_catch_exception_opt.p/src_main.cpp.o -c ../try_catch_exception/src/main.cpp",
     "file": "../try_catch_exception/src/main.cpp",
     "output": "try_catch_exception/try_catch_exception_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ try_catch_exception/try_catch_exception_opt.p/src_lib.cpp.o -MF try_catch_exception/try_catch_exception_opt.p/src_lib.cpp.o.d -o try_catch_exception/try_catch_exception_opt.p/src_lib.cpp.o -c ../try_catch_exception/src/lib.cpp",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ try_catch_exception/try_catch_exception_opt.p/src_lib.cpp.o -MF try_catch_exception/try_catch_exception_opt.p/src_lib.cpp.o.d -o try_catch_exception/try_catch_exception_opt.p/src_lib.cpp.o -c ../try_catch_exception/src/lib.cpp",
     "file": "../try_catch_exception/src/lib.cpp",
     "output": "try_catch_exception/try_catch_exception_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception_no_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ try_catch_exception/try_catch_exception_no_opt.p/src_main.cpp.o -MF try_catch_exception/try_catch_exception_no_opt.p/src_main.cpp.o.d -o try_catch_exception/try_catch_exception_no_opt.p/src_main.cpp.o -c ../try_catch_exception/src/main.cpp",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_no_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ try_catch_exception/try_catch_exception_no_opt.p/src_main.cpp.o -MF try_catch_exception/try_catch_exception_no_opt.p/src_main.cpp.o.d -o try_catch_exception/try_catch_exception_no_opt.p/src_main.cpp.o -c ../try_catch_exception/src/main.cpp",
     "file": "../try_catch_exception/src/main.cpp",
     "output": "try_catch_exception/try_catch_exception_no_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception_no_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ try_catch_exception/try_catch_exception_no_opt.p/src_lib.cpp.o -MF try_catch_exception/try_catch_exception_no_opt.p/src_lib.cpp.o.d -o try_catch_exception/try_catch_exception_no_opt.p/src_lib.cpp.o -c ../try_catch_exception/src/lib.cpp",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_no_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ try_catch_exception/try_catch_exception_no_opt.p/src_lib.cpp.o -MF try_catch_exception/try_catch_exception_no_opt.p/src_lib.cpp.o.d -o try_catch_exception/try_catch_exception_no_opt.p/src_lib.cpp.o -c ../try_catch_exception/src/lib.cpp",
     "file": "../try_catch_exception/src/lib.cpp",
     "output": "try_catch_exception/try_catch_exception_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception_opt_sanitize.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ try_catch_exception/try_catch_exception_opt_sanitize.p/src_main.cpp.o -MF try_catch_exception/try_catch_exception_opt_sanitize.p/src_main.cpp.o.d -o try_catch_exception/try_catch_exception_opt_sanitize.p/src_main.cpp.o -c ../try_catch_exception/src/main.cpp",
-    "file": "../try_catch_exception/src/main.cpp",
-    "output": "try_catch_exception/try_catch_exception_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception_opt_sanitize.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ try_catch_exception/try_catch_exception_opt_sanitize.p/src_lib.cpp.o -MF try_catch_exception/try_catch_exception_opt_sanitize.p/src_lib.cpp.o.d -o try_catch_exception/try_catch_exception_opt_sanitize.p/src_lib.cpp.o -c ../try_catch_exception/src/lib.cpp",
-    "file": "../try_catch_exception/src/lib.cpp",
-    "output": "try_catch_exception/try_catch_exception_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception_no_opt_sanitize.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ try_catch_exception/try_catch_exception_no_opt_sanitize.p/src_main.cpp.o -MF try_catch_exception/try_catch_exception_no_opt_sanitize.p/src_main.cpp.o.d -o try_catch_exception/try_catch_exception_no_opt_sanitize.p/src_main.cpp.o -c ../try_catch_exception/src/main.cpp",
-    "file": "../try_catch_exception/src/main.cpp",
-    "output": "try_catch_exception/try_catch_exception_no_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception_no_opt_sanitize.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ try_catch_exception/try_catch_exception_no_opt_sanitize.p/src_lib.cpp.o -MF try_catch_exception/try_catch_exception_no_opt_sanitize.p/src_lib.cpp.o.d -o try_catch_exception/try_catch_exception_no_opt_sanitize.p/src_lib.cpp.o -c ../try_catch_exception/src/lib.cpp",
-    "file": "../try_catch_exception/src/lib.cpp",
-    "output": "try_catch_exception/try_catch_exception_no_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception_benchmark_google_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ try_catch_exception/try_catch_exception_benchmark_google_opt.p/bench.cpp.o -MF try_catch_exception/try_catch_exception_benchmark_google_opt.p/bench.cpp.o.d -o try_catch_exception/try_catch_exception_benchmark_google_opt.p/bench.cpp.o -c ../try_catch_exception/bench.cpp",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_benchmark_google_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ try_catch_exception/try_catch_exception_benchmark_google_opt.p/bench.cpp.o -MF try_catch_exception/try_catch_exception_benchmark_google_opt.p/bench.cpp.o.d -o try_catch_exception/try_catch_exception_benchmark_google_opt.p/bench.cpp.o -c ../try_catch_exception/bench.cpp",
     "file": "../try_catch_exception/bench.cpp",
     "output": "try_catch_exception/try_catch_exception_benchmark_google_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Itry_catch_exception/try_catch_exception_benchmark_google_no_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ try_catch_exception/try_catch_exception_benchmark_google_no_opt.p/bench.cpp.o -MF try_catch_exception/try_catch_exception_benchmark_google_no_opt.p/bench.cpp.o.d -o try_catch_exception/try_catch_exception_benchmark_google_no_opt.p/bench.cpp.o -c ../try_catch_exception/bench.cpp",
+    "command": "c++ -Itry_catch_exception/try_catch_exception_benchmark_google_no_opt.p -Itry_catch_exception -I../try_catch_exception -I../try_catch_exception/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ try_catch_exception/try_catch_exception_benchmark_google_no_opt.p/bench.cpp.o -MF try_catch_exception/try_catch_exception_benchmark_google_no_opt.p/bench.cpp.o.d -o try_catch_exception/try_catch_exception_benchmark_google_no_opt.p/bench.cpp.o -c ../try_catch_exception/bench.cpp",
     "file": "../try_catch_exception/bench.cpp",
     "output": "try_catch_exception/try_catch_exception_benchmark_google_no_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo_opt.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ rvo/rvo_opt.p/src_main.cpp.o -MF rvo/rvo_opt.p/src_main.cpp.o.d -o rvo/rvo_opt.p/src_main.cpp.o -c ../rvo/src/main.cpp",
+    "command": "c++ -Irvo/rvo_opt.p -Irvo -I../rvo -I../rvo/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ rvo/rvo_opt.p/src_main.cpp.o -MF rvo/rvo_opt.p/src_main.cpp.o.d -o rvo/rvo_opt.p/src_main.cpp.o -c ../rvo/src/main.cpp",
     "file": "../rvo/src/main.cpp",
     "output": "rvo/rvo_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo_opt.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ rvo/rvo_opt.p/src_lib.cpp.o -MF rvo/rvo_opt.p/src_lib.cpp.o.d -o rvo/rvo_opt.p/src_lib.cpp.o -c ../rvo/src/lib.cpp",
+    "command": "c++ -Irvo/rvo_opt.p -Irvo -I../rvo -I../rvo/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ rvo/rvo_opt.p/src_lib.cpp.o -MF rvo/rvo_opt.p/src_lib.cpp.o.d -o rvo/rvo_opt.p/src_lib.cpp.o -c ../rvo/src/lib.cpp",
     "file": "../rvo/src/lib.cpp",
     "output": "rvo/rvo_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo_no_opt.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ rvo/rvo_no_opt.p/src_main.cpp.o -MF rvo/rvo_no_opt.p/src_main.cpp.o.d -o rvo/rvo_no_opt.p/src_main.cpp.o -c ../rvo/src/main.cpp",
+    "command": "c++ -Irvo/rvo_no_opt.p -Irvo -I../rvo -I../rvo/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ rvo/rvo_no_opt.p/src_main.cpp.o -MF rvo/rvo_no_opt.p/src_main.cpp.o.d -o rvo/rvo_no_opt.p/src_main.cpp.o -c ../rvo/src/main.cpp",
     "file": "../rvo/src/main.cpp",
     "output": "rvo/rvo_no_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo_no_opt.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ rvo/rvo_no_opt.p/src_lib.cpp.o -MF rvo/rvo_no_opt.p/src_lib.cpp.o.d -o rvo/rvo_no_opt.p/src_lib.cpp.o -c ../rvo/src/lib.cpp",
+    "command": "c++ -Irvo/rvo_no_opt.p -Irvo -I../rvo -I../rvo/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ rvo/rvo_no_opt.p/src_lib.cpp.o -MF rvo/rvo_no_opt.p/src_lib.cpp.o.d -o rvo/rvo_no_opt.p/src_lib.cpp.o -c ../rvo/src/lib.cpp",
     "file": "../rvo/src/lib.cpp",
     "output": "rvo/rvo_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo_opt_sanitize.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ rvo/rvo_opt_sanitize.p/src_main.cpp.o -MF rvo/rvo_opt_sanitize.p/src_main.cpp.o.d -o rvo/rvo_opt_sanitize.p/src_main.cpp.o -c ../rvo/src/main.cpp",
-    "file": "../rvo/src/main.cpp",
-    "output": "rvo/rvo_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo_opt_sanitize.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ rvo/rvo_opt_sanitize.p/src_lib.cpp.o -MF rvo/rvo_opt_sanitize.p/src_lib.cpp.o.d -o rvo/rvo_opt_sanitize.p/src_lib.cpp.o -c ../rvo/src/lib.cpp",
-    "file": "../rvo/src/lib.cpp",
-    "output": "rvo/rvo_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo_no_opt_sanitize.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ rvo/rvo_no_opt_sanitize.p/src_main.cpp.o -MF rvo/rvo_no_opt_sanitize.p/src_main.cpp.o.d -o rvo/rvo_no_opt_sanitize.p/src_main.cpp.o -c ../rvo/src/main.cpp",
-    "file": "../rvo/src/main.cpp",
-    "output": "rvo/rvo_no_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo_no_opt_sanitize.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ rvo/rvo_no_opt_sanitize.p/src_lib.cpp.o -MF rvo/rvo_no_opt_sanitize.p/src_lib.cpp.o.d -o rvo/rvo_no_opt_sanitize.p/src_lib.cpp.o -c ../rvo/src/lib.cpp",
-    "file": "../rvo/src/lib.cpp",
-    "output": "rvo/rvo_no_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo_benchmark_google_opt.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ rvo/rvo_benchmark_google_opt.p/bench.cpp.o -MF rvo/rvo_benchmark_google_opt.p/bench.cpp.o.d -o rvo/rvo_benchmark_google_opt.p/bench.cpp.o -c ../rvo/bench.cpp",
+    "command": "c++ -Irvo/rvo_benchmark_google_opt.p -Irvo -I../rvo -I../rvo/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ rvo/rvo_benchmark_google_opt.p/bench.cpp.o -MF rvo/rvo_benchmark_google_opt.p/bench.cpp.o.d -o rvo/rvo_benchmark_google_opt.p/bench.cpp.o -c ../rvo/bench.cpp",
     "file": "../rvo/bench.cpp",
     "output": "rvo/rvo_benchmark_google_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Irvo/rvo_benchmark_google_no_opt.p -Irvo -I../rvo -I../rvo/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o -MF rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o.d -o rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o -c ../rvo/bench.cpp",
+    "command": "c++ -Irvo/rvo_benchmark_google_no_opt.p -Irvo -I../rvo -I../rvo/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o -MF rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o.d -o rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o -c ../rvo/bench.cpp",
     "file": "../rvo/bench.cpp",
     "output": "rvo/rvo_benchmark_google_no_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ilambda_fns/lambda_fns_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ lambda_fns/lambda_fns_opt.p/src_main.cpp.o -MF lambda_fns/lambda_fns_opt.p/src_main.cpp.o.d -o lambda_fns/lambda_fns_opt.p/src_main.cpp.o -c ../lambda_fns/src/main.cpp",
+    "command": "c++ -Ilambda_fns/lambda_fns_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ lambda_fns/lambda_fns_opt.p/src_main.cpp.o -MF lambda_fns/lambda_fns_opt.p/src_main.cpp.o.d -o lambda_fns/lambda_fns_opt.p/src_main.cpp.o -c ../lambda_fns/src/main.cpp",
     "file": "../lambda_fns/src/main.cpp",
     "output": "lambda_fns/lambda_fns_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ilambda_fns/lambda_fns_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ lambda_fns/lambda_fns_opt.p/src_lib.cpp.o -MF lambda_fns/lambda_fns_opt.p/src_lib.cpp.o.d -o lambda_fns/lambda_fns_opt.p/src_lib.cpp.o -c ../lambda_fns/src/lib.cpp",
+    "command": "c++ -Ilambda_fns/lambda_fns_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ lambda_fns/lambda_fns_opt.p/src_lib.cpp.o -MF lambda_fns/lambda_fns_opt.p/src_lib.cpp.o.d -o lambda_fns/lambda_fns_opt.p/src_lib.cpp.o -c ../lambda_fns/src/lib.cpp",
     "file": "../lambda_fns/src/lib.cpp",
     "output": "lambda_fns/lambda_fns_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ilambda_fns/lambda_fns_no_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ lambda_fns/lambda_fns_no_opt.p/src_main.cpp.o -MF lambda_fns/lambda_fns_no_opt.p/src_main.cpp.o.d -o lambda_fns/lambda_fns_no_opt.p/src_main.cpp.o -c ../lambda_fns/src/main.cpp",
+    "command": "c++ -Ilambda_fns/lambda_fns_no_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ lambda_fns/lambda_fns_no_opt.p/src_main.cpp.o -MF lambda_fns/lambda_fns_no_opt.p/src_main.cpp.o.d -o lambda_fns/lambda_fns_no_opt.p/src_main.cpp.o -c ../lambda_fns/src/main.cpp",
     "file": "../lambda_fns/src/main.cpp",
     "output": "lambda_fns/lambda_fns_no_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ilambda_fns/lambda_fns_no_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ lambda_fns/lambda_fns_no_opt.p/src_lib.cpp.o -MF lambda_fns/lambda_fns_no_opt.p/src_lib.cpp.o.d -o lambda_fns/lambda_fns_no_opt.p/src_lib.cpp.o -c ../lambda_fns/src/lib.cpp",
+    "command": "c++ -Ilambda_fns/lambda_fns_no_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ lambda_fns/lambda_fns_no_opt.p/src_lib.cpp.o -MF lambda_fns/lambda_fns_no_opt.p/src_lib.cpp.o.d -o lambda_fns/lambda_fns_no_opt.p/src_lib.cpp.o -c ../lambda_fns/src/lib.cpp",
     "file": "../lambda_fns/src/lib.cpp",
     "output": "lambda_fns/lambda_fns_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ilambda_fns/lambda_fns_opt_sanitize.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ lambda_fns/lambda_fns_opt_sanitize.p/src_main.cpp.o -MF lambda_fns/lambda_fns_opt_sanitize.p/src_main.cpp.o.d -o lambda_fns/lambda_fns_opt_sanitize.p/src_main.cpp.o -c ../lambda_fns/src/main.cpp",
-    "file": "../lambda_fns/src/main.cpp",
-    "output": "lambda_fns/lambda_fns_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ilambda_fns/lambda_fns_opt_sanitize.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ lambda_fns/lambda_fns_opt_sanitize.p/src_lib.cpp.o -MF lambda_fns/lambda_fns_opt_sanitize.p/src_lib.cpp.o.d -o lambda_fns/lambda_fns_opt_sanitize.p/src_lib.cpp.o -c ../lambda_fns/src/lib.cpp",
-    "file": "../lambda_fns/src/lib.cpp",
-    "output": "lambda_fns/lambda_fns_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ilambda_fns/lambda_fns_no_opt_sanitize.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ lambda_fns/lambda_fns_no_opt_sanitize.p/src_main.cpp.o -MF lambda_fns/lambda_fns_no_opt_sanitize.p/src_main.cpp.o.d -o lambda_fns/lambda_fns_no_opt_sanitize.p/src_main.cpp.o -c ../lambda_fns/src/main.cpp",
-    "file": "../lambda_fns/src/main.cpp",
-    "output": "lambda_fns/lambda_fns_no_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ilambda_fns/lambda_fns_no_opt_sanitize.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ lambda_fns/lambda_fns_no_opt_sanitize.p/src_lib.cpp.o -MF lambda_fns/lambda_fns_no_opt_sanitize.p/src_lib.cpp.o.d -o lambda_fns/lambda_fns_no_opt_sanitize.p/src_lib.cpp.o -c ../lambda_fns/src/lib.cpp",
-    "file": "../lambda_fns/src/lib.cpp",
-    "output": "lambda_fns/lambda_fns_no_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ilambda_fns/lambda_fns_benchmark_google_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ lambda_fns/lambda_fns_benchmark_google_opt.p/bench.cpp.o -MF lambda_fns/lambda_fns_benchmark_google_opt.p/bench.cpp.o.d -o lambda_fns/lambda_fns_benchmark_google_opt.p/bench.cpp.o -c ../lambda_fns/bench.cpp",
+    "command": "c++ -Ilambda_fns/lambda_fns_benchmark_google_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ lambda_fns/lambda_fns_benchmark_google_opt.p/bench.cpp.o -MF lambda_fns/lambda_fns_benchmark_google_opt.p/bench.cpp.o.d -o lambda_fns/lambda_fns_benchmark_google_opt.p/bench.cpp.o -c ../lambda_fns/bench.cpp",
     "file": "../lambda_fns/bench.cpp",
     "output": "lambda_fns/lambda_fns_benchmark_google_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Ilambda_fns/lambda_fns_benchmark_google_no_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ lambda_fns/lambda_fns_benchmark_google_no_opt.p/bench.cpp.o -MF lambda_fns/lambda_fns_benchmark_google_no_opt.p/bench.cpp.o.d -o lambda_fns/lambda_fns_benchmark_google_no_opt.p/bench.cpp.o -c ../lambda_fns/bench.cpp",
+    "command": "c++ -Ilambda_fns/lambda_fns_benchmark_google_no_opt.p -Ilambda_fns -I../lambda_fns -I../lambda_fns/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ lambda_fns/lambda_fns_benchmark_google_no_opt.p/bench.cpp.o -MF lambda_fns/lambda_fns_benchmark_google_no_opt.p/bench.cpp.o.d -o lambda_fns/lambda_fns_benchmark_google_no_opt.p/bench.cpp.o -c ../lambda_fns/bench.cpp",
     "file": "../lambda_fns/bench.cpp",
     "output": "lambda_fns/lambda_fns_benchmark_google_no_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Istl_vector/stl_vector_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ stl_vector/stl_vector_opt.p/src_main.cpp.o -MF stl_vector/stl_vector_opt.p/src_main.cpp.o.d -o stl_vector/stl_vector_opt.p/src_main.cpp.o -c ../stl_vector/src/main.cpp",
+    "command": "c++ -Istl_vector/stl_vector_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ stl_vector/stl_vector_opt.p/src_main.cpp.o -MF stl_vector/stl_vector_opt.p/src_main.cpp.o.d -o stl_vector/stl_vector_opt.p/src_main.cpp.o -c ../stl_vector/src/main.cpp",
     "file": "../stl_vector/src/main.cpp",
     "output": "stl_vector/stl_vector_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Istl_vector/stl_vector_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ stl_vector/stl_vector_opt.p/src_lib.cpp.o -MF stl_vector/stl_vector_opt.p/src_lib.cpp.o.d -o stl_vector/stl_vector_opt.p/src_lib.cpp.o -c ../stl_vector/src/lib.cpp",
+    "command": "c++ -Istl_vector/stl_vector_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ stl_vector/stl_vector_opt.p/src_lib.cpp.o -MF stl_vector/stl_vector_opt.p/src_lib.cpp.o.d -o stl_vector/stl_vector_opt.p/src_lib.cpp.o -c ../stl_vector/src/lib.cpp",
     "file": "../stl_vector/src/lib.cpp",
     "output": "stl_vector/stl_vector_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Istl_vector/stl_vector_no_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ stl_vector/stl_vector_no_opt.p/src_main.cpp.o -MF stl_vector/stl_vector_no_opt.p/src_main.cpp.o.d -o stl_vector/stl_vector_no_opt.p/src_main.cpp.o -c ../stl_vector/src/main.cpp",
+    "command": "c++ -Istl_vector/stl_vector_no_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ stl_vector/stl_vector_no_opt.p/src_main.cpp.o -MF stl_vector/stl_vector_no_opt.p/src_main.cpp.o.d -o stl_vector/stl_vector_no_opt.p/src_main.cpp.o -c ../stl_vector/src/main.cpp",
     "file": "../stl_vector/src/main.cpp",
     "output": "stl_vector/stl_vector_no_opt.p/src_main.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Istl_vector/stl_vector_no_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ stl_vector/stl_vector_no_opt.p/src_lib.cpp.o -MF stl_vector/stl_vector_no_opt.p/src_lib.cpp.o.d -o stl_vector/stl_vector_no_opt.p/src_lib.cpp.o -c ../stl_vector/src/lib.cpp",
+    "command": "c++ -Istl_vector/stl_vector_no_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ stl_vector/stl_vector_no_opt.p/src_lib.cpp.o -MF stl_vector/stl_vector_no_opt.p/src_lib.cpp.o.d -o stl_vector/stl_vector_no_opt.p/src_lib.cpp.o -c ../stl_vector/src/lib.cpp",
     "file": "../stl_vector/src/lib.cpp",
     "output": "stl_vector/stl_vector_no_opt.p/src_lib.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Istl_vector/stl_vector_opt_sanitize.p -Istl_vector -I../stl_vector -I../stl_vector/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ stl_vector/stl_vector_opt_sanitize.p/src_main.cpp.o -MF stl_vector/stl_vector_opt_sanitize.p/src_main.cpp.o.d -o stl_vector/stl_vector_opt_sanitize.p/src_main.cpp.o -c ../stl_vector/src/main.cpp",
-    "file": "../stl_vector/src/main.cpp",
-    "output": "stl_vector/stl_vector_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Istl_vector/stl_vector_opt_sanitize.p -Istl_vector -I../stl_vector -I../stl_vector/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ stl_vector/stl_vector_opt_sanitize.p/src_lib.cpp.o -MF stl_vector/stl_vector_opt_sanitize.p/src_lib.cpp.o.d -o stl_vector/stl_vector_opt_sanitize.p/src_lib.cpp.o -c ../stl_vector/src/lib.cpp",
-    "file": "../stl_vector/src/lib.cpp",
-    "output": "stl_vector/stl_vector_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Istl_vector/stl_vector_no_opt_sanitize.p -Istl_vector -I../stl_vector -I../stl_vector/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ stl_vector/stl_vector_no_opt_sanitize.p/src_main.cpp.o -MF stl_vector/stl_vector_no_opt_sanitize.p/src_main.cpp.o.d -o stl_vector/stl_vector_no_opt_sanitize.p/src_main.cpp.o -c ../stl_vector/src/main.cpp",
-    "file": "../stl_vector/src/main.cpp",
-    "output": "stl_vector/stl_vector_no_opt_sanitize.p/src_main.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Istl_vector/stl_vector_no_opt_sanitize.p -Istl_vector -I../stl_vector -I../stl_vector/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ stl_vector/stl_vector_no_opt_sanitize.p/src_lib.cpp.o -MF stl_vector/stl_vector_no_opt_sanitize.p/src_lib.cpp.o.d -o stl_vector/stl_vector_no_opt_sanitize.p/src_lib.cpp.o -c ../stl_vector/src/lib.cpp",
-    "file": "../stl_vector/src/lib.cpp",
-    "output": "stl_vector/stl_vector_no_opt_sanitize.p/src_lib.cpp.o"
-  },
-  {
-    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Istl_vector/stl_vector_benchmark_google_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ stl_vector/stl_vector_benchmark_google_opt.p/bench.cpp.o -MF stl_vector/stl_vector_benchmark_google_opt.p/bench.cpp.o.d -o stl_vector/stl_vector_benchmark_google_opt.p/bench.cpp.o -c ../stl_vector/bench.cpp",
+    "command": "c++ -Istl_vector/stl_vector_benchmark_google_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ stl_vector/stl_vector_benchmark_google_opt.p/bench.cpp.o -MF stl_vector/stl_vector_benchmark_google_opt.p/bench.cpp.o.d -o stl_vector/stl_vector_benchmark_google_opt.p/bench.cpp.o -c ../stl_vector/bench.cpp",
     "file": "../stl_vector/bench.cpp",
     "output": "stl_vector/stl_vector_benchmark_google_opt.p/bench.cpp.o"
   },
   {
     "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
-    "command": "c++ -Istl_vector/stl_vector_benchmark_google_no_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ stl_vector/stl_vector_benchmark_google_no_opt.p/bench.cpp.o -MF stl_vector/stl_vector_benchmark_google_no_opt.p/bench.cpp.o.d -o stl_vector/stl_vector_benchmark_google_no_opt.p/bench.cpp.o -c ../stl_vector/bench.cpp",
+    "command": "c++ -Istl_vector/stl_vector_benchmark_google_no_opt.p -Istl_vector -I../stl_vector -I../stl_vector/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ stl_vector/stl_vector_benchmark_google_no_opt.p/bench.cpp.o -MF stl_vector/stl_vector_benchmark_google_no_opt.p/bench.cpp.o.d -o stl_vector/stl_vector_benchmark_google_no_opt.p/bench.cpp.o -c ../stl_vector/bench.cpp",
     "file": "../stl_vector/bench.cpp",
     "output": "stl_vector/stl_vector_benchmark_google_no_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ibasics/basics_opt.p -Ibasics -I../basics -I../basics/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ basics/basics_opt.p/src_main.cpp.o -MF basics/basics_opt.p/src_main.cpp.o.d -o basics/basics_opt.p/src_main.cpp.o -c ../basics/src/main.cpp",
+    "file": "../basics/src/main.cpp",
+    "output": "basics/basics_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ibasics/basics_opt.p -Ibasics -I../basics -I../basics/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ basics/basics_opt.p/src_lib.cpp.o -MF basics/basics_opt.p/src_lib.cpp.o.d -o basics/basics_opt.p/src_lib.cpp.o -c ../basics/src/lib.cpp",
+    "file": "../basics/src/lib.cpp",
+    "output": "basics/basics_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ibasics/basics_no_opt.p -Ibasics -I../basics -I../basics/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ basics/basics_no_opt.p/src_main.cpp.o -MF basics/basics_no_opt.p/src_main.cpp.o.d -o basics/basics_no_opt.p/src_main.cpp.o -c ../basics/src/main.cpp",
+    "file": "../basics/src/main.cpp",
+    "output": "basics/basics_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ibasics/basics_no_opt.p -Ibasics -I../basics -I../basics/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ basics/basics_no_opt.p/src_lib.cpp.o -MF basics/basics_no_opt.p/src_lib.cpp.o.d -o basics/basics_no_opt.p/src_lib.cpp.o -c ../basics/src/lib.cpp",
+    "file": "../basics/src/lib.cpp",
+    "output": "basics/basics_no_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ibasics/basics_benchmark_google_opt.p -Ibasics -I../basics -I../basics/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ basics/basics_benchmark_google_opt.p/bench.cpp.o -MF basics/basics_benchmark_google_opt.p/bench.cpp.o.d -o basics/basics_benchmark_google_opt.p/bench.cpp.o -c ../basics/bench.cpp",
+    "file": "../basics/bench.cpp",
+    "output": "basics/basics_benchmark_google_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/features-cpp/builddir",
+    "command": "c++ -Ibasics/basics_benchmark_google_no_opt.p -Ibasics -I../basics -I../basics/include -Icommon -I../common -I. -I.. -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ basics/basics_benchmark_google_no_opt.p/bench.cpp.o -MF basics/basics_benchmark_google_no_opt.p/bench.cpp.o.d -o basics/basics_benchmark_google_no_opt.p/bench.cpp.o -c ../basics/bench.cpp",
+    "file": "../basics/bench.cpp",
+    "output": "basics/basics_benchmark_google_no_opt.p/bench.cpp.o"
   }
 ]
