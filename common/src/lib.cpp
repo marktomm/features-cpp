@@ -48,6 +48,21 @@ vb GetGlobalRandBoolVec() {
     return bools;
 }
 
+vu32 GetGlobalRand3IntVec() {
+    static bool setupDone = false;
+    static vector<uint32_t> v(100);
+    if (setupDone) {
+        return v;
+    }
+    random_device rd;
+    mt19937 generator(rd());
+    generate(v.begin(), v.end(),
+             [n = 0]() mutable { return ++n == 2 ? n = 0 : n; });
+    shuffle(v.begin(), v.end(), generator);
+    setupDone = true;
+    return v;
+}
+
 std::size_t GetNextGlobalIndex() {
     static std::size_t it = 0;
     return (++it == 100 ? it = 1 : it);

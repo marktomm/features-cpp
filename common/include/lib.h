@@ -4,6 +4,9 @@
 #include <cstdint>
 #include <vector>
 
+using MutableBuffer = uint32_t;
+using BufferData = uint32_t;
+
 namespace common {
 
 using vb = std::vector<bool>;
@@ -16,6 +19,7 @@ std::size_t GetNextGlobalIndex();
 vb GetGlobalRandBoolVec();
 void emptyFn();
 void emptyFnInt();
+vu32 GetGlobalRand3IntVec();
 vu32 GetGlobalRandIntVec();
 // GEN_PROTO_END
 

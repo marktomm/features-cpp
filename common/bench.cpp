@@ -6,6 +6,7 @@ using namespace common;
 struct SomeType {};
 
 // GEN_PROTO_BEGIN
+
 // GEN_PROTO_END
 
 static void common_bench(benchmark::State& state) {
@@ -26,6 +27,7 @@ BENCHMARK(common_bench);
 
 
 // GEN_BENCHMARK_BEGIN
+
 // GEN_BENCHMARK_END
 
 // Run the benchmark
