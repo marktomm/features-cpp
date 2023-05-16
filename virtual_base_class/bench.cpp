@@ -3,7 +3,7 @@
 
 using namespace virtual_base_class;
 
-static void BM_00_nD_Ctor_Dtor_Heap(benchmark::State& state) {
+static void BM_00_nD_Cr_Dr_Heap(benchmark::State& state) {
     for (auto _ : state) {
         nonDiamondA* a_ptr = new nonDiamondD();
         benchmark::DoNotOptimize(a_ptr);
@@ -11,7 +11,7 @@ static void BM_00_nD_Ctor_Dtor_Heap(benchmark::State& state) {
     }
 }
 
-static void BM_A0_D_Ctor_Dtor_Heap(benchmark::State& state) {
+static void BM_A0_D_Cr_Dr_Heap(benchmark::State& state) {
     for (auto _ : state) {
         A* d_ptr = new D();
         benchmark::DoNotOptimize(d_ptr);
@@ -198,10 +198,10 @@ static void BM_Unrelated_Casting(benchmark::State& state) {
 }
 
 // GEN_BENCHMARK_BEGIN
-BENCHMARK(BM_00_nD_Ctor_Dtor_Heap);
+BENCHMARK(BM_00_nD_Cr_Dr_Heap);
 BENCHMARK(BM_01_nD_Base_To_Derived);
 BENCHMARK(BM_02_nD_Sideways);
-BENCHMARK(BM_A0_D_Ctor_Dtor_Heap);
+BENCHMARK(BM_A0_D_Cr_Dr_Heap);
 BENCHMARK(BM_A1_D_Base_To_Derived);
 BENCHMARK(BM_A2_D_Sideways);
 BENCHMARK(BM_Diamond_DerivedToBase);
