@@ -2,6 +2,7 @@
 #define MACRO_basics_LIB_H
 
 #include <cstdint>
+#include <ctime>
 
 namespace basics {
 
@@ -30,8 +31,22 @@ public:
 };
 
 // GEN_PROTO_BEGIN
-
+void clobber();
+void doNotOptimize(void* p);
 // GEN_PROTO_END
+
+class TimeDur final {
+public:
+    TimeDur(const char* desc, clock_t tdur);
+    TimeDur();
+
+    const char* GetDesc() const noexcept;
+    clock_t GetDur() const noexcept;
+
+private:
+    const char* desc_;
+    clock_t tdur_;
+};
 
 }; // namespace basics
 
