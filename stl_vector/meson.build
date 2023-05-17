@@ -5,7 +5,7 @@ rootinc = join_paths(rootdir, 'include/')
 currentinc = join_paths(currentdir, 'include/')
 stl_vector_inc = include_directories(currentinc)
 stl_vector_main = ['src/main.cpp']
-# stl_vector_simple = ['src/user_simple.cpp']
+stl_vector_perf = ['src/perf.cpp']
 stl_vector_src = [
     'src/lib.cpp',
 ]
@@ -56,7 +56,11 @@ stl_vector_exe_sanitize = executable(
     cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    objects: [stl_vector_main_opt_o, stl_vector_inc_opt_o, common_inc_opt_o],
+    objects: [
+        stl_vector_main_opt_o, 
+        stl_vector_inc_opt_o, 
+        common_inc_opt_o
+    ],
 )
 
 stl_vector_exe_no_opt_sanitize = executable(
@@ -67,9 +71,35 @@ stl_vector_exe_no_opt_sanitize = executable(
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     objects: [
-        stl_vector_main_no_opt_o,
-        stl_vector_inc_no_opt_o,
-        common_inc_no_opt_o,
+        stl_vector_main_no_opt_o, 
+        stl_vector_inc_no_opt_o, 
+        common_inc_no_opt_o
+    ],
+)
+
+stl_vector_exe_perf = executable(
+    'stl_vector_opt_perf',
+    [stl_vector_perf],
+    include_directories: [stl_vector_inc, common_inc],
+    install: true,
+    cpp_args: ['-O3', '-pg'],
+    dependencies: [bench, thread],
+    objects: [
+        stl_vector_inc_opt_o, 
+        common_inc_opt_o
+    ],
+)
+
+stl_vector_exe_no_opt_perf = executable(
+    'stl_vector_no_opt_perf',
+    [stl_vector_perf],
+    include_directories: [stl_vector_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-pg',],
+    dependencies: [bench, thread],
+    objects: [
+        stl_vector_inc_no_opt_o, 
+        common_inc_no_opt_o
     ],
 )
 
@@ -184,3 +214,36 @@ gen_asm_lib_opt = custom_target(
     ],
     build_by_default: true,
 )
+
+gen_asm_bench = custom_target(
+    'gen_asm_bench_no_opt',
+    input: stl_vector_benchmark_test,
+    output: 'stl_vector_benchmarks_no_opt.s',
+    command: [
+        cpp_prog,
+        '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
+gen_asm_bench_opt = custom_target(
+    'gen_asm_bench_opt',
+    input: stl_vector_benchmark_test,
+    output: 'stl_vector_benchmarks_opt.s',
+    command: [
+        cpp_prog,
+        '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+

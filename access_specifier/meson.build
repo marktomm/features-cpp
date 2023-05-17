@@ -5,7 +5,7 @@ rootinc = join_paths(rootdir, 'include/')
 currentinc = join_paths(currentdir, 'include/')
 access_specifier_inc = include_directories(currentinc)
 access_specifier_main = ['src/main.cpp']
-# access_specifier_simple = ['src/user_simple.cpp']
+access_specifier_perf = ['src/perf.cpp']
 access_specifier_src = [
     'src/lib.cpp',
 ]
@@ -57,9 +57,9 @@ access_specifier_exe_sanitize = executable(
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     objects: [
-        access_specifier_main_opt_o,
-        access_specifier_inc_opt_o,
-        common_inc_opt_o,
+        access_specifier_main_opt_o, 
+        access_specifier_inc_opt_o, 
+        common_inc_opt_o
     ],
 )
 
@@ -71,9 +71,35 @@ access_specifier_exe_no_opt_sanitize = executable(
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     objects: [
-        access_specifier_main_no_opt_o,
-        access_specifier_inc_no_opt_o,
-        common_inc_no_opt_o,
+        access_specifier_main_no_opt_o, 
+        access_specifier_inc_no_opt_o, 
+        common_inc_no_opt_o
+    ],
+)
+
+access_specifier_exe_perf = executable(
+    'access_specifier_opt_perf',
+    [access_specifier_perf],
+    include_directories: [access_specifier_inc, common_inc],
+    install: true,
+    cpp_args: ['-O3', '-pg'],
+    dependencies: [bench, thread],
+    objects: [
+        access_specifier_inc_opt_o, 
+        common_inc_opt_o
+    ],
+)
+
+access_specifier_exe_no_opt_perf = executable(
+    'access_specifier_no_opt_perf',
+    [access_specifier_perf],
+    include_directories: [access_specifier_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-pg',],
+    dependencies: [bench, thread],
+    objects: [
+        access_specifier_inc_no_opt_o, 
+        common_inc_no_opt_o
     ],
 )
 
@@ -188,3 +214,36 @@ gen_asm_lib_opt = custom_target(
     ],
     build_by_default: true,
 )
+
+gen_asm_bench = custom_target(
+    'gen_asm_bench_no_opt',
+    input: access_specifier_benchmark_test,
+    output: 'access_specifier_benchmarks_no_opt.s',
+    command: [
+        cpp_prog,
+        '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
+gen_asm_bench_opt = custom_target(
+    'gen_asm_bench_opt',
+    input: access_specifier_benchmark_test,
+    output: 'access_specifier_benchmarks_opt.s',
+    command: [
+        cpp_prog,
+        '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+

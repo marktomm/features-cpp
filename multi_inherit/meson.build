@@ -5,7 +5,7 @@ rootinc = join_paths(rootdir, 'include/')
 currentinc = join_paths(currentdir, 'include/')
 multi_inherit_inc = include_directories(currentinc)
 multi_inherit_main = ['src/main.cpp']
-# multi_inherit_simple = ['src/user_simple.cpp']
+multi_inherit_perf = ['src/perf.cpp']
 multi_inherit_src = [
     'src/lib.cpp',
 ]
@@ -57,9 +57,9 @@ multi_inherit_exe_sanitize = executable(
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     objects: [
-        multi_inherit_main_opt_o,
-        multi_inherit_inc_opt_o,
-        common_inc_opt_o,
+        multi_inherit_main_opt_o, 
+        multi_inherit_inc_opt_o, 
+        common_inc_opt_o
     ],
 )
 
@@ -71,9 +71,35 @@ multi_inherit_exe_no_opt_sanitize = executable(
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     objects: [
-        multi_inherit_main_no_opt_o,
-        multi_inherit_inc_no_opt_o,
-        common_inc_no_opt_o,
+        multi_inherit_main_no_opt_o, 
+        multi_inherit_inc_no_opt_o, 
+        common_inc_no_opt_o
+    ],
+)
+
+multi_inherit_exe_perf = executable(
+    'multi_inherit_opt_perf',
+    [multi_inherit_perf],
+    include_directories: [multi_inherit_inc, common_inc],
+    install: true,
+    cpp_args: ['-O3', '-pg'],
+    dependencies: [bench, thread],
+    objects: [
+        multi_inherit_inc_opt_o, 
+        common_inc_opt_o
+    ],
+)
+
+multi_inherit_exe_no_opt_perf = executable(
+    'multi_inherit_no_opt_perf',
+    [multi_inherit_perf],
+    include_directories: [multi_inherit_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-pg',],
+    dependencies: [bench, thread],
+    objects: [
+        multi_inherit_inc_no_opt_o, 
+        common_inc_no_opt_o
     ],
 )
 
@@ -188,3 +214,36 @@ gen_asm_lib_opt = custom_target(
     ],
     build_by_default: true,
 )
+
+gen_asm_bench = custom_target(
+    'gen_asm_bench_no_opt',
+    input: multi_inherit_benchmark_test,
+    output: 'multi_inherit_benchmarks_no_opt.s',
+    command: [
+        cpp_prog,
+        '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
+gen_asm_bench_opt = custom_target(
+    'gen_asm_bench_opt',
+    input: multi_inherit_benchmark_test,
+    output: 'multi_inherit_benchmarks_opt.s',
+    command: [
+        cpp_prog,
+        '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+

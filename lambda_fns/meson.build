@@ -5,7 +5,7 @@ rootinc = join_paths(rootdir, 'include/')
 currentinc = join_paths(currentdir, 'include/')
 lambda_fns_inc = include_directories(currentinc)
 lambda_fns_main = ['src/main.cpp']
-# lambda_fns_simple = ['src/user_simple.cpp']
+lambda_fns_perf = ['src/perf.cpp']
 lambda_fns_src = [
     'src/lib.cpp',
 ]
@@ -56,7 +56,11 @@ lambda_fns_exe_sanitize = executable(
     cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    objects: [lambda_fns_main_opt_o, lambda_fns_inc_opt_o, common_inc_opt_o],
+    objects: [
+        lambda_fns_main_opt_o, 
+        lambda_fns_inc_opt_o, 
+        common_inc_opt_o
+    ],
 )
 
 lambda_fns_exe_no_opt_sanitize = executable(
@@ -67,9 +71,35 @@ lambda_fns_exe_no_opt_sanitize = executable(
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     objects: [
-        lambda_fns_main_no_opt_o,
-        lambda_fns_inc_no_opt_o,
-        common_inc_no_opt_o,
+        lambda_fns_main_no_opt_o, 
+        lambda_fns_inc_no_opt_o, 
+        common_inc_no_opt_o
+    ],
+)
+
+lambda_fns_exe_perf = executable(
+    'lambda_fns_opt_perf',
+    [lambda_fns_perf],
+    include_directories: [lambda_fns_inc, common_inc],
+    install: true,
+    cpp_args: ['-O3', '-pg'],
+    dependencies: [bench, thread],
+    objects: [
+        lambda_fns_inc_opt_o, 
+        common_inc_opt_o
+    ],
+)
+
+lambda_fns_exe_no_opt_perf = executable(
+    'lambda_fns_no_opt_perf',
+    [lambda_fns_perf],
+    include_directories: [lambda_fns_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-pg',],
+    dependencies: [bench, thread],
+    objects: [
+        lambda_fns_inc_no_opt_o, 
+        common_inc_no_opt_o
     ],
 )
 
@@ -184,3 +214,36 @@ gen_asm_lib_opt = custom_target(
     ],
     build_by_default: true,
 )
+
+gen_asm_bench = custom_target(
+    'gen_asm_bench_no_opt',
+    input: lambda_fns_benchmark_test,
+    output: 'lambda_fns_benchmarks_no_opt.s',
+    command: [
+        cpp_prog,
+        '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
+gen_asm_bench_opt = custom_target(
+    'gen_asm_bench_opt',
+    input: lambda_fns_benchmark_test,
+    output: 'lambda_fns_benchmarks_opt.s',
+    command: [
+        cpp_prog,
+        '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+

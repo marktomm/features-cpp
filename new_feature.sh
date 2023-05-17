@@ -24,7 +24,6 @@ onlyLibAndBenchFunc() {
   return $onlyLibAndBench
 }
 
-
 onlyMesonFunc || onlyLibAndBenchFunc || mkdir ${ARG1} ${ARG1}/src ${ARG1}/include
 
 (
@@ -37,7 +36,7 @@ rootinc = join_paths(rootdir, 'include/')
 currentinc = join_paths(currentdir, 'include/')
 ${ARG1}_inc = include_directories(currentinc)
 ${ARG1}_main = ['src/main.cpp']
-# ${ARG1}_simple = ['src/user_simple.cpp']
+${ARG1}_perf = ['src/perf.cpp']
 ${ARG1}_src = [
     'src/lib.cpp',
 ]
@@ -104,6 +103,32 @@ ${ARG1}_exe_no_opt_sanitize = executable(
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     objects: [
         ${ARG1}_main_no_opt_o, 
+        ${ARG1}_inc_no_opt_o, 
+        common_inc_no_opt_o
+    ],
+)
+
+${ARG1}_exe_perf = executable(
+    '${ARG1}_opt_perf',
+    [${ARG1}_perf],
+    include_directories: [${ARG1}_inc, common_inc],
+    install: true,
+    cpp_args: ['-O3', '-pg'],
+    dependencies: [bench, thread],
+    objects: [
+        ${ARG1}_inc_opt_o, 
+        common_inc_opt_o
+    ],
+)
+
+${ARG1}_exe_no_opt_perf = executable(
+    '${ARG1}_no_opt_perf',
+    [${ARG1}_perf],
+    include_directories: [${ARG1}_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-pg',],
+    dependencies: [bench, thread],
+    objects: [
         ${ARG1}_inc_no_opt_o, 
         common_inc_no_opt_o
     ],
@@ -220,6 +245,39 @@ gen_asm_lib_opt = custom_target(
     ],
     build_by_default: true,
 )
+
+gen_asm_bench = custom_target(
+    'gen_asm_bench_no_opt',
+    input: ${ARG1}_benchmark_test,
+    output: '${ARG1}_benchmarks_no_opt.s',
+    command: [
+        cpp_prog,
+        '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
+gen_asm_bench_opt = custom_target(
+    'gen_asm_bench_opt',
+    input: ${ARG1}_benchmark_test,
+    output: '${ARG1}_benchmarks_opt.s',
+    command: [
+        cpp_prog,
+        '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
 EOF
 ) > ${ARG1}/meson.build
 
@@ -307,5 +365,87 @@ public:
 #endif
 EOF
 ) > ${ARG1}/include/lib.h
+
+(
+cat << EOF
+#include "lib.h"
+
+#include <benchmark/benchmark.h>
+
+#include <asm/unistd.h>
+#include <linux/perf_event.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
+
+#include <iostream>
+
+#include <cstdint>
+#include <cstring>
+
+using namespace ${ARG1};
+using namespace std;
+
+namespace pperf {
+
+class A {
+public:
+    std::uintptr_t a{};
+};
+
+} // namespace pperf
+
+int main() {
+    pperf::A a;
+
+    // Perf event attributes
+    struct perf_event_attr pe;
+    memset(&pe, 0, sizeof(struct perf_event_attr));
+    pe.type = PERF_TYPE_HARDWARE;
+    // pe.config = PERF_COUNT_HW_CACHE_MISSES;
+    pe.config = PERF_COUNT_HW_CACHE_REFERENCES;
+    pe.size = sizeof(struct perf_event_attr);
+    pe.disabled = 1;
+    pe.exclude_kernel = 1;
+    pe.exclude_hv = 1;
+    // Configure L1 data cache loads
+    pe.config1 = PERF_COUNT_HW_CACHE_L1D | (PERF_COUNT_HW_CACHE_OP_READ << 8) |
+                 (PERF_COUNT_HW_CACHE_RESULT_ACCESS << 16);
+    // clang-format off
+    // Configure L1 data cache load misses
+    // pe.config1 = PERF_COUNT_HW_CACHE_L1D | (PERF_COUNT_HW_CACHE_OP_READ << 8) |
+    //             (PERF_COUNT_HW_CACHE_RESULT_MISS << 16);
+    // clang-format on
+
+    // Open perf event
+    long int lfd = syscall(__NR_perf_event_open, &pe, 0, -1, -1, 0);
+    if (lfd == -1) {
+        cout << "perf_event_open" << endl;
+        return 1;
+    }
+    int fd = static_cast<int>(lfd);
+
+    // Enable perf event
+    ioctl(fd, PERF_EVENT_IOC_RESET, 0);
+    ioctl(fd, PERF_EVENT_IOC_ENABLE, 0);
+
+    // Code section to profile
+    // Access the A local variable
+    benchmark::DoNotOptimize(a);
+
+    // Disable perf event and read the result
+    ioctl(fd, PERF_EVENT_IOC_DISABLE, 0);
+    uint64_t cache_loads;
+    read(fd, &cache_loads, sizeof(uint64_t));
+
+    // Print the cache X count
+    cout << "L1 Cache Loads: " << cache_loads << endl;
+
+    // Close perf event
+    close(fd);
+
+    return 0;
+}
+EOF
+) > ${ARG1}/src/perf.cpp
 
 ! onlyLibAndBenchFunc && echo "subdir('${ARG1}')" >> meson.build || true

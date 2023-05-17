@@ -5,7 +5,7 @@ rootinc = join_paths(rootdir, 'include/')
 currentinc = join_paths(currentdir, 'include/')
 try_catch_exception_inc = include_directories(currentinc)
 try_catch_exception_main = ['src/main.cpp']
-# try_catch_exception_simple = ['src/user_simple.cpp']
+try_catch_exception_perf = ['src/perf.cpp']
 try_catch_exception_src = [
     'src/lib.cpp',
 ]
@@ -57,9 +57,9 @@ try_catch_exception_exe_sanitize = executable(
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     objects: [
-        try_catch_exception_main_opt_o,
-        try_catch_exception_inc_opt_o,
-        common_inc_opt_o,
+        try_catch_exception_main_opt_o, 
+        try_catch_exception_inc_opt_o, 
+        common_inc_opt_o
     ],
 )
 
@@ -71,9 +71,35 @@ try_catch_exception_exe_no_opt_sanitize = executable(
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     objects: [
-        try_catch_exception_main_no_opt_o,
-        try_catch_exception_inc_no_opt_o,
-        common_inc_no_opt_o,
+        try_catch_exception_main_no_opt_o, 
+        try_catch_exception_inc_no_opt_o, 
+        common_inc_no_opt_o
+    ],
+)
+
+try_catch_exception_exe_perf = executable(
+    'try_catch_exception_opt_perf',
+    [try_catch_exception_perf],
+    include_directories: [try_catch_exception_inc, common_inc],
+    install: true,
+    cpp_args: ['-O3', '-pg'],
+    dependencies: [bench, thread],
+    objects: [
+        try_catch_exception_inc_opt_o, 
+        common_inc_opt_o
+    ],
+)
+
+try_catch_exception_exe_no_opt_perf = executable(
+    'try_catch_exception_no_opt_perf',
+    [try_catch_exception_perf],
+    include_directories: [try_catch_exception_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-pg',],
+    dependencies: [bench, thread],
+    objects: [
+        try_catch_exception_inc_no_opt_o, 
+        common_inc_no_opt_o
     ],
 )
 
@@ -188,3 +214,36 @@ gen_asm_lib_opt = custom_target(
     ],
     build_by_default: true,
 )
+
+gen_asm_bench = custom_target(
+    'gen_asm_bench_no_opt',
+    input: try_catch_exception_benchmark_test,
+    output: 'try_catch_exception_benchmarks_no_opt.s',
+    command: [
+        cpp_prog,
+        '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
+gen_asm_bench_opt = custom_target(
+    'gen_asm_bench_opt',
+    input: try_catch_exception_benchmark_test,
+    output: 'try_catch_exception_benchmarks_opt.s',
+    command: [
+        cpp_prog,
+        '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+

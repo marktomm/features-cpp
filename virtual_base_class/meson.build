@@ -5,7 +5,7 @@ rootinc = join_paths(rootdir, 'include/')
 currentinc = join_paths(currentdir, 'include/')
 virtual_base_class_inc = include_directories(currentinc)
 virtual_base_class_main = ['src/main.cpp']
-# virtual_base_class_simple = ['src/user_simple.cpp']
+virtual_base_class_perf = ['src/perf.cpp']
 virtual_base_class_src = [
     'src/lib.cpp',
 ]
@@ -57,9 +57,9 @@ virtual_base_class_exe_sanitize = executable(
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     objects: [
-        virtual_base_class_main_opt_o,
-        virtual_base_class_inc_opt_o,
-        common_inc_opt_o,
+        virtual_base_class_main_opt_o, 
+        virtual_base_class_inc_opt_o, 
+        common_inc_opt_o
     ],
 )
 
@@ -71,9 +71,35 @@ virtual_base_class_exe_no_opt_sanitize = executable(
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     objects: [
-        virtual_base_class_main_no_opt_o,
-        virtual_base_class_inc_no_opt_o,
-        common_inc_no_opt_o,
+        virtual_base_class_main_no_opt_o, 
+        virtual_base_class_inc_no_opt_o, 
+        common_inc_no_opt_o
+    ],
+)
+
+virtual_base_class_exe_perf = executable(
+    'virtual_base_class_opt_perf',
+    [virtual_base_class_perf],
+    include_directories: [virtual_base_class_inc, common_inc],
+    install: true,
+    cpp_args: ['-O3', '-pg'],
+    dependencies: [bench, thread],
+    objects: [
+        virtual_base_class_inc_opt_o, 
+        common_inc_opt_o
+    ],
+)
+
+virtual_base_class_exe_no_opt_perf = executable(
+    'virtual_base_class_no_opt_perf',
+    [virtual_base_class_perf],
+    include_directories: [virtual_base_class_inc, common_inc],
+    install: true,
+    cpp_args: ['-O0', '-pg',],
+    dependencies: [bench, thread],
+    objects: [
+        virtual_base_class_inc_no_opt_o, 
+        common_inc_no_opt_o
     ],
 )
 
@@ -188,3 +214,36 @@ gen_asm_lib_opt = custom_target(
     ],
     build_by_default: true,
 )
+
+gen_asm_bench = custom_target(
+    'gen_asm_bench_no_opt',
+    input: virtual_base_class_benchmark_test,
+    output: 'virtual_base_class_benchmarks_no_opt.s',
+    command: [
+        cpp_prog,
+        '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
+gen_asm_bench_opt = custom_target(
+    'gen_asm_bench_opt',
+    input: virtual_base_class_benchmark_test,
+    output: 'virtual_base_class_benchmarks_opt.s',
+    command: [
+        cpp_prog,
+        '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
+        '-S',
+        '-masm=intel',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
+    build_by_default: true,
+)
+
