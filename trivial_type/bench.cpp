@@ -19,6 +19,10 @@ static void BM_C4_Stack_Cr_Dr(benchmark::State& state);
 static void BM_C5_Stack_Cr_Dr_Fn(benchmark::State& state);
 static void BM_C6_Stack_Cr_Dr_Fn_Ret(benchmark::State& state);
 static void BM_GG_New_4b(benchmark::State& state);
+static void BM_S0_Ptr_Fn(benchmark::State& state);
+static void BM_S1_Up_Fn(benchmark::State& state);
+static void BM_S3_Ptr_Deref(benchmark::State& state);
+static void BM_S4_Up_Deref(benchmark::State& state);
 static void BM_XX_Ptr_Cr_Dr_Fn_Noop(benchmark::State& state);
 static void BM_XX_Ptr_Cr_Dr_Fn_Ret(benchmark::State& state);
 static void BM_XX_Up_Cr_Dr_Fn_Noop(benchmark::State& state);
@@ -115,6 +119,48 @@ static void BM_A3_Up_Cr_Dr_Fn_Ret(benchmark::State& state) {
     }
 }
 
+static void BM_S0_Ptr_Fn(benchmark::State& state) {
+    int* ptr = new int{};
+    for (auto _ : state) {
+        FnEscape(ptr);
+    }
+    benchmark::DoNotOptimize(ptr);
+    delete ptr;
+}
+
+static void BM_S1_Up_Fn(benchmark::State& state) {
+    auto ptr = unique_ptr<int>{new int{}};
+    for (auto _ : state) {
+        asm volatile("4:");
+        FnEscape(ptr.get());
+        asm volatile("5:");
+    }
+    benchmark::DoNotOptimize(ptr.get());
+}
+
+static void BM_S3_Ptr_Deref(benchmark::State& state) {
+    int* ptr = new int{};
+    for (auto _ : state) {
+        asm volatile("6:");
+        auto x = *ptr;
+        benchmark::DoNotOptimize(&x);
+        asm volatile("7:");
+    }
+    benchmark::DoNotOptimize(ptr);
+    delete ptr;
+}
+
+static void BM_S4_Up_Deref(benchmark::State& state) {
+    auto ptr = unique_ptr<int>{new int{}};
+    for (auto _ : state) {
+        asm volatile("4:");
+        auto& x = *ptr;
+        benchmark::DoNotOptimize(x);
+        asm volatile("5:");
+    }
+    benchmark::DoNotOptimize(ptr.get());
+}
+
 static void BM_XX_Up_Cr_Dr_Fn_Ret(benchmark::State& state) {
     for (auto _ : state) {
         auto ptr = unique_ptr<int>{new int{}};
@@ -163,6 +209,10 @@ BENCHMARK(BM_C4_Stack_Cr_Dr);
 BENCHMARK(BM_C5_Stack_Cr_Dr_Fn);
 BENCHMARK(BM_C6_Stack_Cr_Dr_Fn_Ret);
 BENCHMARK(BM_GG_New_4b);
+BENCHMARK(BM_S0_Ptr_Fn);
+BENCHMARK(BM_S1_Up_Fn);
+BENCHMARK(BM_S3_Ptr_Deref);
+BENCHMARK(BM_S4_Up_Deref);
 BENCHMARK(BM_XX_Ptr_Cr_Dr_Fn_Noop);
 BENCHMARK(BM_XX_Ptr_Cr_Dr_Fn_Ret);
 BENCHMARK(BM_XX_Up_Cr_Dr_Fn_Noop);

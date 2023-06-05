@@ -8,8 +8,9 @@ namespace poly {
 // depth: 4
 class nonVA {
 public:
-    void Fn() {}
-    int a;
+    void Fn(uint32_t i) { a += i; }
+    void FnNone() {}
+    int a{66};
 };
 
 class nonVB: public nonVA {
@@ -64,40 +65,43 @@ class A {
 public:
     virtual ~A() {}
     virtual void PureVFn() = 0;
+    virtual void PureVFn(int i) = 0;
     virtual void VFn(){};
     int a;
 };
 
-class B: public A {
-public:
-    int b;
-};
+// class B: public A {
+// public:
+//     int b;
+// };
 
-class C: public B {
-public:
-    int c;
-};
+// class C: public B {
+// public:
+//     int c;
+// };
 
-class D final: public C {
+class D final: public A {
 public:
     void PureVFn() override {}
+    void PureVFn(int i) override { d += i; }
     void VFn() override{};
-    int d;
+    int d{544};
 };
 
-class E: public C {
+class E: public A {
 public:
     void PureVFn() override {}
+    void PureVFn(int i) override { e += i; }
     void VFn() override{};
-    int e;
+    int e{644};
 };
 
-class F: public C {
-public:
-    void PureVFn() override {}
-    void VFn() override{};
-    int f;
-};
+// class F: public C {
+// public:
+//     void PureVFn() override {}
+//     void VFn() override{};
+//     int f;
+// };
 
 }; // namespace poly
 
