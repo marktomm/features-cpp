@@ -76,3 +76,9 @@ cd benchmark/tools
 pip3 install -r requirements.txt
 ./compare.py benchmarks  ../../builddir/poly/poly_benchmark_google_no_opt ../../builddir/poly/poly_benchmark_google_no_opt
 ```
+
+# set cpu freq
+
+```shell
+frq=4.00GHz && sudo cpupower frequency-set -f ${frq} && sudo cpupower frequency-set --min ${frq} --max ${frq}
+```
