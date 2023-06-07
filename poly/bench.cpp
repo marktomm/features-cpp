@@ -145,7 +145,9 @@ static void BM_05_Virt_Rand_Ptr_Fn(benchmark::State& state) {
     std::size_t it = 0;
     for (auto _ : state) {
         auto x = ++it == 100 ? it = 0 : it;
+        asm volatile("1:");
         container[static_cast<std::size_t>(x)]->PureVFn();
+        asm volatile("10:");
     }
     benchmark::DoNotOptimize(container.data());
 
@@ -176,7 +178,9 @@ static void BM_06_Virt_Rand_Up_Fn(benchmark::State& state) {
     std::size_t it = 0;
     for (auto _ : state) {
         auto x = ++it == 100 ? it = 0 : it;
+        asm volatile("100:");
         container[static_cast<std::size_t>(x)]->PureVFn();
+        asm volatile("101:");
     }
     benchmark::DoNotOptimize(container.data());
 }
