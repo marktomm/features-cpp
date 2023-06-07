@@ -18,6 +18,10 @@ using namespace try_catch_exception;
 // grep -E '^[[:blank:]]*(inline[[:blank:]]+)?(virtual[[:blank:]]+)?(explicit[[:blank:]]+)?(static[[:blank:]]+)?(const[[:blank:]]+)?(constexpr[[:blank:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:blank:]]+[a-zA-Z_][a-zA-Z0-9_]*\s*\([^{}]*\)\s*(const)?[[:blank:]]*\{' try_catch_exception/bench.cpp | sed -E 's/(.*\)) *\{.*/\1;/' | sort -k 2,1
 // clang-format on
 // GEN_PROTO_BEGIN
+void BM_00_StdFn_Cr_Dr(benchmark::State& state);
+void BM_01_StdFn_Call(benchmark::State& state);
+void BM_02_StdFn_Call_Arg(benchmark::State& state);
+void BM_03_StdFn_Call_Rand_Arg(benchmark::State& state);
 void BM_51_Ex_VecRand_Cb_Arg_Message(benchmark::State& state);
 void BM_53_Ex_Rand_33p_Cb_Arg_Message(benchmark::State& state);
 void BM_55_Ex_Rand_33p_Basic(benchmark::State& state);
@@ -26,15 +30,13 @@ void BM_64_Ex_StdFn_Call(benchmark::State& state);
 void BM_72_VecRand_Cb_Arg_Return(benchmark::State& state);
 void BM_73_Ex_Rand_50p_Cb_Arg_Message(benchmark::State& state);
 void BM_75_Rand_50p_Cb_Arg_Return(benchmark::State& state);
-void BM_E0_StdFn_Cr_Dr(benchmark::State& state);
-void BM_E1_StdFn_Call(benchmark::State& state);
 void BM_E8_Ex_Rand_50p_Cb_Arg_Basic(benchmark::State& state);
+void BM_G3_Rand_33p_Cb_Arg_StdFn_ErrCode(benchmark::State& state);
 void BM_I0_RuntimeEx_Cr_Dr(benchmark::State& state);
 void BM_J1_Ex_VecRand_Cb_Arg_Basic(benchmark::State& state);
 void BM_R0_Rand_33p(benchmark::State& state);
 void BM_R1_Rand_33p_Return(benchmark::State& state);
 void BM_R2_Rand_33p_ErrCode(benchmark::State& state);
-void BM_R3_Rand_33p_Cb_Arg_StdFn_ErrCode(benchmark::State& state);
 void BM_R4_Rand_33p_Cb_Arg_ErrCode(benchmark::State& state);
 void BM_R5_Rand_33p_Cb_Arg_Return(benchmark::State& state);
 void BM_R8_Rand_50p(benchmark::State& state);
@@ -126,9 +128,32 @@ void BM_V9_VecRand_Global_Idx(benchmark::State& state) {
     loop_VecRand_Global_Idx(state);
 }
 
-void BM_E0_StdFn_Cr_Dr(benchmark::State& state) { loop_StdFn_Cr_Dr(state); }
+void BM_00_StdFn_Cr_Dr(benchmark::State& state) { loop_StdFn_Cr_Dr(state); }
 
-void BM_E1_StdFn_Call(benchmark::State& state) { loop_StdFn_Call(state); }
+void BM_01_StdFn_Call(benchmark::State& state) { loop_StdFn_Call(state); }
+
+void BM_02_StdFn_Call_Arg(benchmark::State& state) {
+    std::function<int(uint32_t)> fn = [](uint32_t a) -> uint32_t {
+        return a++;
+    };
+    uint32_t it = 0;
+    for (auto _ : state) {
+        uint32_t x = ++it == 100 ? it = 0 : it;
+        benchmark::DoNotOptimize(fn);
+        benchmark::DoNotOptimize(fn(x));
+    }
+}
+
+void BM_03_StdFn_Call_Rand_Arg(benchmark::State& state) {
+    std::function<int(uint32_t)> fn = [](uint32_t a) -> uint32_t {
+        return a++;
+    };
+    for (auto _ : state) {
+        benchmark::DoNotOptimize(fn);
+        benchmark::DoNotOptimize(fn(26));
+    }
+}
+
 void BM_64_Ex_StdFn_Call(benchmark::State& state) {
     loop_StdFn_Call_throw(state);
 }
@@ -216,7 +241,7 @@ void BM_XX_test21_exitWithErrCode(benchmark::State& state) {
 }
 
 // 4.
-void BM_R3_Rand_33p_Cb_Arg_StdFn_ErrCode(benchmark::State& state) {
+void BM_G3_Rand_33p_Cb_Arg_StdFn_ErrCode(benchmark::State& state) {
     std::function<int(bool)> fn = ErrCode_Arg;
     for (auto _ : state) {
         fnx2(fn);
@@ -285,6 +310,10 @@ void BM_XX_vbools_pause_resume_sfn_ErrCode(benchmark::State& state) {
 // grep -E '^[[:blank:]]*(inline[[:blank:]]+)?(virtual[[:blank:]]+)?(explicit[[:blank:]]+)?(static[[:blank:]]+)?(const[[:blank:]]+)?(constexpr[[:blank:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:blank:]]+[a-zA-Z_][a-zA-Z0-9_]*\s*\([^{}]*\)\s*(const)?[[:blank:]]*\{' try_catch_exception/bench.cpp | sed -E 's/(.*\)) *\{.*/\1;/' | grep -F 'BM_' | sed -E 's/.*(BM_[^(]*).*/BENCHMARK(\1);/' | sort -k1.14
 // clang-format on
 // GEN_BENCHMARK_BEGIN
+BENCHMARK(BM_00_StdFn_Cr_Dr);
+BENCHMARK(BM_01_StdFn_Call);
+BENCHMARK(BM_02_StdFn_Call_Arg);
+BENCHMARK(BM_03_StdFn_Call_Rand_Arg);
 BENCHMARK(BM_51_Ex_VecRand_Cb_Arg_Message);
 BENCHMARK(BM_53_Ex_Rand_33p_Cb_Arg_Message);
 BENCHMARK(BM_55_Ex_Rand_33p_Basic);
@@ -293,15 +322,13 @@ BENCHMARK(BM_64_Ex_StdFn_Call);
 BENCHMARK(BM_72_VecRand_Cb_Arg_Return);
 BENCHMARK(BM_73_Ex_Rand_50p_Cb_Arg_Message);
 BENCHMARK(BM_75_Rand_50p_Cb_Arg_Return);
-BENCHMARK(BM_E0_StdFn_Cr_Dr);
-BENCHMARK(BM_E1_StdFn_Call);
 BENCHMARK(BM_E8_Ex_Rand_50p_Cb_Arg_Basic);
+BENCHMARK(BM_G3_Rand_33p_Cb_Arg_StdFn_ErrCode);
 BENCHMARK(BM_I0_RuntimeEx_Cr_Dr);
 BENCHMARK(BM_J1_Ex_VecRand_Cb_Arg_Basic);
 BENCHMARK(BM_R0_Rand_33p);
 BENCHMARK(BM_R1_Rand_33p_Return);
 BENCHMARK(BM_R2_Rand_33p_ErrCode);
-BENCHMARK(BM_R3_Rand_33p_Cb_Arg_StdFn_ErrCode);
 BENCHMARK(BM_R4_Rand_33p_Cb_Arg_ErrCode);
 BENCHMARK(BM_R5_Rand_33p_Cb_Arg_Return);
 BENCHMARK(BM_R8_Rand_50p);

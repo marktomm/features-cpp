@@ -13,12 +13,12 @@ using namespace common;
 
 // GEN_PROTO_BEGIN
 static void BM_00_Trivial_Fn(benchmark::State& state);
-static void BM_00_Trivial_Fn_Inc(benchmark::State& state);
-static void BM_03_Virt_Base_Fn_Add(benchmark::State& state);
 static void BM_03_Virt_Base_Fn(benchmark::State& state);
-static void BM_04_Virt_Drv_Fn(benchmark::State& state);
 static void BM_05_Virt_Rand_Ptr_Fn(benchmark::State& state);
 static void BM_06_Virt_Rand_Up_Fn(benchmark::State& state);
+static void BM_10_Trivial_Fn_Inc(benchmark::State& state);
+static void BM_13_Virt_Base_Fn_Add(benchmark::State& state);
+static void BM_14_Virt_Drv_Fn(benchmark::State& state);
 static void BM_A0_Trivial_Base_Cr_Dr(benchmark::State& state);
 static void BM_A1_Trivial_Drv_Cr_Dr(benchmark::State& state);
 static void BM_A3_Virt_Drv_Cr_Dr(benchmark::State& state);
@@ -39,7 +39,7 @@ static void BM_00_Trivial_Fn(benchmark::State& state) {
     }
 }
 
-static void BM_00_Trivial_Fn_Inc(benchmark::State& state) {
+static void BM_10_Trivial_Fn_Inc(benchmark::State& state) {
     nonVA a;
     for (auto _ : state) {
         asm volatile("3:");
@@ -103,7 +103,7 @@ static void BM_03_Virt_Base_Fn(benchmark::State& state) {
     }
 }
 
-static void BM_03_Virt_Base_Fn_Add(benchmark::State& state) {
+static void BM_13_Virt_Base_Fn_Add(benchmark::State& state) {
     D d;
     A* ptr = &d;
     for (auto _ : state) {
@@ -113,7 +113,7 @@ static void BM_03_Virt_Base_Fn_Add(benchmark::State& state) {
     }
 }
 
-static void BM_04_Virt_Drv_Fn(benchmark::State& state) {
+static void BM_14_Virt_Drv_Fn(benchmark::State& state) {
     D d;
     D* ptr = &d;
     for (auto _ : state) {
@@ -261,12 +261,12 @@ static void BM_F4_Virt_Int_Fn(benchmark::State& state) {
 
 // GEN_BENCHMARK_BEGIN
 BENCHMARK(BM_00_Trivial_Fn);
-BENCHMARK(BM_00_Trivial_Fn_Inc);
 BENCHMARK(BM_03_Virt_Base_Fn);
-BENCHMARK(BM_03_Virt_Base_Fn_Add);
-BENCHMARK(BM_04_Virt_Drv_Fn);
 BENCHMARK(BM_05_Virt_Rand_Ptr_Fn);
 BENCHMARK(BM_06_Virt_Rand_Up_Fn);
+BENCHMARK(BM_10_Trivial_Fn_Inc);
+BENCHMARK(BM_13_Virt_Base_Fn_Add);
+BENCHMARK(BM_14_Virt_Drv_Fn);
 BENCHMARK(BM_A0_Trivial_Base_Cr_Dr);
 BENCHMARK(BM_A1_Trivial_Drv_Cr_Dr);
 BENCHMARK(BM_A3_Virt_Drv_Cr_Dr);
